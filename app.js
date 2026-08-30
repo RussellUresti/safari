@@ -13,6 +13,8 @@
   const DATA = window.TRIP_DATA;
   const icon = window.icon;
   let currentRegionId = DATA.regions[0].id;
+  let lastFocusedElement = null; // set right before opening a modal so we can restore it on close
+  let previousRoute = null; // used to tell "closing a modal" apart from "navigating to a new subregion"
 
   // ---- small utils --------------------------------------------------
   function esc(str) {
@@ -34,6 +36,29 @@
   function countriesForRegion(regionId) {
     const region = DATA.regions.find((r) => r.id === regionId);
     return region ? region.countryIds.map((id) => DATA.countries[id]) : [];
+  }
+
+  // display order for lodge/tour cards within a grid
+  const STATUS_ORDER = ["preferred", "backup", "extension", "neutral", "unresearched", "rejected"];
+  function sortByStatus(items) {
+    return items.slice().sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status));
+  }
+
+  // preferred/backup/extension all share the "medal" glyph (recolored via
+  // CSS); the rest have their own dedicated icon
+  function statusIconKey(status) {
+    if (status === "preferred" || status === "backup" || status === "extension") return "medal";
+    return "status_" + status;
+  }
+
+  // pulls the first dollar figure out of a price string for filter
+  // comparisons, e.g. "$1,096–$1,146" -> 1096, "From $9,950–$17,450" -> 9950.
+  // Returns null when nothing parseable is found (item won't be excluded
+  // by a price filter rather than guessed at).
+  function parsePriceLow(str) {
+    if (!str) return null;
+    const match = String(str).replace(/,/g, "").match(/[\d]+(\.\d+)?/);
+    return match ? parseFloat(match[0]) : null;
   }
 
   // ---- tab bar --------------------------------------------------------
@@ -67,7 +92,7 @@
     const fill = tier ? tier.fill : 0;
     let meter = "";
     for (let i = 1; i <= 4; i++) {
-      meter += icon("paw", i <= fill ? "is-filled" : "");
+      meter += `<span class="meter-bar meter-bar--${i}${i <= fill ? " is-filled" : ""}"></span>`;
     }
     return `
       <div class="animal-chip" data-tier="${entry.likelihood}" title="${esc(sp.name)} — ${esc(tier ? tier.label : "")}">
@@ -82,17 +107,19 @@
 
   // ---- card -------------------------------------------------------------
   function buildCard(item, subregionId) {
-    const statusInfo = DATA.legend.status[item.status] || DATA.legend.status.neutral;
     const cardIcon = item.speciesFocus && item.speciesFocus[0] ? DATA.species[item.speciesFocus[0]].icon : item.type === "lodge" ? "lodge" : "tour";
 
     let priceHtml = "";
+    let priceLow = null;
     if (item.type === "lodge" && item.price) {
+      priceLow = parsePriceLow(item.price.perNightPP);
       priceHtml = `
         <div class="card__price">
           <span class="price-main">${esc(item.price.perNightPP)} / night pp</span>
           <span>Single supp: ${esc(item.price.singleSupplement)}</span>
         </div>`;
     } else if (item.type === "tour" && item.price) {
+      priceLow = parsePriceLow(item.price.total);
       priceHtml = `
         <div class="card__price">
           <span class="price-main">${esc(item.price.total)}</span>
@@ -100,10 +127,18 @@
         </div>`;
     }
 
+    // "neutral" gets no corner badge — its absence of a marker is the signal
+    const badgeHtml =
+      item.status === "neutral"
+        ? ""
+        : `<span class="card__corner-badge" data-status="${item.status}">${icon(statusIconKey(item.status))}</span>`;
+
     const card = el("button", {
       class: "card",
       type: "button",
       "data-status": item.status,
+      "data-card-type": item.type,
+      "data-price-low": priceLow === null ? "" : priceLow,
       "data-item-id": item.id,
       "aria-haspopup": "dialog"
     });
@@ -111,14 +146,15 @@
       <span class="card__inner">
         <span class="card__top">
           <span class="card__icon">${icon(cardIcon)}</span>
-          <span class="card__badge">${icon("status_" + item.status)} ${esc(statusInfo.label)}</span>
         </span>
         <span class="card__name">${esc(item.name)}</span>
         <span class="card__summary">${esc(item.summary)}</span>
         ${priceHtml}
       </span>
+      ${badgeHtml}
     `;
     card.addEventListener("click", () => {
+      lastFocusedElement = card;
       location.hash = `#/${currentRegionId}/${DATA.subregions[subregionId].countryId}/${subregionId}/${item.type}/${item.id}`;
     });
     return card;
@@ -127,7 +163,11 @@
   // ---- sub-region section ------------------------------------------------
   function buildSubregionSection(subregion) {
     const animalsHtml = subregion.animals.map(buildAnimalChip).join("");
-    const section = el("section", { class: "subregion", id: "sub-" + subregion.id });
+    const section = el("section", {
+      class: "subregion",
+      id: "sub-" + subregion.id,
+      "data-animals": JSON.stringify(subregion.animals)
+    });
     section.innerHTML = `
       <h3 class="subregion__name">${esc(subregion.name)}</h3>
       <p class="subregion__blurb">${esc(subregion.blurb)}</p>
@@ -141,8 +181,9 @@
       }
       section.insertAdjacentHTML("beforeend", `<div class="section-label">${icon(typeIcon)} ${label}</div>`);
       const grid = el("div", { class: "card-grid" });
-      items.forEach((it) => grid.appendChild(buildCard(it, subregion.id)));
+      sortByStatus(items).forEach((it) => grid.appendChild(buildCard(it, subregion.id)));
       section.appendChild(grid);
+      section.appendChild(el("p", { class: "filter-empty-msg" }, "No items match your current filters."));
     }
 
     appendGrid(subregion.lodges, "lodge", "Lodges");
@@ -153,7 +194,11 @@
 
   // ---- country block -------------------------------------------------------
   function buildCountryBlock(country) {
-    const wrap = el("div", { class: "country-block", id: "country-" + country.id });
+    const wrap = el("div", {
+      class: "country-block",
+      id: "country-" + country.id,
+      "data-visa-required": country.visaRequired ? "true" : "false"
+    });
     const links = [];
     if (country.visaInfo) links.push(`<button class="info-link" data-country="${country.id}" data-info="visa">${icon("info")} Visa info</button>`);
     if (country.medicalInfo) links.push(`<button class="info-link" data-country="${country.id}" data-info="medical">${icon("info")} Medical info</button>`);
@@ -166,6 +211,7 @@
     `;
     header.querySelectorAll(".info-link").forEach((btn) => {
       btn.addEventListener("click", () => {
+        lastFocusedElement = btn;
         location.hash = `#/${currentRegionId}/${country.id}/info/${btn.dataset.info}`;
       });
     });
@@ -233,6 +279,7 @@
       return;
     }
     countries.forEach((country) => content.appendChild(buildCountryBlock(country)));
+    applyFilters();
   }
 
   // ---- modals ------------------------------------------------------------
@@ -244,7 +291,9 @@
   // entry within the site, so back() could leave the page entirely.
   function backRoute() {
     const r = parseHash();
-    if (r.third && r.fourth && r.fifth) {
+    if (r.third === "info") {
+      location.hash = `#/${r.regionId}/${r.countryId}`;
+    } else if (r.third && r.fourth && r.fifth) {
       location.hash = `#/${r.regionId}/${r.countryId}/${r.third}`;
     } else {
       location.hash = `#/${r.regionId}`;
@@ -265,6 +314,16 @@
     backdrop.hidden = true;
     modalRoot.innerHTML = "";
     document.body.style.overflow = "";
+  }
+
+  // returns focus to whatever card/link opened the modal, without letting
+  // the browser scroll to it — the user is already positioned where they
+  // want to be, this just restores keyboard/AT focus correctly.
+  function restoreFocus() {
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+      lastFocusedElement.focus({ preventScroll: true });
+    }
+    lastFocusedElement = null;
   }
 
   function openItemModal(subregionId, type, itemId) {
@@ -297,14 +356,14 @@
     }
 
     const linksHtml = (item.links || [])
-      .map((l) => `<a class="modal__link-btn" href="${esc(l.url)}" target="_blank" rel="noopener">${icon("external")} ${esc(l.label)}</a>`)
+      .map((l) => `<a class="modal__link-btn" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ${icon("external")}</a>`)
       .join("");
 
     openModal(`
       <button class="modal__close" aria-label="Close">${icon("close")}</button>
       <div class="modal__badge-row">
         <span class="modal__icon">${icon(cardIcon)}</span>
-        <span class="card__badge">${icon("status_" + item.status)} ${esc(statusInfo.label)}</span>
+        <span class="card__badge" data-status="${item.status}">${icon(statusIconKey(item.status))} ${esc(statusInfo.label)}</span>
       </div>
       <h3 class="modal__title">${esc(item.name)}</h3>
       <p class="modal__summary">${esc(item.summary)}</p>
@@ -354,6 +413,251 @@
   document.getElementById("menu-toggle").addEventListener("click", openSidebarDrawer);
   scrimEl.addEventListener("click", closeSidebarDrawer);
 
+  // ---- filters ------------------------------------------------------------
+  const filterState = {
+    status: new Set(Object.keys(DATA.legend.status)),
+    lodgeMin: null,
+    lodgeMax: null,
+    tourMin: null,
+    tourMax: null,
+    speciesId: null,
+    minLikelihood: null, // null = "any presence" (fill >= 1)
+    visaFree: null // null = any, true = visa-free only, false = visa-required only
+  };
+
+  function buildFilterDock() {
+    const dock = document.getElementById("filter-dock");
+    dock.innerHTML = `
+      <button class="filter-toggle" id="filter-toggle" aria-expanded="false" aria-controls="filter-panel">
+        ${icon("filter")} <span>Filters</span> ${icon("chevron", "filter-toggle__chevron")}
+      </button>
+      <div class="filter-chips" id="filter-chips"></div>
+    `;
+    document.getElementById("filter-toggle").addEventListener("click", () => {
+      const panel = document.getElementById("filter-panel");
+      const btn = document.getElementById("filter-toggle");
+      const isOpen = !panel.classList.contains("is-open");
+      panel.classList.toggle("is-open", isOpen);
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  }
+
+  function buildFilterPanel() {
+    const panel = document.getElementById("filter-panel");
+    const statusOptions = Object.keys(DATA.legend.status)
+      .map((key) => `<label class="filter-check"><input type="checkbox" value="${key}" checked data-filter="status">${esc(DATA.legend.status[key].label)}</label>`)
+      .join("");
+    const speciesOptions = Object.values(DATA.species)
+      .map((sp) => `<option value="${sp.id}">${esc(sp.name)}</option>`)
+      .join("");
+    const likelihoodOptions = Object.keys(DATA.legend.likelihood)
+      .filter((k) => k !== "not_present")
+      .map((k) => `<option value="${k}">${esc(DATA.legend.likelihood[k].label)} or better</option>`)
+      .join("");
+
+    panel.innerHTML = `
+      <div class="filter-panel__inner">
+        <div class="filter-group">
+          <div class="filter-group__title">Status</div>
+          <div class="filter-check-row">${statusOptions}</div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-group__title">Lodge price (USD / night, per person)</div>
+          <div class="filter-range-row">
+            <input type="number" id="filter-lodge-min" placeholder="Min" min="0">
+            <span>\u2013</span>
+            <input type="number" id="filter-lodge-max" placeholder="Max" min="0">
+          </div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-group__title">Tour price (USD, total)</div>
+          <div class="filter-range-row">
+            <input type="number" id="filter-tour-min" placeholder="Min" min="0">
+            <span>\u2013</span>
+            <input type="number" id="filter-tour-max" placeholder="Max" min="0">
+          </div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-group__title">Animal presence</div>
+          <div class="filter-range-row">
+            <select id="filter-species"><option value="">Any species</option>${speciesOptions}</select>
+            <select id="filter-likelihood"><option value="">Any presence</option>${likelihoodOptions}</select>
+          </div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-group__title">Entry requirements</div>
+          <div class="filter-check-row">
+            <label class="filter-check"><input type="radio" name="visa" value="any" checked>Any</label>
+            <label class="filter-check"><input type="radio" name="visa" value="free">Visa-free only</label>
+            <label class="filter-check"><input type="radio" name="visa" value="required">Visa required only</label>
+          </div>
+        </div>
+        <button class="filter-clear" id="filter-clear">Clear all filters</button>
+      </div>
+    `;
+
+    panel.querySelectorAll('input[data-filter="status"]').forEach((cb) => {
+      cb.addEventListener("change", () => {
+        filterState.status = new Set([...panel.querySelectorAll('input[data-filter="status"]:checked')].map((c) => c.value));
+        applyFilters();
+      });
+    });
+    document.getElementById("filter-lodge-min").addEventListener("input", (e) => {
+      filterState.lodgeMin = e.target.value === "" ? null : Number(e.target.value);
+      applyFilters();
+    });
+    document.getElementById("filter-lodge-max").addEventListener("input", (e) => {
+      filterState.lodgeMax = e.target.value === "" ? null : Number(e.target.value);
+      applyFilters();
+    });
+    document.getElementById("filter-tour-min").addEventListener("input", (e) => {
+      filterState.tourMin = e.target.value === "" ? null : Number(e.target.value);
+      applyFilters();
+    });
+    document.getElementById("filter-tour-max").addEventListener("input", (e) => {
+      filterState.tourMax = e.target.value === "" ? null : Number(e.target.value);
+      applyFilters();
+    });
+    document.getElementById("filter-species").addEventListener("change", (e) => {
+      filterState.speciesId = e.target.value || null;
+      applyFilters();
+    });
+    document.getElementById("filter-likelihood").addEventListener("change", (e) => {
+      filterState.minLikelihood = e.target.value || null;
+      applyFilters();
+    });
+    panel.querySelectorAll('input[name="visa"]').forEach((r) => {
+      r.addEventListener("change", (e) => {
+        filterState.visaFree = e.target.value === "any" ? null : e.target.value === "free";
+        applyFilters();
+      });
+    });
+    document.getElementById("filter-clear").addEventListener("click", clearAllFilters);
+  }
+
+  function syncFilterPanelInputs() {
+    document.querySelectorAll('input[data-filter="status"]').forEach((cb) => {
+      cb.checked = filterState.status.has(cb.value);
+    });
+    document.getElementById("filter-lodge-min").value = filterState.lodgeMin ?? "";
+    document.getElementById("filter-lodge-max").value = filterState.lodgeMax ?? "";
+    document.getElementById("filter-tour-min").value = filterState.tourMin ?? "";
+    document.getElementById("filter-tour-max").value = filterState.tourMax ?? "";
+    document.getElementById("filter-species").value = filterState.speciesId || "";
+    document.getElementById("filter-likelihood").value = filterState.minLikelihood || "";
+    const visaVal = filterState.visaFree === null ? "any" : filterState.visaFree ? "free" : "required";
+    document.querySelectorAll('input[name="visa"]').forEach((r) => {
+      r.checked = r.value === visaVal;
+    });
+  }
+
+  function clearAllFilters() {
+    filterState.status = new Set(Object.keys(DATA.legend.status));
+    filterState.lodgeMin = filterState.lodgeMax = null;
+    filterState.tourMin = filterState.tourMax = null;
+    filterState.speciesId = null;
+    filterState.minLikelihood = null;
+    filterState.visaFree = null;
+    syncFilterPanelInputs();
+    applyFilters();
+  }
+
+  function removeFilter(key) {
+    if (key === "status") filterState.status = new Set(Object.keys(DATA.legend.status));
+    if (key === "lodgePrice") { filterState.lodgeMin = null; filterState.lodgeMax = null; }
+    if (key === "tourPrice") { filterState.tourMin = null; filterState.tourMax = null; }
+    if (key === "animal") { filterState.speciesId = null; filterState.minLikelihood = null; }
+    if (key === "visa") filterState.visaFree = null;
+    syncFilterPanelInputs();
+    applyFilters();
+  }
+
+  function renderActiveChips() {
+    const chips = [];
+    const allStatuses = Object.keys(DATA.legend.status);
+    if (filterState.status.size < allStatuses.length) {
+      const shown = allStatuses.filter((s) => filterState.status.has(s)).map((s) => DATA.legend.status[s].label);
+      chips.push({ key: "status", label: "Status: " + (shown.length ? shown.join(", ") : "none selected") });
+    }
+    if (filterState.lodgeMin != null || filterState.lodgeMax != null) {
+      chips.push({ key: "lodgePrice", label: `Lodge \$${filterState.lodgeMin ?? "0"}\u2013${filterState.lodgeMax ?? "\u221e"}/night` });
+    }
+    if (filterState.tourMin != null || filterState.tourMax != null) {
+      chips.push({ key: "tourPrice", label: `Tour \$${filterState.tourMin ?? "0"}\u2013${filterState.tourMax ?? "\u221e"}` });
+    }
+    if (filterState.speciesId) {
+      const sp = DATA.species[filterState.speciesId];
+      const likLabel = filterState.minLikelihood ? DATA.legend.likelihood[filterState.minLikelihood].label + "+" : "Any presence";
+      chips.push({ key: "animal", label: `${sp.name}: ${likLabel}` });
+    }
+    if (filterState.visaFree !== null) {
+      chips.push({ key: "visa", label: filterState.visaFree ? "Visa-free only" : "Visa required only" });
+    }
+
+    const chipsEl = document.getElementById("filter-chips");
+    if (!chips.length) {
+      chipsEl.innerHTML = `<span class="filter-chips__empty">No filters applied</span>`;
+      return;
+    }
+    chipsEl.innerHTML = chips
+      .map((c) => `<span class="filter-chip">${esc(c.label)}<button class="filter-chip__remove" data-key="${c.key}" aria-label="Remove filter">${icon("close")}</button></span>`)
+      .join("");
+    chipsEl.querySelectorAll(".filter-chip__remove").forEach((btn) => {
+      btn.addEventListener("click", () => removeFilter(btn.dataset.key));
+    });
+  }
+
+  function applyFilters() {
+    document.querySelectorAll(".country-block").forEach((cb) => {
+      const visaRequired = cb.dataset.visaRequired === "true";
+      const countryVisible =
+        filterState.visaFree === null || (filterState.visaFree === true && !visaRequired) || (filterState.visaFree === false && visaRequired);
+      cb.classList.toggle("is-filtered-out", !countryVisible);
+      if (!countryVisible) return;
+
+      cb.querySelectorAll(".subregion").forEach((sec) => {
+        let subVisible = true;
+        if (filterState.speciesId) {
+          let animals = [];
+          try { animals = JSON.parse(sec.dataset.animals || "[]"); } catch (e) { animals = []; }
+          const entry = animals.find((a) => a.speciesId === filterState.speciesId);
+          const fill = entry ? (DATA.legend.likelihood[entry.likelihood] || {}).fill || 0 : 0;
+          const neededFill = filterState.minLikelihood ? (DATA.legend.likelihood[filterState.minLikelihood] || {}).fill || 1 : 1;
+          subVisible = fill >= neededFill;
+        }
+        sec.classList.toggle("is-filtered-out", !subVisible);
+        if (!subVisible) return;
+
+        sec.querySelectorAll(".card-grid").forEach((grid) => {
+          let anyVisible = false;
+          grid.querySelectorAll(".card").forEach((cardEl) => {
+            let visible = filterState.status.has(cardEl.dataset.status);
+            if (visible) {
+              const priceLow = parseFloat(cardEl.dataset.priceLow);
+              if (!isNaN(priceLow)) {
+                if (cardEl.dataset.cardType === "lodge") {
+                  if (filterState.lodgeMin != null && priceLow < filterState.lodgeMin) visible = false;
+                  if (filterState.lodgeMax != null && priceLow > filterState.lodgeMax) visible = false;
+                } else {
+                  if (filterState.tourMin != null && priceLow < filterState.tourMin) visible = false;
+                  if (filterState.tourMax != null && priceLow > filterState.tourMax) visible = false;
+                }
+              }
+            }
+            cardEl.classList.toggle("is-filtered-out", !visible);
+            if (visible) anyVisible = true;
+          });
+          const msg = grid.nextElementSibling;
+          if (msg && msg.classList.contains("filter-empty-msg")) {
+            msg.classList.toggle("is-visible", grid.children.length > 0 && !anyVisible);
+          }
+        });
+      });
+    });
+
+    renderActiveChips();
+  }
+
   // ---- routing ------------------------------------------------------------
   function parseHash() {
     const raw = location.hash.replace(/^#\/?/, "");
@@ -367,38 +671,62 @@
     };
   }
 
+  function isModalRoute(r) {
+    if (!r) return false;
+    if (r.third === "info") return !!r.fourth;
+    return !!(r.third && r.fourth && r.fifth);
+  }
+
+  function scrollToId(id, instant) {
+    requestAnimationFrame(() => {
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: instant ? "auto" : "smooth", block: "start" });
+    });
+  }
+
   function handleRoute() {
     const r = parseHash();
     const regionExists = DATA.regions.some((rg) => rg.id === r.regionId);
     const targetRegion = regionExists ? r.regionId : DATA.regions[0].id;
+    const isFreshLoad = previousRoute === null;
 
     if (targetRegion !== currentRegionId || !document.getElementById("content").childElementCount) {
       renderRegion(targetRegion);
     }
 
     if (r.third === "info" && r.countryId && r.fourth) {
+      if (isFreshLoad) scrollToId("country-" + r.countryId, true);
       openInfoModal(r.countryId, r.fourth);
+      previousRoute = r;
       return;
     }
 
     if (r.third && r.fourth && r.fifth) {
+      if (isFreshLoad) scrollToId("sub-" + r.third, true);
       openItemModal(r.third, r.fourth, r.fifth);
+      previousRoute = r;
       return;
     }
 
     closeModal();
+    restoreFocus();
 
-    if (r.third) {
-      requestAnimationFrame(() => {
-        const target = document.getElementById("sub-" + r.third);
-        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
+    // only auto-scroll to a sub-region on a genuine navigation (sidebar
+    // click, direct link) — not as a side effect of closing a modal that
+    // was opened from a card the user had already scrolled to.
+    const closingModalForSameSubregion = isModalRoute(previousRoute) && previousRoute.third === r.third;
+    if (r.third && !closingModalForSameSubregion) {
+      scrollToId("sub-" + r.third, false);
     }
+
+    previousRoute = r;
   }
 
   window.addEventListener("hashchange", handleRoute);
 
   // ---- init ---------------------------------------------------------------
   buildTabs();
+  buildFilterDock();
+  buildFilterPanel();
   handleRoute();
 })();

@@ -57,6 +57,7 @@ const TRIP_DATA = {
       name: "Kenya",
       flagEmoji: "\ud83c\uddf0\ud83c\uddea",
       regionId: "east-africa",
+      visaRequired: true,
       visaInfo: {
         summary: "eTA required, apply in advance — $30\u2013$39, valid 90 days from approval.",
         body: "Standard eTA: $30 base fee (effectively $34\u2013$39 with a card-processing surcharge; debit cards reportedly avoid it), single entry, valid 90 days from date of approval \u2014 not from arrival. Apply only at the official portal, etakenya.go.ke. Processing is typically ~3 business days, up to 5. A 5-year multiple-entry eTA exists for US citizens at $185, but isn't worth it for a single trip. Passport: 6+ months validity, 1 blank page required. A yellow fever certificate is required on arrival, since this itinerary arrives from Uganda, which is yellow-fever-endemic."

@@ -222,15 +222,6 @@
     <path d="M9.6 20 L8.6 21.6 M14.4 20 L15.4 21.6" fill="none" stroke-width="1.3"/>
   `;
 
-  // ---- paw print (likelihood meter) -------------------------------------
-  S.paw = `
-    <ellipse cx="12" cy="15.4" rx="4.4" ry="3.4"/>
-    <ellipse cx="6.4" cy="10.6" rx="1.7" ry="2.2" transform="rotate(-18 6.4 10.6)"/>
-    <ellipse cx="10.4" cy="7.6" rx="1.8" ry="2.4" transform="rotate(-6 10.4 7.6)"/>
-    <ellipse cx="14.6" cy="7.6" rx="1.8" ry="2.4" transform="rotate(6 14.6 7.6)"/>
-    <ellipse cx="18" cy="10.6" rx="1.7" ry="2.2" transform="rotate(18 18 10.6)"/>
-  `;
-
   // ---- card type icons ----------------------------------------------------
   S.lodge = `
     <path d="M4 19 L12 5 L20 19 Z" fill="none"/>
@@ -245,20 +236,19 @@
   `;
 
   // ---- status badge icons ---------------------------------------------
-  S.status_preferred = `<path d="${starPath(12, 12.4, 8, 3.4, 5)}" fill="none"/>`;
-
-  S.status_backup = `
-    <path d="M12 3.4 L19.4 6.2 Q19.6 14.8 12 20.6 Q4.4 14.8 4.6 6.2 Z" fill="none"/>
-  `;
-
-  S.status_extension = `
-    <circle cx="12" cy="12" r="8.4" fill="none"/>
-    <path d="M12 7.4 L12 16.6 M7.4 12 L16.6 12" fill="none" stroke-width="1.6"/>
+  // single "medal" glyph, recolored gold/silver/bronze via CSS for
+  // preferred / backup / extension respectively. Ribbon tails are solid
+  // fills rather than thin strokes so they stay legible at badge size.
+  S.medal = `
+    <circle cx="12" cy="8.6" r="5.6" fill="none" stroke-width="1.5"/>
+    <circle cx="12" cy="8.6" r="1.5" fill="currentColor" stroke="none"/>
+    <path d="M9.6 13 L6.6 21.2 L11 17.8 L11 13 Z" fill="currentColor" stroke="none"/>
+    <path d="M14.4 13 L17.4 21.2 L13 17.8 L13 13 Z" fill="currentColor" stroke="none"/>
   `;
 
   S.status_rejected = `
     <circle cx="12" cy="12" r="8.4" fill="none"/>
-    <path d="M8.4 8.4 L15.6 15.6 M15.6 8.4 L8.4 15.6" fill="none" stroke-width="1.6"/>
+    <path d="M6.6 17.4 L17.4 6.6" fill="none" stroke-width="1.7"/>
   `;
 
   S.status_neutral = `<circle cx="12" cy="12" r="7" fill="none"/>`;
@@ -286,6 +276,9 @@
   S.search = `
     <circle cx="10.6" cy="10.6" r="6" fill="none"/>
     <path d="M15.2 15.2 L20 20" fill="none" stroke-width="1.8"/>
+  `;
+  S.filter = `
+    <path d="M4 5.2 L20 5.2 L14 12.6 L14 18.6 L10 20.4 L10 12.6 Z" fill="none" stroke-width="1.5" stroke-linejoin="round"/>
   `;
 
   function svg(key, extraClass) {
