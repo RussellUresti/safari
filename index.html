@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Safari Sabbatical — Inspiration Board</title>
+<meta name="description" content="A research reference and inspiration board for a 2028 photography-focused safari across East, Central, and Southern Africa." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open region menu"></button>
+  <div class="topbar__brand">
+    <span class="topbar__brand-title">Safari Sabbatical</span>
+    <span class="topbar__brand-sub">Inspiration Board · 2028</span>
+  </div>
+  <nav class="tabs" id="tabs" role="tablist" aria-label="World region"></nav>
+</header>
+
+<div class="sidebar-scrim" id="sidebar-scrim"></div>
+
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__title">Jump to a region</div>
+    <nav id="sidebar-nav"></nav>
+  </aside>
+
+  <main class="content" id="content"></main>
+</div>
+
+<div class="legend-bar" id="legend-bar"></div>
+
+<div class="modal-backdrop" id="modal-backdrop" hidden>
+  <div class="modal" id="modal-root" role="dialog" aria-modal="true" tabindex="-1"></div>
+</div>
+
+<script src="icons.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  // populate menu-toggle icon + legend bar (small bits that need ICONS loaded)
+  document.getElementById("menu-toggle").innerHTML = window.icon("menu");
+  (function () {
+    const legend = TRIP_DATA.legend.status;
+    const bar = document.getElementById("legend-bar");
+    bar.innerHTML = Object.keys(legend)
+      .map((key) => `<span class="legend-item"><span class="legend-swatch legend-swatch--${key}"></span>${legend[key].label}</span>`)
+      .join("");
+  })();
+</script>
+</body>
+</html>
