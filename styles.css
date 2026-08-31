@@ -362,9 +362,9 @@ button {
    strong verdict is itself the signal). */
 .card__corner-badge {
   position: absolute;
-  top: -14px;
-  right: -12px;
-  width: 34px; height: 34px;
+  top: -15px;
+  right: -13px;
+  width: 40px; height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -373,7 +373,7 @@ button {
   box-shadow: 0 4px 10px rgba(0,0,0,0.45);
   z-index: 2;
 }
-.card__corner-badge .icon { width: 17px; height: 17px; }
+.card__corner-badge .icon { width: 22px; height: 22px; }
 
 /* shared status coloring for both the corner badge (on cards) and the
    pill badge (in the modal) — keyed directly on their own data-status
@@ -402,7 +402,7 @@ button {
   border-radius: 999px;
   white-space: nowrap;
 }
-.card__badge .icon { width: 10px; height: 10px; }
+.card__badge .icon { width: 13px; height: 13px; }
 
 .card__name { font-family: var(--font-display); font-size: 1.05rem; line-height: 1.25; margin: 0; }
 .card__summary { color: var(--ink-muted); font-size: 0.86rem; line-height: 1.4; flex: 1; }

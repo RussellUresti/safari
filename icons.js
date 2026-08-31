@@ -236,14 +236,15 @@
   `;
 
   // ---- status badge icons ---------------------------------------------
-  // single "medal" glyph, recolored gold/silver/bronze via CSS for
-  // preferred / backup / extension respectively. Ribbon tails are solid
-  // fills rather than thin strokes so they stay legible at badge size.
-  S.medal = `
-    <circle cx="12" cy="8.6" r="5.6" fill="none" stroke-width="1.5"/>
-    <circle cx="12" cy="8.6" r="1.5" fill="currentColor" stroke="none"/>
-    <path d="M9.6 13 L6.6 21.2 L11 17.8 L11 13 Z" fill="currentColor" stroke="none"/>
-    <path d="M14.4 13 L17.4 21.2 L13 17.8 L13 13 Z" fill="currentColor" stroke="none"/>
+  // bold trophy glyph, recolored gold/silver/bronze via CSS for
+  // preferred / backup / extension respectively. Kept chunky and simple
+  // (no fine detail) so it stays readable at small badge sizes.
+  S.trophy = `
+    <path d="M7.6 4.2 L16.4 4.2 Q16.9 4.2 16.8 5.6 Q16.5 11.6 12 14.6 Q7.5 11.6 7.2 5.6 Q7.1 4.2 7.6 4.2 Z" fill="none" stroke-width="1.6"/>
+    <path d="M7.4 5.8 Q3.4 5.4 3.8 9.2 Q4.1 12.2 7.7 11.8" fill="none" stroke-width="1.5"/>
+    <path d="M16.6 5.8 Q20.6 5.4 20.2 9.2 Q19.9 12.2 16.3 11.8" fill="none" stroke-width="1.5"/>
+    <path d="M11 14.6 L13 14.6 L13 17.6 L11 17.6 Z" fill="currentColor" stroke="none"/>
+    <path d="M8 17.6 L16 17.6 L16 19.2 L8 19.2 Z" fill="currentColor" stroke="none"/>
   `;
 
   S.status_rejected = `

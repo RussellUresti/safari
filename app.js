@@ -44,10 +44,10 @@
     return items.slice().sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status));
   }
 
-  // preferred/backup/extension all share the "medal" glyph (recolored via
+  // preferred/backup/extension all share the "trophy" glyph (recolored via
   // CSS); the rest have their own dedicated icon
   function statusIconKey(status) {
-    if (status === "preferred" || status === "backup" || status === "extension") return "medal";
+    if (status === "preferred" || status === "backup" || status === "extension") return "trophy";
     return "status_" + status;
   }
 
