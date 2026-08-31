@@ -260,11 +260,11 @@ button {
   flex-shrink: 0;
 }
 .animal-chip__icon .icon { width: 15px; height: 15px; }
-.animal-chip__body { display: flex; flex-direction: column; line-height: 1.2; }
+.animal-chip__body { display: flex; flex-direction: row; align-items: center; gap: 7px; white-space: nowrap; }
 .animal-chip__name { font-size: 0.78rem; font-weight: 600; }
-.animal-chip__meter { display: flex; align-items: flex-end; gap: 2px; height: 13px; margin-top: 3px; }
-.meter-bar { width: 3px; border-radius: 1px; background: var(--sage-dim); opacity: 0.55; }
-.meter-bar.is-filled { background: var(--sage); opacity: 1; }
+.animal-chip__meter { display: flex; align-items: flex-end; gap: 2px; height: 13px; }
+.meter-bar { width: 3px; border-radius: 1px; background: var(--ink); opacity: 0.15; }
+.meter-bar.is-filled { opacity: 1; }
 .meter-bar--1 { height: 4px; }
 .meter-bar--2 { height: 7px; }
 .meter-bar--3 { height: 10px; }
