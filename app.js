@@ -480,8 +480,14 @@
         <div class="filter-group">
           <div class="filter-group__title">Animal presence</div>
           <div class="filter-range-row">
-            <select id="filter-species"><option value="">Any species</option>${speciesOptions}</select>
-            <select id="filter-likelihood"><option value="">Any presence</option>${likelihoodOptions}</select>
+            <span class="select-wrap">
+              <select id="filter-species"><option value="">Any species</option>${speciesOptions}</select>
+              ${icon("chevron", "select-wrap__arrow")}
+            </span>
+            <span class="select-wrap">
+              <select id="filter-likelihood"><option value="">Any presence</option>${likelihoodOptions}</select>
+              ${icon("chevron", "select-wrap__arrow")}
+            </span>
           </div>
         </div>
         <div class="filter-group">

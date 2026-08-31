@@ -602,7 +602,30 @@ button {
   font-size: 0.86rem;
   width: 100px;
 }
-.filter-range-row select { width: auto; flex: 1; min-width: 140px; padding-right: 30px; }
+.select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 1;
+  min-width: 140px;
+}
+.select-wrap select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 30px;
+}
+.select-wrap__arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  color: var(--ink-faint);
+  pointer-events: none;
+}
 .filter-clear {
   align-self: flex-start;
   background: none;
