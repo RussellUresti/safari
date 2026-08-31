@@ -66,12 +66,89 @@ const TRIP_DATA = {
         summary: "Yellow fever certificate required (cascades from Uganda). No Kenya-specific vaccine notes beyond the standard panel.",
         body: "Kenya requires a yellow fever certificate on arrival because this itinerary arrives from Uganda, a yellow-fever-endemic country \u2014 the same certificate obtained for Uganda covers this automatically. No additional Kenya-specific vaccination requirements were identified beyond the standard travel panel (routine vaccines, hepatitis A/typhoid as generally recommended, malaria prophylaxis as advised by a travel clinic for the Mara region)."
       },
-      subregionIds: ["masai-mara"]
+      subregionIds: ["laikipia", "masai-mara"]
     }
   },
 
   // ---- sub-regions ---------------------------------------------------------
   subregions: {
+
+    laikipia: {
+      id: "laikipia",
+      name: "Laikipia",
+      countryId: "kenya",
+      blurb: "A working-ranch conservancy landscape north of Mount Kenya, home to one of the highest concentrations of black (melanistic) leopards known anywhere in Africa, alongside strong general predator and elephant populations. A genuinely rare, specialist pursuit rather than a classic Big Five stop.",
+      animals: [
+        { speciesId: "lion",       likelihood: "highly_likely" },
+        { speciesId: "elephant",   likelihood: "highly_likely" },
+        { speciesId: "giraffe",    likelihood: "highly_likely" },
+        { speciesId: "wild-dog",   likelihood: "highly_likely" },
+        { speciesId: "roller",     likelihood: "highly_likely" },
+        { speciesId: "leopard",    likelihood: "somewhat_likely" },
+        { speciesId: "cheetah",    likelihood: "somewhat_likely" },
+        { speciesId: "owlet",      likelihood: "somewhat_likely" },
+        { speciesId: "kingfisher", likelihood: "somewhat_likely" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [
+        {
+          id: "laikipia-wilderness-camp",
+          type: "lodge",
+          status: "rejected",
+          name: "Laikipia Wilderness Camp",
+          price: {
+            perNightPP: "$820\u2013$1,090 all-in",
+            singleSupplement: "Not stated separately",
+            note: "Base rate $430\u2013$600/night, plus a separate conservation fee ($140\u2013$215/night) and a \u201cBlack Leopard Vehicle\u201d fee ($130/night shared or $400/night private) \u2014 fees stack rather than bundle"
+          },
+          summary: "Direct booking at the camp closest to Giza Mrembo's territory, with a dedicated black-leopard-tracking vehicle option.",
+          rationale: "Nearly as expensive as the guided tour options once all fees are stacked, without the benefit of a guide with years of experience tracking these specific individual cats.",
+          keyFacts: [
+            { label: "Black leopard vehicle", value: "$130/night shared or $400/night exclusive" }
+          ],
+          links: [{ label: "Laikipia Wilderness Camp", url: "https://www.laikipia-wilderness.com/" }],
+          _sourceRefs: ["research.md > Kenya > Laikipia > Lodging Considered"]
+        }
+      ],
+
+      tours: [
+        {
+          id: "oryx-black-leopard-photo-safari",
+          type: "tour",
+          status: "preferred",
+          name: "ORYX Photo Tours \u2014 Kenya Black Leopard Photo Safari",
+          duration: "8 days",
+          price: { total: "$12,972", note: "$12,772 pp sharing + $200 single supplement, confirmed as the first solo traveler to book" },
+          summary: "Tiny group (3 guests + 1 ORYX leader) built specifically around finding Giza Mrembo and other black leopards across the Laikipia landscape.",
+          rationale: "The only specialist option with confirmed, bookable 2028 departures \u2014 every other option investigated for this pursuit (Ivan Glaser, Edward Selfe, Wild Eye) hit full booking, waitlist status, or down-to-the-last-space scarcity. Trip reports document strong guiding results (Giza spotted on 8 of 12 drives in one account, 9 different leopards in a week in another), supporting the value of expert guiding for a genuinely rare subject.",
+          keyFacts: [
+            { label: "2028 departures", value: "30 Jun\u20137 Jul and 5\u201312 Aug, both showing spaces available" },
+            { label: "Group size", value: "3 guests + 1 ORYX leader" }
+          ],
+          links: [
+            { label: "ORYX \u2014 30 Jun\u20137 Jul departure", url: "https://www.oryxphoto.com/tour-item/kenya-black-leopard-photo-safari-vi-2028/" },
+            { label: "ORYX \u2014 5\u201312 Aug departure", url: "https://www.oryxphoto.com/tour-item/kenya-black-leopard-photo-safari-ii-2028/" }
+          ],
+          _sourceRefs: ["research.md > Kenya > Laikipia > Tour Operators & Packages Considered", "extensions.md > Kenya > Laikipia"]
+        },
+        {
+          id: "wild-eye-amboseli-laikipia",
+          type: "tour",
+          status: "backup",
+          name: "Wild Eye \u2014 Amboseli and Laikipia Photo Safari",
+          duration: "11 nights (7 Laikipia + 3 Amboseli + 1 Nairobi)",
+          price: { total: "$14,675", note: "no single supplement, max 4 guests" },
+          summary: "Combines this black leopard pursuit with Amboseli's elephant-and-Kilimanjaro scenery, tracking the tusker Craig.",
+          rationale: "Logged as a fallback rather than primary \u2014 there are currently no scheduled 2028 departures, only a waitlist, with Wild Eye's own site still finalizing a 2027 date. Worth revisiting if a 2028 date is announced, since it would also let the separately-booked Amboseli/Ol Tukai plan be dropped in favor of this bundled version.",
+          keyFacts: [
+            { label: "2028 availability", value: "Waitlist only \u2014 no confirmed departure yet" }
+          ],
+          links: [{ label: "Wild Eye", url: "https://wild-eye.com/photographic-travel/amboseli-and-laikipia-photo-safari/" }],
+          _sourceRefs: ["extensions.md > Kenya > Laikipia"]
+        }
+      ]
+    },
 
     "masai-mara": {
       id: "masai-mara",
