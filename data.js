@@ -45,13 +45,29 @@ const TRIP_DATA = {
 
   // ---- regions (tabs) ----------------------------------------------------
   regions: [
-    { id: "east-africa",    label: "East Africa",    countryIds: ["kenya"] },
+    { id: "east-africa",    label: "East Africa",    countryIds: ["uganda", "kenya"] },
     { id: "central-africa", label: "Central Africa",  countryIds: [] },
     { id: "southern-africa",label: "Southern Africa", countryIds: [] }
   ],
 
   // ---- countries ---------------------------------------------------------
   countries: {
+    uganda: {
+      id: "uganda",
+      name: "Uganda",
+      flagEmoji: "\ud83c\uddfa\ud83c\uddec",
+      regionId: "east-africa",
+      visaRequired: true,
+      visaInfo: {
+        summary: "eVisa required, apply in advance \u2014 $50, valid 90 days from approval. Requires a yellow fever certificate as a supporting document.",
+        body: "Single-entry tourist eVisa: $50, valid for stays up to 90 days. Apply only at the official government portal, visas.immigration.go.ug \u2014 Uganda's immigration ministry has published repeated warnings about fraudulent third-party sites charging inflated \u201cprocessing fees.\u201d Processing typically takes 3\u20137 business days. The approval letter (PDF) must be printed and carried, since some border officials still want the physical copy even though it's an eVisa. Requires a yellow fever vaccination certificate as a supporting document \u2014 Uganda requires this from all travelers over 1 year old regardless of origin, not just those arriving from endemic countries. Passport: 6+ months validity, 2 blank pages."
+      },
+      medicalInfo: {
+        summary: "Yellow fever vaccination mandatory for every traveler. Gorilla trek fitness and altitude notes apply specifically to the Rushaga/GHE trek.",
+        body: "Yellow fever: Uganda requires a certificate from every traveler over 1 year old, regardless of origin \u2014 mandatory here, not conditional the way it is at the other stops on this route. The certificate becomes valid 10 days after vaccination and, since WHO no longer requires a booster, is recognized for life. Gorilla trek fitness: over 90% of trekkers successfully complete their assigned trek. Rushaga (the GHE sector used for this trip) is rated \u201cstrenuous\u201d \u2014 steeper climbs than Buhoma or Ruhija, one notch below Nkuringo as Bwindi's hardest sector. The Gorilla Habituation Experience specifically lengthens the hike-in itself: guests join the tracking team rather than being guided to an already-known position, which can mean 5+ hours of hiking before the 4 hours with the family even starts, versus roughly 1\u20132 hours for a standard trek. A 4\u20136 week walking-based fitness prep plan is genuinely worthwhile given that extra time, though not required \u2014 porters ($15\u2013$20) are commonly recommended regardless of fitness level. Altitude sickness risk is low: Bwindi's elevation profile is a single-day ascend-and-return, below the threshold where true AMS becomes a real concern, so no Diamox or acclimatization strategy is needed."
+      },
+      subregionIds: ["bwindi", "kibale"]
+    },
     kenya: {
       id: "kenya",
       name: "Kenya",
@@ -72,6 +88,177 @@ const TRIP_DATA = {
 
   // ---- sub-regions ---------------------------------------------------------
   subregions: {
+
+    bwindi: {
+      id: "bwindi",
+      name: "Bwindi",
+      countryId: "uganda",
+      blurb: "Bwindi Impenetrable Forest \u2014 the single most physically demanding activity on the trip, front-loaded before safari days stack up. The core decision here was standard trekking versus the Gorilla Habituation Experience: 4 hours with a semi-habituated family in a group of 4, versus 1 hour in a group of 8 on the standard permit.",
+      animals: [
+        { speciesId: "gorilla",    likelihood: "highly_likely" },
+        { speciesId: "kingfisher", likelihood: "somewhat_likely" },
+        { speciesId: "leopard",    likelihood: "unlikely" },
+        { speciesId: "elephant",   likelihood: "unlikely" },
+        { speciesId: "owlet",      likelihood: "unlikely" },
+        { speciesId: "lion",       likelihood: "not_present" },
+        { speciesId: "cheetah",    likelihood: "not_present" },
+        { speciesId: "giraffe",    likelihood: "not_present" },
+        { speciesId: "wild-dog",   likelihood: "not_present" },
+        { speciesId: "roller",     likelihood: "not_present" }
+      ],
+
+      lodges: [],
+
+      tours: [
+        {
+          id: "nextgensafaris-ghe",
+          type: "tour",
+          status: "preferred",
+          name: "Nextgensafaris \u2014 Gorilla Habituation Experience",
+          duration: "3 days / 2 nights",
+          price: { total: "$3,000", note: "solo \u2014 $2,400 pp on a 2-pax sharing basis" },
+          summary: "Transport, a Rushaga-area lodge, and a 4-hour Gorilla Habituation Experience trek with a semi-habituated family, bundled into one package.",
+          rationale: "GHE gives 4 hours with the gorilla family in a group of 4, versus 1 hour in a group of 8 on the standard permit \u2014 directly serves the photography priority, worth the roughly $900\u2013$1,000pp premium over a standard trek.",
+          keyFacts: [
+            { label: "Sector", value: "Rushaga \u2014 the only sector currently offering GHE" },
+            { label: "Group size", value: "4 (vs. 8 on the standard permit)" }
+          ],
+          links: [{ label: "Nextgensafaris", url: "https://nextgensafaris.com/3-days-gorilla-habituation-experience/" }],
+          _sourceRefs: ["research.md > Uganda > Bwindi > Tour Operators & Packages Considered", "budget.md > Uganda"]
+        },
+        {
+          id: "encounter-africa-safaris",
+          type: "tour",
+          status: "unresearched",
+          name: "Encounter Africa Safaris",
+          duration: "3 days (GHE)",
+          price: { total: "Not published" },
+          summary: "Specializes in GHE permit acquisition, paired correctly with Rushaga/Nkuringo-area accommodation.",
+          rationale: "Logged as a GHE-capable operator worth a direct quote from; not yet priced or compared in detail against Nextgensafaris.",
+          keyFacts: [],
+          links: [{ label: "Encounter Africa Safaris", url: "https://encounterafricasafaris.com/" }],
+          _sourceRefs: ["research.md > Uganda > Bwindi > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "gorilla-tracking-uganda",
+          type: "tour",
+          status: "unresearched",
+          name: "Gorilla Tracking Uganda \u2014 3 Day Fly-in GHE Tour",
+          duration: "3 days, fly-in via Kisoro Airstrip",
+          price: { total: "Not published" },
+          summary: "Fly-in GHE tour via Kisoro Airstrip rather than a road transfer.",
+          rationale: "No published price found yet \u2014 logged as a candidate for a direct quote.",
+          keyFacts: [],
+          links: [{ label: "Gorilla Tracking Uganda", url: "https://www.gorilla-tracking-uganda.com/gorilla-habituation-experience-safaris/3-day-fly-gorilla-habituation-experience-tour/" }],
+          _sourceRefs: ["research.md > Uganda > Bwindi > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "rwanda-gorilla",
+          type: "tour",
+          status: "unresearched",
+          name: "Rwanda Gorilla \u2014 3 Days Uganda Gorilla Habituation Tour",
+          duration: "3 days, fly-in via Kihihi (45 min flight)",
+          price: { total: "Not published" },
+          summary: "Fly-in GHE tour via Kihihi airstrip, despite the operator's name being Uganda-focused for this itinerary.",
+          rationale: "No published price found yet \u2014 logged as a candidate for a direct quote.",
+          keyFacts: [],
+          links: [{ label: "Rwanda Gorilla", url: "https://www.rwandagorilla.com/gorilla-tours/3-days-uganda-gorilla-habituation-tour/" }],
+          _sourceRefs: ["research.md > Uganda > Bwindi > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "katona-tours",
+          type: "tour",
+          status: "unresearched",
+          name: "Katona Tours and Travel",
+          duration: "3 days (GHE)",
+          price: { total: "Not published" },
+          summary: "Also offers GHE bookings in the Rushaga sector.",
+          rationale: "Logged as a GHE-capable operator; not yet priced or compared.",
+          keyFacts: [],
+          links: [{ label: "Katona Tours and Travel", url: "https://www.katonatours.com/gorilla-trekking-uganda/gorilla-habituation-experience-uganda-bwindi-forest/" }],
+          _sourceRefs: ["research.md > Uganda > Bwindi > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "ngoni-safaris-uganda",
+          type: "tour",
+          status: "rejected",
+          name: "NGONI Safaris Uganda \u2014 Gorilla Trekking & Batwa Experience",
+          duration: "3 days",
+          price: { total: "$1,540", note: "2-traveler price shown; private tour, so vehicle/guide costs may not split for a solo booking" },
+          summary: "Standard 1-hour gorilla trek plus a Batwa cultural experience, private tour with an 8\u20139hr guided drive to Rushaga.",
+          rationale: "A standard-trek option, not preferred relative to the Gorilla Habituation Experience \u2014 kept for reference against the GHE decision.",
+          keyFacts: [{ label: "Rating", value: "4.8/5 (181 reviews)" }],
+          links: [{ label: "NGONI Safaris Uganda", url: "https://ngonisafarisuganda.com/package/3-day-gorilla-trekking-mist-and-batwa-experience/" }],
+          _sourceRefs: ["research.md > Uganda > Bwindi > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "bugoli-adventures",
+          type: "tour",
+          status: "rejected",
+          name: "Bugoli Adventures \u2014 Bwindi Gorilla Trek and Lake Bunyonyi Tour",
+          duration: "3 days",
+          price: { total: "$1,665", note: "pp; corrected from an earlier logged figure of $1,375\u2013$1,426 pp" },
+          summary: "Standard 1-hour gorilla trek combined with a Lake Bunyonyi visit, shared group (max 6).",
+          rationale: "A standard-trek option, not preferred relative to GHE. Also requires a minimum of 2 people to run.",
+          keyFacts: [
+            { label: "Rating", value: "5.0/5 (48 reviews)" },
+            { label: "Minimum group", value: "2 people" }
+          ],
+          links: [{ label: "Bugoli Adventures", url: "https://www.bugoliadventures.com/" }],
+          _sourceRefs: ["research.md > Uganda > Bwindi > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "jenik-tours",
+          type: "tour",
+          status: "rejected",
+          name: "Jenik Tours and Travels \u2014 Gorilla Flying Safari",
+          duration: "3 days",
+          price: { total: "$2,420", note: "2-traveler price shown; private tour" },
+          summary: "Standard 1-hour gorilla trek, private tour, fly-in via Kihihi/Kisoro to a lodge bordering Bwindi.",
+          rationale: "A standard-trek option, not preferred relative to GHE.",
+          keyFacts: [{ label: "Rating", value: "5.0/5 (7 reviews)" }],
+          links: [{ label: "Jenik Tours and Travels", url: "https://www.jeniktours.com/gorilla-safaris/3-days-gorilla-flying-safari/" }],
+          _sourceRefs: ["research.md > Uganda > Bwindi > Tour Operators & Packages Considered"]
+        }
+      ]
+    },
+
+    kibale: {
+      id: "kibale",
+      name: "Kibale",
+      countryId: "uganda",
+      blurb: "Chimpanzee trekking is explicitly out of scope for the core itinerary \u2014 Kibale and Bwindi sit ~350km / 6\u20137 hours apart by road with no quick flight shortcut, and combining them independently pushed the itinerary to 5\u20138+ days versus the clean 3-day GHE shape used for gorillas alone. Logged here as a possible future add-on if a bundled package can resolve that time cost.",
+      animals: [
+        { speciesId: "elephant",   likelihood: "somewhat_likely" },
+        { speciesId: "kingfisher", likelihood: "somewhat_likely" },
+        { speciesId: "leopard",    likelihood: "unlikely" },
+        { speciesId: "owlet",      likelihood: "unlikely" },
+        { speciesId: "gorilla",    likelihood: "not_present" },
+        { speciesId: "lion",       likelihood: "not_present" },
+        { speciesId: "cheetah",    likelihood: "not_present" },
+        { speciesId: "giraffe",    likelihood: "not_present" },
+        { speciesId: "wild-dog",   likelihood: "not_present" },
+        { speciesId: "roller",     likelihood: "not_present" }
+      ],
+
+      lodges: [],
+
+      tours: [
+        {
+          id: "wild-eye-primates-of-uganda",
+          type: "tour",
+          status: "extension",
+          name: "Wild Eye \u2014 Primates of Uganda",
+          duration: "8 nights (28 Jun\u20136 Jul 2028)",
+          price: { total: "$15,525", note: "Early Bird rate $14,750" },
+          summary: "Combines Bwindi gorilla trekking and Kibale chimpanzee trekking in a single fixed-length package.",
+          rationale: "Chimpanzee trekking was dropped early in planning since combining Kibale independently with Bwindi pushed the itinerary to 5\u20138+ days versus the clean 3-day GHE shape. This bundled package may resolve that objection if its total length holds up against the gorillas-only Uganda leg \u2014 but it's still unconfirmed whether it uses the standard 1-hour trek or the preferred GHE for the Bwindi portion, which needs resolving before treating this as a genuine replacement for the current plan rather than just an add-on.",
+          keyFacts: [{ label: "2028 departure", value: "28 Jun\u20136 Jul" }],
+          links: [{ label: "Wild Eye", url: "https://wild-eye.com/photographic-travel/primates-of-uganda/" }],
+          _sourceRefs: ["research.md > Uganda > Multi-Site (Bwindi + Kibale Primates)", "extensions.md > Uganda > Kibale"]
+        }
+      ]
+    },
 
     amboseli: {
       id: "amboseli",
