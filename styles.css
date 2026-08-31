@@ -586,6 +586,10 @@ button {
 }
 .filter-check-row { display: flex; flex-wrap: wrap; gap: 10px 18px; }
 .filter-check { display: flex; align-items: center; gap: 6px; font-size: 0.86rem; }
+.filter-check input[type="checkbox"],
+.filter-check input[type="radio"] {
+  accent-color: var(--gold);
+}
 .filter-range-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .filter-range-row input[type="number"],
 .filter-range-row select {
