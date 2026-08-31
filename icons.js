@@ -264,9 +264,9 @@
   S.chevron = `<path d="M6.4 9 L12 15 L17.6 9" fill="none" stroke-width="1.8"/>`;
   S.close = `<path d="M6 6 L18 18 M18 6 L6 18" fill="none" stroke-width="1.7"/>`;
   S.external = `
-    <path d="M9.6 6.4 L17.6 6.4 L17.6 14.4" fill="none" stroke-width="1.6"/>
-    <path d="M17.6 6.4 L8 16" fill="none" stroke-width="1.6"/>
-    <path d="M13.6 6.4 L7 6.4 Q5.6 6.4 5.6 7.8 L5.6 17 Q5.6 18.4 7 18.4 L16.2 18.4 Q17.6 18.4 17.6 17 L17.6 10.4" fill="none" stroke-width="1.4"/>
+    <path d="M16.4 12.6 L16.4 17.4 Q16.4 18.6 15.2 18.6 L6.6 18.6 Q5.4 18.6 5.4 17.4 L5.4 8.8 Q5.4 7.6 6.6 7.6 L11.4 7.6" fill="none" stroke-width="1.6"/>
+    <path d="M13.4 4.6 L19.4 4.6 L19.4 10.6" fill="none" stroke-width="1.6"/>
+    <path d="M10 14 L19.2 4.8" fill="none" stroke-width="1.6"/>
   `;
   S.menu = `<path d="M4 7 L20 7 M4 12 L20 12 M4 17 L20 17" fill="none" stroke-width="1.7"/>`;
   S.info = `
