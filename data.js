@@ -66,12 +66,113 @@ const TRIP_DATA = {
         summary: "Yellow fever certificate required (cascades from Uganda). No Kenya-specific vaccine notes beyond the standard panel.",
         body: "Kenya requires a yellow fever certificate on arrival because this itinerary arrives from Uganda, a yellow-fever-endemic country \u2014 the same certificate obtained for Uganda covers this automatically. No additional Kenya-specific vaccination requirements were identified beyond the standard travel panel (routine vaccines, hepatitis A/typhoid as generally recommended, malaria prophylaxis as advised by a travel clinic for the Mara region)."
       },
-      subregionIds: ["laikipia", "masai-mara"]
+      subregionIds: ["laikipia", "amboseli", "masai-mara"]
     }
   },
 
   // ---- sub-regions ---------------------------------------------------------
   subregions: {
+
+    amboseli: {
+      id: "amboseli",
+      name: "Amboseli",
+      countryId: "kenya",
+      blurb: "Large elephant herds \u2014 including rare \u201cbig tusker\u201d bulls \u2014 set against the classic backdrop of Mount Kilimanjaro, one of Africa's most photographed combinations. Also strong for lion, cheetah, hyena, and prolific birdlife around the park's swamps. Wild4's Tsavo/Samburu/Shompole tours extend into the wider ecosystem beyond Amboseli itself.",
+      animals: [
+        { speciesId: "elephant",   likelihood: "highly_likely" },
+        { speciesId: "lion",       likelihood: "highly_likely" },
+        { speciesId: "giraffe",    likelihood: "highly_likely" },
+        { speciesId: "roller",     likelihood: "highly_likely" },
+        { speciesId: "leopard",    likelihood: "somewhat_likely" },
+        { speciesId: "cheetah",    likelihood: "somewhat_likely" },
+        { speciesId: "owlet",      likelihood: "somewhat_likely" },
+        { speciesId: "kingfisher", likelihood: "somewhat_likely" },
+        { speciesId: "wild-dog",   likelihood: "unlikely" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [
+        {
+          id: "ol-tukai-lodge",
+          type: "lodge",
+          status: "preferred",
+          name: "Ol Tukai Lodge",
+          price: {
+            perNightPP: "~$350",
+            singleSupplement: "Not stated separately",
+            note: "Confirmed at $1,050 for 3 nights \u2014 the rate may already reflect solo occupancy rather than a sharing rate"
+          },
+          summary: "Inside the park itself, well-positioned for elephant viewing with Kilimanjaro as a backdrop.",
+          rationale: "The only viable mid-range option found \u2014 checked package deals didn't offer meaningful savings over the standard rate. Being inside the park rather than a private conservancy means no off-road driving or night drives, the same trade-off seen elsewhere on this trip (Ivan Glaser's Mara Reserve tour, Mombo Camp).",
+          keyFacts: [
+            { label: "Off-road / night drives", value: "No \u2014 inside the national park, not a conservancy" }
+          ],
+          links: [{ label: "Ol Tukai Lodge", url: "https://oltukailodge.com/" }],
+          _sourceRefs: ["extensions.md > Kenya > Amboseli National Park"]
+        },
+        {
+          id: "porini-amboseli",
+          type: "lodge",
+          status: "rejected",
+          name: "Porini Amboseli",
+          price: {
+            perNightPP: "~$1,335 all-in",
+            singleSupplement: "$390 total (2 nights)",
+            note: "$2,280 + $390 single supplement for 2 nights"
+          },
+          summary: "Private Selenkay Conservancy camp bordering Amboseli, with off-road driving and night drives included.",
+          rationale: "Repeats the same peak-season pricing surprise seen with Kicheche and Asilia Naboisho \u2014 well above the mid-range target once the single supplement is factored in.",
+          keyFacts: [],
+          links: [{ label: "Porini Amboseli Camp", url: "https://www.porini.com/african-safari-holidays/kenya/camps-and-lodges/porini-amboseli-camp-3/" }],
+          _sourceRefs: ["extensions.md > Kenya > Amboseli National Park"]
+        },
+        {
+          id: "tortilis-camp",
+          type: "lodge",
+          status: "rejected",
+          name: "Tortilis Camp",
+          price: {
+            perNightPP: "~$2,000",
+            singleSupplement: "Not stated",
+            note: "$6,000 for 3 nights"
+          },
+          summary: "Elewana-run camp in a private conservancy on Amboseli's edge, built around Kilimanjaro views.",
+          rationale: "Firmly ultra-luxury, well outside the mid-range target for this trip.",
+          keyFacts: [],
+          links: [{ label: "Elewana Tortilis Camp", url: "https://www.elewanacollection.com/tortilis-camp-amboseli/amboseli" }],
+          _sourceRefs: ["extensions.md > Kenya > Amboseli National Park"]
+        }
+      ],
+
+      tours: [
+        {
+          id: "wild4-tsavo-amboseli-masai-mara",
+          type: "tour",
+          status: "unresearched",
+          name: "Wild4 \u2014 Tsavo, Amboseli & Masai Mara",
+          duration: "14 days (Jun 11\u201324, 2028)",
+          price: { total: "Price TBD" },
+          summary: "Multi-park circuit tour; the Masai Mara leg overlaps with the dedicated Masai Mara research, but Tsavo and Amboseli aren't otherwise investigated.",
+          rationale: "Named as a candidate but not yet dug into \u2014 no price found and not compared against the Ol Tukai direct-booking plan.",
+          keyFacts: [],
+          links: [{ label: "Wild4 Photographic Safaris", url: "https://www.wild4photographicsafaris.com/photo-safaris/tsavo-amboseli-masai-mara" }],
+          _sourceRefs: ["research.md > Kenya > Amboseli, Tsavo, Samburu & Shompole"]
+        },
+        {
+          id: "wild4-shompole-samburu",
+          type: "tour",
+          status: "neutral",
+          name: "Wild4 \u2014 Shompole Hides & Secret Samburu",
+          duration: "12 days (Aug 16\u201327, 2028)",
+          price: { total: "$15,400\u2013$17,200" },
+          summary: "Covers two regions not otherwise investigated on this trip: Shompole Conservancy (hide-based photography) and Samburu.",
+          rationale: "Logged for reference \u2014 priced and has confirmed dates, but covers different territory entirely from Amboseli itself, so not directly compared against the Ol Tukai plan.",
+          keyFacts: [],
+          links: [{ label: "Wild4 Photographic Safaris", url: "https://www.wild4photographicsafaris.com/photo-safaris/shompole-hides-secret-samburu" }],
+          _sourceRefs: ["research.md > Kenya > Amboseli, Tsavo, Samburu & Shompole"]
+        }
+      ]
+    },
 
     laikipia: {
       id: "laikipia",
