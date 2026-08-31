@@ -602,7 +602,7 @@ button {
   font-size: 0.86rem;
   width: 100px;
 }
-.filter-range-row select { width: auto; flex: 1; min-width: 140px; }
+.filter-range-row select { width: auto; flex: 1; min-width: 140px; padding-right: 30px; }
 .filter-clear {
   align-self: flex-start;
   background: none;
