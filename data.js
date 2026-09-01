@@ -47,7 +47,7 @@ const TRIP_DATA = {
   regions: [
     { id: "east-africa",    label: "East Africa",    countryIds: ["uganda", "kenya", "tanzania"] },
     { id: "central-africa", label: "Central Africa",  countryIds: ["zimbabwe", "zambia", "botswana"] },
-    { id: "southern-africa",label: "Southern Africa", countryIds: ["south-africa", "namibia"] }
+    { id: "southern-africa",label: "Southern Africa", countryIds: ["south-africa"] }
   ],
 
   // ---- countries ---------------------------------------------------------
@@ -162,23 +162,7 @@ const TRIP_DATA = {
         summary: "Yellow fever certificate required if arriving from an endemic country — Uganda and Kenya both qualify, so the certificate already needed for Uganda covers this leg too.",
         body: "No South Africa-specific vaccination requirements were identified beyond the yellow fever cascade already established for this route. A certificate is required if arriving from an endemic country — Uganda and Kenya both qualify on this itinerary — so the certificate obtained before departure (mandatory for Uganda) automatically satisfies this leg as well."
       },
-      subregionIds: ["greater-kruger", "kalahari", "hermanus"]
-    },
-    namibia: {
-      id: "namibia",
-      name: "Namibia",
-      flagEmoji: "🇳🇦",
-      regionId: "southern-africa",
-      visaRequired: true,
-      visaInfo: {
-        summary: "Not yet researched — Namibia was investigated and ultimately not preferred as an extension, so a dedicated visa pass was never done.",
-        body: "Namibia isn't part of the core route and was investigated only as a possible extension (Etosha & Damaraland) before being ruled out on photography merits — see medical/wildlife notes on the Etosha & Damaraland subregion. Because the extension was dropped before booking-stage research began, no visa cost/process check was ever done the way it was for the five core countries plus Botswana and Tanzania. Worth a fresh look if this extension is ever revisited."
-      },
-      medicalInfo: {
-        summary: "Not yet researched — no Namibia-specific vaccination requirements have been confirmed in this planning process.",
-        body: "As with the visa question, this wasn't researched in detail since the Etosha & Damaraland extension was ultimately not preferred. The yellow fever cascade established for the rest of this route (one certificate, obtained for Uganda, covering conditional requirements elsewhere) would very likely extend here too, but this hasn't been directly confirmed against an official Namibian source."
-      },
-      subregionIds: ["etosha-damaraland"]
+      subregionIds: ["greater-kruger", "kalahari"]
     }
   },
 
@@ -1449,167 +1433,6 @@ const TRIP_DATA = {
           _sourceRefs: ["research.md > South Africa > Kalahari > Tour Operators & Packages Considered"]
         }
       ]
-    },
-
-    hermanus: {
-      id: "hermanus",
-      name: "Hermanus",
-      countryId: "south-africa",
-      blurb: "The trip's closing leg and fixed anchor date — timed to the front edge of peak southern right whale season, early September 2028. Built around variety rather than repetition: multiple whale-watching operators and routes across the stay, plus a Marine Big 5 boat tour and a sea kayak tour, consistent with the standing preference for varied vantage points over repeating the same activity.",
-      animals: [
-        { speciesId: "whale",      likelihood: "highly_likely" },
-        { speciesId: "penguin",    likelihood: "unlikely" },
-        { speciesId: "lion",       likelihood: "not_present" },
-        { speciesId: "leopard",    likelihood: "not_present" },
-        { speciesId: "cheetah",    likelihood: "not_present" },
-        { speciesId: "elephant",   likelihood: "not_present" },
-        { speciesId: "giraffe",    likelihood: "not_present" },
-        { speciesId: "gorilla",    likelihood: "not_present" },
-        { speciesId: "wild-dog",   likelihood: "not_present" },
-        { speciesId: "roller",     likelihood: "not_present" }
-      ],
-
-      lodges: [
-        {
-          id: "misty-waves-boutique-hotel",
-          type: "lodge",
-          status: "preferred",
-          name: "Misty Waves Boutique Hotel",
-          price: { perNightPP: "~$113", singleSupplement: "Not stated", note: "4 nights — $452 confirmed in budget.md" },
-          summary: "4-star, on Marine Drive near the boat dock, Table Mountain/harbor views.",
-          rationale: "Confirmed pricing and location directly on Marine Drive near the boat dock — the pick for the full 4-night stay.",
-          keyFacts: [],
-          links: [{ label: "Misty Waves Boutique Hotel", url: "https://www.mistywaves.co.za/" }],
-          _sourceRefs: ["research.md > South Africa > Hermanus > Lodging Considered", "itinerary.md > Hermanus — Whale Watching Finale", "budget.md > Hermanus (Whale Watching Finale)"]
-        },
-        {
-          id: "harbour-house-hotel",
-          type: "lodge",
-          status: "backup",
-          name: "Harbour House Hotel",
-          price: { perNightPP: "Not priced", singleSupplement: "Not stated", note: "4-star, steps from Old Harbour" },
-          summary: "Recommended specifically for the 3-sailing day given its proximity to minimize downtime between sailings.",
-          rationale: "A situational alternative rather than a full-stay replacement for Misty Waves — worth considering specifically for the day with three back-to-back boat sailings.",
-          keyFacts: [],
-          links: [{ label: "Harbour House Hotel", url: "https://harbourhousehotel.co.za/" }],
-          _sourceRefs: ["research.md > South Africa > Hermanus > Lodging Considered"]
-        },
-        {
-          id: "whale-coast-all-suite-hotel",
-          type: "lodge",
-          status: "neutral",
-          name: "Whale Coast All Suite Hotel",
-          price: { perNightPP: "~$89", singleSupplement: "Not stated", note: "Aparthotel, better value" },
-          summary: "A better-value aparthotel alternative.",
-          rationale: "Logged for reference — no strong verdict either way against Misty Waves.",
-          keyFacts: [],
-          links: [{ label: "Whale Coast All Suite Hotel", url: "https://www.whalecoasthotel.co.za/" }],
-          _sourceRefs: ["research.md > South Africa > Hermanus > Lodging Considered"]
-        },
-        {
-          id: "abalone-guest-lodge",
-          type: "lodge",
-          status: "neutral",
-          name: "Abalone Guest Lodge",
-          price: { perNightPP: "Not priced", singleSupplement: "Not stated", note: "Cliff-top at Sievers Point" },
-          summary: "Whale views directly from the room.",
-          rationale: "Logged for reference — no strong verdict either way against Misty Waves.",
-          keyFacts: [],
-          links: [{ label: "Abalone Guest Lodge", url: "https://www.abalonelodge.co.za/" }],
-          _sourceRefs: ["research.md > South Africa > Hermanus > Lodging Considered"]
-        }
-      ],
-
-      tours: [
-        {
-          id: "southern-right-charters",
-          type: "tour",
-          status: "preferred",
-          name: "Southern Right Charters",
-          duration: "Single sailing",
-          price: { total: "~$76–85/sailing (est.)", note: "Derived from budget.md's 4-sailing total of $305–340" },
-          summary: "One of two boat operators used across the stay's 4 whale-watching sailings, publishing a 9:00/12:00/15:00 daily schedule.",
-          rationale: "Used specifically to get variety of vantage points/operators across the multiple sailings, per the standing photography preference for varied conditions over repeating the same experience.",
-          keyFacts: [],
-          links: [{ label: "Southern Right Charters", url: "https://www.southernrightcharters.co.za/" }],
-          _sourceRefs: ["research.md > South Africa > Hermanus > Activities & Excursions", "itinerary.md > Hermanus — Whale Watching Finale"]
-        },
-        {
-          id: "hermanus-whale-watchers",
-          type: "tour",
-          status: "preferred",
-          name: "Hermanus Whale Watchers",
-          duration: "Single sailing",
-          price: { total: "~$76–85/sailing (est.)", note: "Offers a 10% discount on booking two trips" },
-          summary: "The second of two boat operators used across the stay's 4 whale-watching sailings, publishing a 9:00/12:00/15:00 (or 16:00) daily schedule.",
-          rationale: "Used specifically to get variety of vantage points/operators across the multiple sailings, per the standing photography preference for varied conditions over repeating the same experience.",
-          keyFacts: [{ label: "Multi-trip discount", value: "10% off when booking two trips" }],
-          links: [{ label: "Hermanus Whale Watchers", url: "https://www.whalewatchinghermanus.co/" }],
-          _sourceRefs: ["research.md > South Africa > Hermanus > Activities & Excursions", "itinerary.md > Hermanus — Whale Watching Finale"]
-        },
-        {
-          id: "marine-dynamics-dyer-island-cruises",
-          type: "tour",
-          status: "preferred",
-          name: "Marine Dynamics / Dyer Island Cruises",
-          duration: "Single day tour",
-          price: { total: "Included in budget.md's ~$160–180 Gansbaai figure" },
-          summary: "Used for the Marine Big 5 boat tour out of Gansbaai — where African penguins appear incidentally alongside the whale-watching focus.",
-          rationale: "Locked into the itinerary as Day 2's activity, adding a genuinely different vantage point (Gansbaai/Dyer Island) from the Hermanus-based sailings.",
-          keyFacts: [],
-          links: [{ label: "Marine Dynamics / Dyer Island Cruises", url: "https://www.whalewatchsa.com/" }],
-          _sourceRefs: ["research.md > South Africa > Hermanus > Activities & Excursions", "itinerary.md > Hermanus — Whale Watching Finale"]
-        },
-        {
-          id: "walker-bay-adventures",
-          type: "tour",
-          status: "preferred",
-          name: "Walker Bay Adventures",
-          duration: "Single day tour",
-          price: { total: "~$31", note: "Per budget.md's kayak line item" },
-          summary: "Used for the sea kayak tour out of Hermanus Old Harbour.",
-          rationale: "Locked into the itinerary as Day 3's activity, adding a sea-level vantage point distinct from the boat sailings.",
-          keyFacts: [],
-          links: [{ label: "Walker Bay Adventures", url: "https://walkerbayadventures.co.za/" }],
-          _sourceRefs: ["research.md > South Africa > Hermanus > Activities & Excursions", "itinerary.md > Hermanus — Whale Watching Finale"]
-        },
-        {
-          id: "hermanus-helicopter-scenic-flight",
-          type: "tour",
-          status: "rejected",
-          name: "Helicopter / Scenic Flight",
-          duration: "30 min",
-          price: { total: "$840–$1,140", note: "Total charter price for up to 3–4 pax" },
-          summary: "A scenic flight option considered and dropped.",
-          rationale: "Priced as a total charter, not cost-effective for a solo traveler unless a shared/scheduled option turns up closer to the date.",
-          keyFacts: [],
-          links: [],
-          _sourceRefs: ["research.md > South Africa > Hermanus > Activities & Excursions"]
-        }
-      ]
-    },
-
-    "etosha-damaraland": {
-      id: "etosha-damaraland",
-      name: "Etosha & Damaraland",
-      countryId: "namibia",
-      blurb: "Investigated as a potential top-tier extension — one of two \"canonical top-10\" safari destinations not yet touched by the trip, alongside South Luangwa. Season (Jun–Aug) matched the trip window well, but after reviewing sample imagery from both candidate regions, wildlife photography from Namibia wasn't compelling enough relative to other options to pursue further as a safari extension specifically — landscape shots were beautiful, but that's a different kind of trip. Not ruled out for a future landscape-photography-focused trip, just not a fit here. No lodges were ever priced before this decision was made.",
-      animals: [
-        { speciesId: "elephant",   likelihood: "highly_likely" },
-        { speciesId: "lion",       likelihood: "highly_likely" },
-        { speciesId: "leopard",    likelihood: "somewhat_likely" },
-        { speciesId: "cheetah",    likelihood: "somewhat_likely" },
-        { speciesId: "giraffe",    likelihood: "somewhat_likely" },
-        { speciesId: "roller",     likelihood: "somewhat_likely" },
-        { speciesId: "owlet",      likelihood: "unlikely" },
-        { speciesId: "kingfisher", likelihood: "unlikely" },
-        { speciesId: "wild-dog",   likelihood: "not_present" },
-        { speciesId: "gorilla",    likelihood: "not_present" }
-      ],
-
-      lodges: [],
-
-      tours: []
     }
   }
 };
