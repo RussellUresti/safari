@@ -261,8 +261,9 @@ button {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--panel-raised);
-  border: 1px solid var(--panel-edge);
+  background: var(--void);
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 0 3px var(--panel), inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 .gauge-track {
   fill: none;
