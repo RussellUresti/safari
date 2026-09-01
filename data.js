@@ -47,7 +47,7 @@ const TRIP_DATA = {
   regions: [
     { id: "east-africa",    label: "East Africa",    countryIds: ["uganda", "kenya", "tanzania"] },
     { id: "central-africa", label: "Central Africa",  countryIds: ["zimbabwe", "zambia", "botswana"] },
-    { id: "southern-africa",label: "Southern Africa", countryIds: [] }
+    { id: "southern-africa",label: "Southern Africa", countryIds: ["south-africa", "namibia"] }
   ],
 
   // ---- countries ---------------------------------------------------------
@@ -147,6 +147,38 @@ const TRIP_DATA = {
         body: "No Botswana-specific vaccination requirements were identified beyond the yellow fever cascade already established for this route. The certificate obtained before departure (mandatory for Uganda) satisfies Botswana's conditional requirement, even though enforcement at the light-aircraft entry points used on this itinerary (Kasane, Maun) is reportedly inconsistent in practice. No additional vaccination is needed beyond the standard travel panel."
       },
       subregionIds: ["chobe-okavango-delta", "tuli-mashatu"]
+    },
+    "south-africa": {
+      id: "south-africa",
+      name: "South Africa",
+      flagEmoji: "🇿🇦",
+      regionId: "southern-africa",
+      visaRequired: false,
+      visaInfo: {
+        summary: "Visa-free for US citizens — up to 90 days for tourism/business.",
+        body: "No visa needed for US citizens. Up to 90 days for tourism/business. Passport: South Africa's own official rule (per the US State Department's South Africa page) is just 30 days' validity beyond exit date + 2 consecutive blank visa pages — noticeably more lenient than the 6-month rule elsewhere on this route, but moot in practice given the passport will already carry 6+ months of validity for Uganda/Kenya/Zimbabwe."
+      },
+      medicalInfo: {
+        summary: "Yellow fever certificate required if arriving from an endemic country — Uganda and Kenya both qualify, so the certificate already needed for Uganda covers this leg too.",
+        body: "No South Africa-specific vaccination requirements were identified beyond the yellow fever cascade already established for this route. A certificate is required if arriving from an endemic country — Uganda and Kenya both qualify on this itinerary — so the certificate obtained before departure (mandatory for Uganda) automatically satisfies this leg as well."
+      },
+      subregionIds: ["greater-kruger", "kalahari", "hermanus"]
+    },
+    namibia: {
+      id: "namibia",
+      name: "Namibia",
+      flagEmoji: "🇳🇦",
+      regionId: "southern-africa",
+      visaRequired: true,
+      visaInfo: {
+        summary: "Not yet researched — Namibia was investigated and ultimately not preferred as an extension, so a dedicated visa pass was never done.",
+        body: "Namibia isn't part of the core route and was investigated only as a possible extension (Etosha & Damaraland) before being ruled out on photography merits — see medical/wildlife notes on the Etosha & Damaraland subregion. Because the extension was dropped before booking-stage research began, no visa cost/process check was ever done the way it was for the five core countries plus Botswana and Tanzania. Worth a fresh look if this extension is ever revisited."
+      },
+      medicalInfo: {
+        summary: "Not yet researched — no Namibia-specific vaccination requirements have been confirmed in this planning process.",
+        body: "As with the visa question, this wasn't researched in detail since the Etosha & Damaraland extension was ultimately not preferred. The yellow fever cascade established for the rest of this route (one certificate, obtained for Uganda, covering conditional requirements elsewhere) would very likely extend here too, but this hasn't been directly confirmed against an official Namibian source."
+      },
+      subregionIds: ["etosha-damaraland"]
     }
   },
 
@@ -1252,6 +1284,332 @@ const TRIP_DATA = {
           _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
         }
       ]
+    },
+
+    "greater-kruger": {
+      id: "greater-kruger",
+      name: "Greater Kruger",
+      countryId: "south-africa",
+      blurb: "The Klaserie Private Nature Reserve — part of the unfenced Greater Kruger ecosystem, the same wildlife as Sabi Sands at dramatically better value. Locked into the core itinerary as a 4-night stay at Africa on Foot, specifically renowned for leopard tracking.",
+      animals: [
+        { speciesId: "leopard",    likelihood: "highly_likely" },
+        { speciesId: "lion",       likelihood: "highly_likely" },
+        { speciesId: "elephant",   likelihood: "highly_likely" },
+        { speciesId: "giraffe",    likelihood: "highly_likely" },
+        { speciesId: "roller",     likelihood: "highly_likely" },
+        { speciesId: "wild-dog",   likelihood: "somewhat_likely" },
+        { speciesId: "kingfisher", likelihood: "somewhat_likely" },
+        { speciesId: "cheetah",    likelihood: "unlikely" },
+        { speciesId: "owlet",      likelihood: "unlikely" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [
+        {
+          id: "africa-on-foot",
+          type: "lodge",
+          status: "preferred",
+          name: "Africa on Foot",
+          price: {
+            perNightPP: "~$425",
+            singleSupplement: "None per earlier research — worth re-verifying",
+            note: "4 nights, full board — $1,700 confirmed in budget.md"
+          },
+          summary: "Klaserie Private Nature Reserve — a specialist photographic operator, part of the same unfenced ecosystem as Sabi Sands at dramatically better value.",
+          rationale: "Won a direct stress-test against Sabi Sands flagships (Londolozi $1,200–2,500/night; Mala Mala via Pangolin ~$2,200/night — both roughly 3x this price) and against a hosted alternative (SafariFRANK/Albie Venter, dropped over reliability/pricing-transparency concerns). The clear pick for the mid-range, photography-focused target.",
+          keyFacts: [{ label: "Same ownership as", value: "nThambo Tree Camp (logged as backup)" }],
+          links: [{ label: "Africa on Foot", url: "https://africaonfoot.com/" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Decision Rationale", "itinerary.md > South Africa — Greater Kruger", "budget.md > South Africa (Greater Kruger — Africa on Foot)"]
+        },
+        {
+          id: "nthambo-tree-camp",
+          type: "lodge",
+          status: "backup",
+          name: "nThambo Tree Camp",
+          price: {
+            perNightPP: "~$495 (2028 projected)",
+            singleSupplement: "Not stated",
+            note: "R6,750/pp/night (2026) → R7,425 (2027) → ~R8,170 projected (2028), ~17% more than Africa on Foot"
+          },
+          summary: "Same ownership as Africa on Foot, same Klaserie location — kept as backup/alternative.",
+          rationale: "A direct, same-ownership fallback if Africa on Foot falls through. Runs ~17% more per night. Has a 12+ age policy (irrelevant here) reflecting a slightly more adult-oriented positioning.",
+          keyFacts: [{ label: "Age policy", value: "12+ (not relevant for this trip)" }],
+          links: [{ label: "nThambo Tree Camp", url: "https://nthambo.com/" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Lodging Considered"]
+        },
+        {
+          id: "umkumbe-bush-lodge",
+          type: "lodge",
+          status: "rejected",
+          name: "Umkumbe Bush Lodge",
+          price: {
+            perNightPP: "~$543 solo",
+            singleSupplement: "Included in the ~$543 figure",
+            note: "Includes conservation levy and single supplement"
+          },
+          summary: "A lower-cost entry point into Sabi Sands specifically.",
+          rationale: "Meaningfully more than Africa on Foot, and carries a specific negative review flagging that the traversing area and sightings don't justify the Sabi Sands price tag. Not logged as a serious alternative given the higher cost and quality concerns. Note: a similarly-named but likely distinct property, \"Umkumbe Safari Lodge,\" also exists — worth distinguishing if revisiting.",
+          keyFacts: [],
+          links: [{ label: "Umkumbe Bush Lodge", url: "https://umkumbebushlodge.com/" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Lodging Considered"]
+        },
+        {
+          id: "sanparks-self-drive-rest-camps",
+          type: "lodge",
+          status: "rejected",
+          name: "Self-Drive SANParks Rest Camps",
+          price: {
+            perNightPP: "$80–$130",
+            singleSupplement: "Not applicable",
+            note: "Skukuza, Lower Sabie, etc."
+          },
+          summary: "A budget option considered before \"no self-drive\" was established as a firm style preference.",
+          rationale: "Doesn't fit the trip's standing style preferences (guided, not self-driven) — not preferred.",
+          keyFacts: [],
+          links: [{ label: "SANParks", url: "https://www.sanparks.org/" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Lodging Considered"]
+        }
+      ],
+
+      tours: [
+        {
+          id: "oryx-sabi-sands-big-5",
+          type: "tour",
+          status: "rejected",
+          name: "ORYX — South Africa: Sabi Sands Big 5",
+          duration: "Not specified",
+          price: { total: "ZAR 226,600", note: "two confirmed 2028 departures: Jul 1–6 and Jul 25–30; ORYX's live tour calendar separately shows a Jul 1–6, 2028 Sabi Sands departure priced at $10,401 pp instead — worth reconfirming exact 2028 dates/currency/price directly before relying on either figure" },
+          summary: "Sabi Sands remains the region already ruled out on price for this trip — logged for reference in case that decision is revisited.",
+          rationale: "Sabi Sands was already established as not preferred (see Decision Rationale) — this option inherits that verdict rather than being independently rejected.",
+          keyFacts: [],
+          links: [{ label: "ORYX Photo Tours", url: "https://www.oryxphoto.com/" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "african-photography-safaris-timbavati",
+          type: "tour",
+          status: "unresearched",
+          name: "African Photography Safaris — Timbavati",
+          duration: "Not specified",
+          price: { total: "Not found" },
+          summary: "Recurring July departure (2027 date: Jul 19). Timbavati is the same unfenced Greater Kruger sub-region as the preferred Africa on Foot pick.",
+          rationale: "No published price found yet — logged as a candidate for a direct quote.",
+          keyFacts: [],
+          links: [{ label: "African Photography Safaris", url: "https://www.africanphotographysafaris.com/photography-safaris" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "penda-south-africa-photo-safari",
+          type: "tour",
+          status: "neutral",
+          name: "Penda — South Africa Photo Safari",
+          duration: "Recurring July departure (2027 dates: Jul 19–25)",
+          price: { total: "$5,795" },
+          summary: "Also based in Timbavati; hosted by wildlife photographer Alan Hewitt with in-field tuition included (not needed by this traveler). Explicitly pairs with Penda's Botswana/Tuli tour the week before.",
+          rationale: "Logged as a priced, dated candidate alongside the preferred direct-booking (Africa on Foot) plan — not directly compared against it in detail.",
+          keyFacts: [{ label: "Pairing", value: "Explicitly pairable with Penda's Botswana/Tuli tour the week before" }],
+          links: [{ label: "Penda Photo Tours — South Africa Photo Safari", url: "https://www.pendaphototours.com/tour/south-africa-photo-safari/" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Tour Operators & Packages Considered"]
+        }
+      ]
+    },
+
+    kalahari: {
+      id: "kalahari",
+      name: "Kalahari",
+      countryId: "south-africa",
+      blurb: "A new region for South Africa alongside Greater Kruger — black-maned Kalahari lions (larger than savanna lions), cheetah, and strong roller/leopard/giraffe presence. Not otherwise investigated in this research beyond the single Wild Eye tour below; no direct-booking lodge alternative has been checked.",
+      animals: [
+        { speciesId: "lion",       likelihood: "highly_likely" },
+        { speciesId: "cheetah",    likelihood: "highly_likely" },
+        { speciesId: "roller",     likelihood: "highly_likely" },
+        { speciesId: "leopard",    likelihood: "somewhat_likely" },
+        { speciesId: "giraffe",    likelihood: "somewhat_likely" },
+        { speciesId: "elephant",   likelihood: "not_present" },
+        { speciesId: "wild-dog",   likelihood: "not_present" },
+        { speciesId: "owlet",      likelihood: "not_present" },
+        { speciesId: "kingfisher", likelihood: "not_present" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [],
+
+      tours: [
+        {
+          id: "wild-eye-exclusive-kalahari-safari",
+          type: "tour",
+          status: "neutral",
+          name: "Wild Eye — Exclusive Kalahari Safari",
+          duration: "10 nights (10–20 Jul 2028)",
+          price: { total: "R204,195", note: "Early Bird R195,950" },
+          summary: "The only Kalahari candidate found — not otherwise investigated in this research, and not yet compared against any direct-booking alternative.",
+          rationale: "Logged as a priced, dated candidate — no decision reached yet, since no other Kalahari option has been checked for comparison.",
+          keyFacts: [{ label: "2028 departure", value: "10–20 Jul" }],
+          links: [{ label: "Wild Eye — Exclusive Kalahari Safari", url: "https://wild-eye.com/product/exclusive-kalahari-safari/" }],
+          _sourceRefs: ["research.md > South Africa > Kalahari > Tour Operators & Packages Considered"]
+        }
+      ]
+    },
+
+    hermanus: {
+      id: "hermanus",
+      name: "Hermanus",
+      countryId: "south-africa",
+      blurb: "The trip's closing leg and fixed anchor date — timed to the front edge of peak southern right whale season, early September 2028. Built around variety rather than repetition: multiple whale-watching operators and routes across the stay, plus a Marine Big 5 boat tour and a sea kayak tour, consistent with the standing preference for varied vantage points over repeating the same activity.",
+      animals: [
+        { speciesId: "whale",      likelihood: "highly_likely" },
+        { speciesId: "penguin",    likelihood: "unlikely" },
+        { speciesId: "lion",       likelihood: "not_present" },
+        { speciesId: "leopard",    likelihood: "not_present" },
+        { speciesId: "cheetah",    likelihood: "not_present" },
+        { speciesId: "elephant",   likelihood: "not_present" },
+        { speciesId: "giraffe",    likelihood: "not_present" },
+        { speciesId: "gorilla",    likelihood: "not_present" },
+        { speciesId: "wild-dog",   likelihood: "not_present" },
+        { speciesId: "roller",     likelihood: "not_present" }
+      ],
+
+      lodges: [
+        {
+          id: "misty-waves-boutique-hotel",
+          type: "lodge",
+          status: "preferred",
+          name: "Misty Waves Boutique Hotel",
+          price: { perNightPP: "~$113", singleSupplement: "Not stated", note: "4 nights — $452 confirmed in budget.md" },
+          summary: "4-star, on Marine Drive near the boat dock, Table Mountain/harbor views.",
+          rationale: "Confirmed pricing and location directly on Marine Drive near the boat dock — the pick for the full 4-night stay.",
+          keyFacts: [],
+          links: [{ label: "Misty Waves Boutique Hotel", url: "https://www.mistywaves.co.za/" }],
+          _sourceRefs: ["research.md > South Africa > Hermanus > Lodging Considered", "itinerary.md > Hermanus — Whale Watching Finale", "budget.md > Hermanus (Whale Watching Finale)"]
+        },
+        {
+          id: "harbour-house-hotel",
+          type: "lodge",
+          status: "backup",
+          name: "Harbour House Hotel",
+          price: { perNightPP: "Not priced", singleSupplement: "Not stated", note: "4-star, steps from Old Harbour" },
+          summary: "Recommended specifically for the 3-sailing day given its proximity to minimize downtime between sailings.",
+          rationale: "A situational alternative rather than a full-stay replacement for Misty Waves — worth considering specifically for the day with three back-to-back boat sailings.",
+          keyFacts: [],
+          links: [{ label: "Harbour House Hotel", url: "https://harbourhousehotel.co.za/" }],
+          _sourceRefs: ["research.md > South Africa > Hermanus > Lodging Considered"]
+        },
+        {
+          id: "whale-coast-all-suite-hotel",
+          type: "lodge",
+          status: "neutral",
+          name: "Whale Coast All Suite Hotel",
+          price: { perNightPP: "~$89", singleSupplement: "Not stated", note: "Aparthotel, better value" },
+          summary: "A better-value aparthotel alternative.",
+          rationale: "Logged for reference — no strong verdict either way against Misty Waves.",
+          keyFacts: [],
+          links: [{ label: "Whale Coast All Suite Hotel", url: "https://www.whalecoasthotel.co.za/" }],
+          _sourceRefs: ["research.md > South Africa > Hermanus > Lodging Considered"]
+        },
+        {
+          id: "abalone-guest-lodge",
+          type: "lodge",
+          status: "neutral",
+          name: "Abalone Guest Lodge",
+          price: { perNightPP: "Not priced", singleSupplement: "Not stated", note: "Cliff-top at Sievers Point" },
+          summary: "Whale views directly from the room.",
+          rationale: "Logged for reference — no strong verdict either way against Misty Waves.",
+          keyFacts: [],
+          links: [{ label: "Abalone Guest Lodge", url: "https://www.abalonelodge.co.za/" }],
+          _sourceRefs: ["research.md > South Africa > Hermanus > Lodging Considered"]
+        }
+      ],
+
+      tours: [
+        {
+          id: "southern-right-charters",
+          type: "tour",
+          status: "preferred",
+          name: "Southern Right Charters",
+          duration: "Single sailing",
+          price: { total: "~$76–85/sailing (est.)", note: "Derived from budget.md's 4-sailing total of $305–340" },
+          summary: "One of two boat operators used across the stay's 4 whale-watching sailings, publishing a 9:00/12:00/15:00 daily schedule.",
+          rationale: "Used specifically to get variety of vantage points/operators across the multiple sailings, per the standing photography preference for varied conditions over repeating the same experience.",
+          keyFacts: [],
+          links: [{ label: "Southern Right Charters", url: "https://www.southernrightcharters.co.za/" }],
+          _sourceRefs: ["research.md > South Africa > Hermanus > Activities & Excursions", "itinerary.md > Hermanus — Whale Watching Finale"]
+        },
+        {
+          id: "hermanus-whale-watchers",
+          type: "tour",
+          status: "preferred",
+          name: "Hermanus Whale Watchers",
+          duration: "Single sailing",
+          price: { total: "~$76–85/sailing (est.)", note: "Offers a 10% discount on booking two trips" },
+          summary: "The second of two boat operators used across the stay's 4 whale-watching sailings, publishing a 9:00/12:00/15:00 (or 16:00) daily schedule.",
+          rationale: "Used specifically to get variety of vantage points/operators across the multiple sailings, per the standing photography preference for varied conditions over repeating the same experience.",
+          keyFacts: [{ label: "Multi-trip discount", value: "10% off when booking two trips" }],
+          links: [{ label: "Hermanus Whale Watchers", url: "https://www.whalewatchinghermanus.co/" }],
+          _sourceRefs: ["research.md > South Africa > Hermanus > Activities & Excursions", "itinerary.md > Hermanus — Whale Watching Finale"]
+        },
+        {
+          id: "marine-dynamics-dyer-island-cruises",
+          type: "tour",
+          status: "preferred",
+          name: "Marine Dynamics / Dyer Island Cruises",
+          duration: "Single day tour",
+          price: { total: "Included in budget.md's ~$160–180 Gansbaai figure" },
+          summary: "Used for the Marine Big 5 boat tour out of Gansbaai — where African penguins appear incidentally alongside the whale-watching focus.",
+          rationale: "Locked into the itinerary as Day 2's activity, adding a genuinely different vantage point (Gansbaai/Dyer Island) from the Hermanus-based sailings.",
+          keyFacts: [],
+          links: [{ label: "Marine Dynamics / Dyer Island Cruises", url: "https://www.whalewatchsa.com/" }],
+          _sourceRefs: ["research.md > South Africa > Hermanus > Activities & Excursions", "itinerary.md > Hermanus — Whale Watching Finale"]
+        },
+        {
+          id: "walker-bay-adventures",
+          type: "tour",
+          status: "preferred",
+          name: "Walker Bay Adventures",
+          duration: "Single day tour",
+          price: { total: "~$31", note: "Per budget.md's kayak line item" },
+          summary: "Used for the sea kayak tour out of Hermanus Old Harbour.",
+          rationale: "Locked into the itinerary as Day 3's activity, adding a sea-level vantage point distinct from the boat sailings.",
+          keyFacts: [],
+          links: [{ label: "Walker Bay Adventures", url: "https://walkerbayadventures.co.za/" }],
+          _sourceRefs: ["research.md > South Africa > Hermanus > Activities & Excursions", "itinerary.md > Hermanus — Whale Watching Finale"]
+        },
+        {
+          id: "hermanus-helicopter-scenic-flight",
+          type: "tour",
+          status: "rejected",
+          name: "Helicopter / Scenic Flight",
+          duration: "30 min",
+          price: { total: "$840–$1,140", note: "Total charter price for up to 3–4 pax" },
+          summary: "A scenic flight option considered and dropped.",
+          rationale: "Priced as a total charter, not cost-effective for a solo traveler unless a shared/scheduled option turns up closer to the date.",
+          keyFacts: [],
+          links: [],
+          _sourceRefs: ["research.md > South Africa > Hermanus > Activities & Excursions"]
+        }
+      ]
+    },
+
+    "etosha-damaraland": {
+      id: "etosha-damaraland",
+      name: "Etosha & Damaraland",
+      countryId: "namibia",
+      blurb: "Investigated as a potential top-tier extension — one of two \"canonical top-10\" safari destinations not yet touched by the trip, alongside South Luangwa. Season (Jun–Aug) matched the trip window well, but after reviewing sample imagery from both candidate regions, wildlife photography from Namibia wasn't compelling enough relative to other options to pursue further as a safari extension specifically — landscape shots were beautiful, but that's a different kind of trip. Not ruled out for a future landscape-photography-focused trip, just not a fit here. No lodges were ever priced before this decision was made.",
+      animals: [
+        { speciesId: "elephant",   likelihood: "highly_likely" },
+        { speciesId: "lion",       likelihood: "highly_likely" },
+        { speciesId: "leopard",    likelihood: "somewhat_likely" },
+        { speciesId: "cheetah",    likelihood: "somewhat_likely" },
+        { speciesId: "giraffe",    likelihood: "somewhat_likely" },
+        { speciesId: "roller",     likelihood: "somewhat_likely" },
+        { speciesId: "owlet",      likelihood: "unlikely" },
+        { speciesId: "kingfisher", likelihood: "unlikely" },
+        { speciesId: "wild-dog",   likelihood: "not_present" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [],
+
+      tours: []
     }
   }
 };
