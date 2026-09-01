@@ -239,38 +239,42 @@ button {
 .animal-strip {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 24px 22px;
   margin-bottom: 30px;
 }
 .animal-chip {
   display: flex;
   align-items: center;
-  gap: 8px;
+  height: 32px;
   background: var(--panel);
   border: 1px solid var(--panel-edge);
   border-radius: 999px;
-  padding: 6px 12px 6px 8px;
+  padding: 0 8px 0 14px;
 }
-.animal-chip__icon {
-  width: 26px; height: 26px;
-  display: flex; align-items: center; justify-content: center;
+.animal-chip__name { font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+.animal-chip__gauge {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  margin: -8px -8px -8px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   background: var(--panel-raised);
-  color: var(--ink);
-  flex-shrink: 0;
+  border: 1px solid var(--panel-edge);
 }
-.animal-chip__icon .icon { width: 15px; height: 15px; }
-.animal-chip__body { display: flex; flex-direction: row; align-items: center; gap: 7px; white-space: nowrap; }
-.animal-chip__name { font-size: 0.78rem; font-weight: 600; }
-.animal-chip__meter { display: flex; align-items: flex-end; gap: 2px; height: 13px; }
-.meter-bar { width: 3px; border-radius: 1px; background: var(--ink); opacity: 0.15; }
-.meter-bar.is-filled { opacity: 1; }
-.meter-bar--1 { height: 4px; }
-.meter-bar--2 { height: 7px; }
-.meter-bar--3 { height: 10px; }
-.meter-bar--4 { height: 13px; }
+.gauge-track {
+  fill: none;
+  stroke: var(--ink);
+  stroke-opacity: 0.15;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.gauge-track.is-filled { stroke: var(--gold-bright); stroke-opacity: 1; }
+.gauge-needle { stroke: var(--ink); stroke-width: 2; stroke-linecap: round; transition: transform 0.2s ease; }
+.gauge-pivot { fill: var(--ink); }
 .animal-chip[data-tier="not_present"] { opacity: 0.42; }
-.animal-chip[data-tier="not_present"] .animal-chip__icon { color: var(--ink-faint); }
 
 /* ---- section labels ------------------------------------------------------ */
 .section-label {

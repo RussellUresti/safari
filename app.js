@@ -85,22 +85,44 @@
   }
 
   // ---- animal likelihood chip -----------------------------------------
+  // Gauge geometry: a fixed semicircular track (4 quarter-turn segments,
+  // 180deg at the left down to 0deg at the right) drawn once in the 48x48
+  // viewBox below; only the needle's rotation changes per chip, driven by
+  // the tier's fill count (0-4) mapped onto that same 180deg sweep.
+  const GAUGE_MAX_FILL = 4;
+  const GAUGE_TRACK_SEGMENTS = [
+    "M5,24 A19,19 0 0 1 10.565,10.565",
+    "M10.565,10.565 A19,19 0 0 1 24,5",
+    "M24,5 A19,19 0 0 1 37.435,10.565",
+    "M37.435,10.565 A19,19 0 0 1 43,24"
+  ];
+
+  function buildLikelihoodGauge(fill) {
+    const needleAngle = 180 - (Math.min(fill, GAUGE_MAX_FILL) / GAUGE_MAX_FILL) * 180;
+    const segments = GAUGE_TRACK_SEGMENTS.map((d, i) => {
+      const segFilled = fill >= (i + 1) * (GAUGE_MAX_FILL / GAUGE_TRACK_SEGMENTS.length);
+      return `<path class="gauge-track${segFilled ? " is-filled" : ""}" d="${d}"></path>`;
+    }).join("");
+    return `
+      <span class="animal-chip__gauge">
+        <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+          ${segments}
+          <circle class="gauge-pivot" cx="24" cy="24" r="2"></circle>
+          <line class="gauge-needle" x1="24" y1="24" x2="24" y2="7" transform="rotate(${needleAngle} 24 24)"></line>
+        </svg>
+      </span>
+    `;
+  }
+
   function buildAnimalChip(entry) {
     const sp = DATA.species[entry.speciesId];
     if (!sp) return "";
     const tier = DATA.legend.likelihood[entry.likelihood];
     const fill = tier ? tier.fill : 0;
-    let meter = "";
-    for (let i = 1; i <= 4; i++) {
-      meter += `<span class="meter-bar meter-bar--${i}${i <= fill ? " is-filled" : ""}"></span>`;
-    }
     return `
       <div class="animal-chip" data-tier="${entry.likelihood}" title="${esc(sp.name)} — ${esc(tier ? tier.label : "")}">
-        <span class="animal-chip__icon">${icon(sp.icon)}</span>
-        <span class="animal-chip__body">
-          <span class="animal-chip__name">${esc(sp.name)}</span>
-          <span class="animal-chip__meter">${meter}</span>
-        </span>
+        <span class="animal-chip__name">${esc(sp.name)}</span>
+        ${buildLikelihoodGauge(fill)}
       </div>
     `;
   }
