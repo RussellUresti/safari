@@ -312,21 +312,7 @@ const TRIP_DATA = {
 
       lodges: [],
 
-      tours: [
-        {
-          id: "guided-falls-tour",
-          type: "tour",
-          status: "preferred",
-          name: "Guided Falls Tour (Zimbabwe side)",
-          duration: "Half-day",
-          price: { total: "$60\u2013$70", note: "includes ~$58\u2013$65 park entry + guide" },
-          summary: "A single guided tour of the falls from the Zimbabwe side, including park entry.",
-          rationale: "Roughly two-thirds of the falls sit on the Zimbabwe side, giving wider panoramic views and better photography angles than the Zambia side, especially favorable in dry season \u2014 this, plus easier onward Chobe logistics and a wider range of affordable accommodation, is why the whole leg is based here rather than in Livingstone.",
-          keyFacts: [],
-          links: [{ label: "Victoria Falls National Park (ZimParks)", url: "https://www.zimparks.org.zw/victoria-falls-national-park/" }],
-          _sourceRefs: ["itinerary.md > Victoria Falls", "budget.md > Victoria Falls", "research.md > Zimbabwe > Victoria Falls > Decision Rationale"]
-        }
-      ]
+      tours: []
     },
 
     "ngorongoro-crater": {
