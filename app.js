@@ -98,7 +98,9 @@
   ];
 
   function buildLikelihoodGauge(fill) {
-    const needleAngle = 180 - (Math.min(fill, GAUGE_MAX_FILL) / GAUGE_MAX_FILL) * 180;
+    // needle SVG points straight up by default (the "up" transform origin),
+    // so the rotation is relative to that, not an absolute compass angle
+    const needleAngle = (Math.min(fill, GAUGE_MAX_FILL) / GAUGE_MAX_FILL) * 180 - 90;
     const segments = GAUGE_TRACK_SEGMENTS.map((d, i) => {
       const segFilled = fill >= (i + 1) * (GAUGE_MAX_FILL / GAUGE_TRACK_SEGMENTS.length);
       return `<path class="gauge-track${segFilled ? " is-filled" : ""}" d="${d}"></path>`;
