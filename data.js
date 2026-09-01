@@ -45,7 +45,7 @@ const TRIP_DATA = {
 
   // ---- regions (tabs) ----------------------------------------------------
   regions: [
-    { id: "east-africa",    label: "East Africa",    countryIds: ["uganda", "kenya"] },
+    { id: "east-africa",    label: "East Africa",    countryIds: ["uganda", "kenya", "tanzania"] },
     { id: "central-africa", label: "Central Africa",  countryIds: [] },
     { id: "southern-africa",label: "Southern Africa", countryIds: [] }
   ],
@@ -83,6 +83,22 @@ const TRIP_DATA = {
         body: "Kenya requires a yellow fever certificate on arrival because this itinerary arrives from Uganda, a yellow-fever-endemic country \u2014 the same certificate obtained for Uganda covers this automatically. No additional Kenya-specific vaccination requirements were identified beyond the standard travel panel (routine vaccines, hepatitis A/typhoid as generally recommended, malaria prophylaxis as advised by a travel clinic for the Mara region)."
       },
       subregionIds: ["laikipia", "amboseli", "masai-mara"]
+    },
+    tanzania: {
+      id: "tanzania",
+      name: "Tanzania",
+      flagEmoji: "\ud83c\uddf9\ud83c\uddff",
+      regionId: "east-africa",
+      visaRequired: true,
+      visaInfo: {
+        summary: "eVisa required, apply in advance \u2014 US citizens specifically need the $100 Multiple Entry Visa, not the standard $50 rate other nationalities pay.",
+        body: "Confirmed directly on the official portal's guidelines page: US citizens must apply for the Multiple Entry Visa ($100) for tourism, rather than the Ordinary/Single Entry visa ($50) other nationalities are eligible for \u2014 a reciprocity measure matching what the US charges Tanzanian citizens for a US visa, and not avoidable by requesting single-entry instead. Valid 1 year from issuance, capped at 90 days per stay. Apply only at the official portal, visa.immigration.go.tz (also reachable via immigration.go.tz) \u2014 as with Uganda, avoid third-party sites charging inflated \u201cservice fees\u201d on top of the government rate. Passport: 6+ months validity, 1 blank page. This country isn't part of the core 5-country route \u2014 relevant only if the Ngorongoro/Tanzania extension is added."
+      },
+      medicalInfo: {
+        summary: "Yellow fever certificate required on arrival from Kenya, Uganda, Ethiopia, or Rwanda \u2014 the same certificate already needed for Uganda covers this.",
+        body: "Yellow fever is not present in Tanzania itself, so this requirement exists to protect the country rather than the traveler. A certificate is required from all travelers over 1 year old arriving from or transiting through a yellow-fever-risk country \u2014 Kenya, Uganda, Ethiopia, and Rwanda all qualify. Since this extension's own routing goes Nairobi \u2192 Arusha to reach Tanzania, that requirement would apply here \u2014 but the same certificate already obtained for the mandatory Uganda requirement satisfies it, consistent with the cascade already confirmed for the rest of the route. No additional vaccination needed beyond what's already planned for Uganda."
+      },
+      subregionIds: ["ngorongoro-crater"]
     }
   },
 
@@ -256,6 +272,78 @@ const TRIP_DATA = {
           keyFacts: [{ label: "2028 departure", value: "28 Jun\u20136 Jul" }],
           links: [{ label: "Wild Eye", url: "https://wild-eye.com/photographic-travel/primates-of-uganda/" }],
           _sourceRefs: ["research.md > Uganda > Multi-Site (Bwindi + Kibale Primates)", "extensions.md > Uganda > Kibale"]
+        }
+      ]
+    },
+
+    "ngorongoro-crater": {
+      id: "ngorongoro-crater",
+      name: "Ngorongoro Crater",
+      countryId: "tanzania",
+      blurb: "The world's largest non-flooded volcanic caldera \u2014 a compact, walled ecosystem holding roughly 25,000 animals and this trip's best odds anywhere of a black rhino sighting. Unlike Kenya's conservancies or Greater Kruger's private reserves, the crater doesn't appear to have a genuine mid-range, photography-suitable lodge tier of its own \u2014 every direct-booking option investigated here was either ultra-luxury or had real availability problems.",
+      animals: [
+        { speciesId: "lion",       likelihood: "highly_likely" },
+        { speciesId: "elephant",   likelihood: "highly_likely" },
+        { speciesId: "roller",     likelihood: "highly_likely" },
+        { speciesId: "leopard",    likelihood: "somewhat_likely" },
+        { speciesId: "owlet",      likelihood: "somewhat_likely" },
+        { speciesId: "kingfisher", likelihood: "somewhat_likely" },
+        { speciesId: "cheetah",    likelihood: "unlikely" },
+        { speciesId: "giraffe",    likelihood: "not_present" },
+        { speciesId: "wild-dog",   likelihood: "not_present" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [
+        {
+          id: "lions-paw",
+          type: "lodge",
+          status: "rejected",
+          name: "Lion's Paw",
+          price: {
+            perNightPP: "$1,580",
+            singleSupplement: "Not stated",
+            note: "Plus a mandatory $70.80/night NCA conservation fee (~$1,650+/night all-in) before any single supplement"
+          },
+          summary: "Explicitly recommended for photographers in secondary lodge-comparison sources, but priced well above what those sources suggest.",
+          rationale: "Secondary-source pricing (claimed $350\u2013$500 pp/night) was stale or promotional \u2014 the same failure mode seen with Kicheche's \u201cstarting at\u201d rate before its real peak-season PDF was checked. The confirmed rate, verified directly against a booking flow since the operator doesn't publish rates on its own site, puts this alongside &Beyond Crater Lodge in the ultra-luxury tier.",
+          keyFacts: [],
+          links: [{ label: "Lion's Paw", url: "https://karibucamps.com/lions-paw/" }],
+          _sourceRefs: ["research.md > Tanzania > Ngorongoro Crater > Lodging Considered"]
+        },
+        {
+          id: "ngorongoro-serena",
+          type: "lodge",
+          status: "rejected",
+          name: "Ngorongoro Serena",
+          price: {
+            perNightPP: "$772",
+            singleSupplement: "Not stated",
+            note: "More reasonable than Lion's Paw, but availability only showed for 2 nights, or only in July 2027"
+          },
+          summary: "Checked as a fallback mid-range candidate once Lion's Paw priced out as ultra-luxury.",
+          rationale: "The rate itself is reasonable, but availability wasn't a clean match to this trip's needs on either duration or date consistency.",
+          keyFacts: [],
+          links: [{ label: "Serena Hotels \u2014 Ngorongoro", url: "https://www.serenahotels.com/ngorongoro" }],
+          _sourceRefs: ["research.md > Tanzania > Ngorongoro Crater > Lodging Considered"]
+        }
+      ],
+
+      tours: [
+        {
+          id: "nat-geo-journeys-tanzania",
+          type: "tour",
+          status: "neutral",
+          name: "National Geographic Journeys \u2014 Tanzania Safari & Serengeti Tour",
+          duration: "7 days",
+          price: { total: "$5,800", note: "solo" },
+          summary: "Broad Northern Circuit tour \u2014 Tarangire, Lake Manyara, Ngorongoro Crater, Serengeti, and Olduvai Gorge \u2014 the only reasonable way found to see Ngorongoro given this trip's dates and logistics.",
+          rationale: "A general-interest small-group tour, not a photography specialist product \u2014 no dedicated photo vehicle or host. Worth treating as a \u201csee Tanzania's highlights\u201d trip rather than an upgrade to the photography-focused style used everywhere else on this itinerary. That said, it remains the only viable path to Ngorongoro found so far, since no genuine mid-range lodge option turned up on direct booking.",
+          keyFacts: [
+            { label: "Route", value: "Starts/ends in Arusha; routes back through Nairobi or via Zanzibar to reach Victoria Falls" }
+          ],
+          links: [{ label: "G Adventures", url: "https://www.gadventures.com/trips/journeys-tanzania-safari-experience/DTTNG/" }],
+          _sourceRefs: ["research.md > Tanzania > Ngorongoro Crater > Tour Operators & Packages Considered", "extensions.md > Tanzania"]
         }
       ]
     },
