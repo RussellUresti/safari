@@ -13,6 +13,7 @@
   --ink-faint:   #8B7F6C;
 
   --gold:        #C89B3C;
+  --half-gold:   #C89B3CAA;
   --gold-bright: #EFCB6E;
   --rust:        #B15A32;
   --sage:        #8A9A5B;
@@ -262,7 +263,7 @@ button {
   justify-content: center;
   border-radius: 50%;
   background: var(--void);
-  border: 2px solid var(--gold);
+  border: 2px dashed var(--half-gold);
   box-shadow: 0 0 0 3px var(--panel), inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 .gauge-track {
