@@ -254,26 +254,26 @@ button {
 .animal-chip__name { font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
 .animal-chip__gauge {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  margin: -8px -8px -8px 6px;
+  width: 36px;
+  height: 36px;
+  margin: -10px -13px -10px 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background: var(--void);
-  border: 1px solid var(--gold);
+  border: 2px solid var(--gold);
   box-shadow: 0 0 0 3px var(--panel), inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 .gauge-track {
   fill: none;
   stroke: var(--ink);
   stroke-opacity: 0.15;
-  stroke-width: 3;
+  stroke-width: 2.25;
   stroke-linecap: round;
 }
 .gauge-track.is-filled { stroke: var(--gold-bright); stroke-opacity: 1; }
-.gauge-needle { stroke: var(--ink); stroke-width: 2; stroke-linecap: round; transition: transform 0.2s ease; }
+.gauge-needle { stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; transition: transform 0.2s ease; }
 .gauge-pivot { fill: var(--ink); }
 .animal-chip[data-tier="not_present"] { opacity: 0.42; }
 

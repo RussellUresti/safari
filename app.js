@@ -86,15 +86,15 @@
 
   // ---- animal likelihood chip -----------------------------------------
   // Gauge geometry: a fixed semicircular track (4 quarter-turn segments,
-  // 180deg at the left down to 0deg at the right) drawn once in the 48x48
+  // 180deg at the left down to 0deg at the right) drawn once in the 36x36
   // viewBox below; only the needle's rotation changes per chip, driven by
   // the tier's fill count (0-4) mapped onto that same 180deg sweep.
   const GAUGE_MAX_FILL = 4;
   const GAUGE_TRACK_SEGMENTS = [
-    "M5,24 A19,19 0 0 1 10.565,10.565",
-    "M10.565,10.565 A19,19 0 0 1 24,5",
-    "M24,5 A19,19 0 0 1 37.435,10.565",
-    "M37.435,10.565 A19,19 0 0 1 43,24"
+    "M3.75,18 A14.25,14.25 0 0 1 7.92,7.92",
+    "M7.92,7.92 A14.25,14.25 0 0 1 18,3.75",
+    "M18,3.75 A14.25,14.25 0 0 1 28.08,7.92",
+    "M28.08,7.92 A14.25,14.25 0 0 1 32.25,18"
   ];
 
   function buildLikelihoodGauge(fill) {
@@ -107,10 +107,10 @@
     }).join("");
     return `
       <span class="animal-chip__gauge">
-        <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+        <svg viewBox="0 0 36 36" width="36" height="36" aria-hidden="true">
           ${segments}
-          <circle class="gauge-pivot" cx="24" cy="24" r="2"></circle>
-          <line class="gauge-needle" x1="24" y1="24" x2="24" y2="7" transform="rotate(${needleAngle} 24 24)"></line>
+          <circle class="gauge-pivot" cx="18" cy="18" r="1.5"></circle>
+          <line class="gauge-needle" x1="18" y1="18" x2="18" y2="5.25" transform="rotate(${needleAngle} 18 18)"></line>
         </svg>
       </span>
     `;
