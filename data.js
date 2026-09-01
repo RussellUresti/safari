@@ -45,7 +45,7 @@ const TRIP_DATA = {
 
   // ---- regions (tabs) ----------------------------------------------------
   regions: [
-    { id: "east-africa",    label: "East Africa",    countryIds: ["uganda", "kenya", "tanzania"] },
+    { id: "east-africa",    label: "East Africa",    countryIds: ["uganda", "kenya", "rwanda", "tanzania"] },
     { id: "central-africa", label: "Central Africa",  countryIds: ["zimbabwe", "zambia", "botswana"] },
     { id: "southern-africa",label: "Southern Africa", countryIds: ["south-africa"] }
   ],
@@ -83,6 +83,22 @@ const TRIP_DATA = {
         body: "Kenya requires a yellow fever certificate on arrival because this itinerary arrives from Uganda, a yellow-fever-endemic country \u2014 the same certificate obtained for Uganda covers this automatically. No additional Kenya-specific vaccination requirements were identified beyond the standard travel panel (routine vaccines, hepatitis A/typhoid as generally recommended, malaria prophylaxis as advised by a travel clinic for the Mara region)."
       },
       subregionIds: ["laikipia", "amboseli", "masai-mara"]
+    },
+    rwanda: {
+      id: "rwanda",
+      name: "Rwanda",
+      flagEmoji: "🇷🇼",
+      regionId: "east-africa",
+      visaRequired: true,
+      visaInfo: {
+        summary: "Visa on arrival, no advance application needed — $50 single-entry (30 days) or $70 multiple-entry (90 days). Not part of the core route; relevant only if this Volcanoes National Park research is ever turned into an itinerary change.",
+        body: "Confirmed directly against the official portal, migration.gov.rw (Directorate General of Immigration and Emigration): the US is not an African Union/Commonwealth/La Francophonie member, so US citizens don't get Rwanda's free visa-waiver tier — instead, a Tourist/Holiday Visa (V1) is issued visa-on-arrival at Kigali International Airport or any land border, no pre-approval required, for $50 single-entry (30 days) or $70 multiple-entry (90 days). An eVisa can also be applied for in advance at the same portal if skipping the arrival queue is preferred, but unlike Uganda/Kenya/Zimbabwe, advance application isn't necessary here — Rwanda's policy (in place since Jan 2018) grants on-arrival visas to citizens of every country. Passport: 6+ months validity, 1 blank page. Rwanda is not part of the core 5-country route — its visa cost isn't folded into the trip's visa total unless this leg is actually added. Note: if Rwanda is ever added alongside Uganda and Kenya, the East Africa Tourist Visa (EATV, $100, 90-day multiple entry across all three) becomes cheaper and more flexible than three separate visas ($130–159 total) — worth revisiting if this section is ever acted on."
+      },
+      medicalInfo: {
+        summary: "Yellow fever certificate not required for direct US arrival, but is required if entering from Uganda (or another endemic country) — the certificate already needed for Uganda would cover it. Volcanoes NP treks start from a higher gate and carry genuine altitude-sickness risk, unlike Bwindi.",
+        body: "Yellow fever: not required for direct arrival from the US — Rwanda was removed from WHO's yellow-fever-endemic list and only requires the certificate from travelers arriving from (or transiting more than 12 hours through) a country with yellow fever risk. Since Uganda qualifies, this would apply if Rwanda were ever visited as part of the same trip as Uganda — but the certificate already needed for Uganda's mandatory requirement covers it with no separate action required. Altitude: this is a real point of contrast with Bwindi. Bwindi's elevation range (1,160–2,607m) sits below the ~2,400–2,500m threshold most medical/travel sources treat as where true acute mountain sickness (AMS) becomes plausible, but Volcanoes National Park treks start from a ~2,400m gate and can exceed 3,000m — genuinely higher AMS risk than anything currently on this itinerary. Worth revisiting acclimatization/Diamox guidance specifically if this leg is ever added, rather than assuming Bwindi's \"low risk, no need to research it\" conclusion carries over."
+      },
+      subregionIds: ["volcanoes-national-park"]
     },
     tanzania: {
       id: "tanzania",
@@ -336,6 +352,150 @@ const TRIP_DATA = {
           keyFacts: [{ label: "2028 departure", value: "28 Jun\u20136 Jul" }],
           links: [{ label: "Wild Eye", url: "https://wild-eye.com/photographic-travel/primates-of-uganda/" }],
           _sourceRefs: ["research.md > Uganda > Multi-Site (Bwindi + Kibale Primates)", "extensions.md > Uganda > Kibale"]
+        }
+      ]
+    },
+
+    "volcanoes-national-park": {
+      id: "volcanoes-national-park",
+      name: "Volcanoes National Park",
+      countryId: "rwanda",
+      blurb: "Investigated for completeness (Aug 2026) against the locked-in Uganda plan, not as an active alternative. Rwanda has no Gorilla Habituation Experience equivalent at any price — every trek, standard or private, runs to the same one-hour format, versus Uganda's 4-hour GHE. The standard permit alone is $1,500pp for that one hour, roughly what Uganda's 4-hour GHE costs (~$1,500–$1,800). Uganda/Rushaga GHE remains the preferred pick; this section is retained as reference in case Rwanda's product offering changes before 2028, or in case a standard one-hour Rwanda trek is ever wanted as a distinct add-on rather than a replacement.",
+      animals: [
+        { speciesId: "gorilla",    likelihood: "highly_likely" },
+        { speciesId: "elephant",   likelihood: "unlikely" },
+        { speciesId: "lion",       likelihood: "not_present" },
+        { speciesId: "leopard",    likelihood: "not_present" },
+        { speciesId: "cheetah",    likelihood: "not_present" },
+        { speciesId: "giraffe",    likelihood: "not_present" },
+        { speciesId: "wild-dog",   likelihood: "not_present" },
+        { speciesId: "roller",     likelihood: "not_present" },
+        { speciesId: "owlet",      likelihood: "not_present" },
+        { speciesId: "kingfisher", likelihood: "not_present" }
+      ],
+
+      lodges: [],
+
+      tours: [
+        {
+          id: "east-africa-safaris-rwanda",
+          type: "tour",
+          status: "neutral",
+          name: "East Africa Safaris — 3-Day Rwanda Mountain Gorilla Tracking Safari",
+          duration: "3 days",
+          price: { total: "$2,598–$2,718", note: "pp, 2-traveler price shown" },
+          summary: "Standard 1-hour gorilla trek, shared tour (max 7 people), mid-range lodge, Kigali start/end.",
+          rationale: "Logged for reference against the Uganda GHE decision, not pursued as an active candidate — no GHE product exists in Rwanda to compare against.",
+          keyFacts: [
+            { label: "Rating", value: "5.0/5 (31 reviews)" },
+            { label: "Group size", value: "Shared, max 7" }
+          ],
+          links: [{ label: "East Africa Safaris", url: "https://www.safaribookings.com/tours/t91973" }],
+          _sourceRefs: ["research.md > Rwanda > Volcanoes National Park > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "umurage-eco-safaris",
+          type: "tour",
+          status: "neutral",
+          name: "Umurage Eco Safaris — 3-Day Gorilla and Golden Monkey Trek with Gisenyi Tour",
+          duration: "3 days",
+          price: { total: "$2,662–$2,772", note: "pp" },
+          summary: "Standard 1-hour gorilla trek, private tour, budget tier, adds a Lake Kivu/Gisenyi stop, Kigali start/end.",
+          rationale: "Logged for reference; budget tier within the Rwanda comparison set, still priced above Uganda's GHE bundle.",
+          keyFacts: [{ label: "Rating", value: "5.0/5 (16 reviews)" }],
+          links: [{ label: "Umurage Eco Safaris", url: "https://www.safaribookings.com/tours/t115079" }],
+          _sourceRefs: ["research.md > Rwanda > Volcanoes National Park > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "echoes-from-africa",
+          type: "tour",
+          status: "neutral",
+          name: "Echoes From Africa — 3-Day Rwanda Gorillas & Golden Monkey Trekking Tour",
+          duration: "3 days",
+          price: { total: "$2,739–$3,770", note: "pp" },
+          summary: "Standard 1-hour gorilla trek, private tour, mid-range lodge, Kigali start/end.",
+          rationale: "Logged for reference against the Uganda GHE decision.",
+          keyFacts: [{ label: "Rating", value: "5.0/5 (5 reviews)" }],
+          links: [{ label: "Echoes From Africa", url: "https://www.safaribookings.com/tours/t106503" }],
+          _sourceRefs: ["research.md > Rwanda > Volcanoes National Park > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "map2africa",
+          type: "tour",
+          status: "neutral",
+          name: "Map2Africa — 3-Day Gorillas in the Mist - Rwanda",
+          duration: "3 days",
+          price: { total: "$2,739–$3,013", note: "pp" },
+          summary: "Standard 1-hour gorilla trek, private tour, luxury tier (above this trip's mid-range target), Kigali start/end.",
+          rationale: "Kept for reference rather than as a serious candidate — luxury tier sits above this trip's mid-range target on top of Rwanda's already-higher cost for a lesser product than Uganda's GHE.",
+          keyFacts: [{ label: "Rating", value: "5.0/5 (6 reviews)" }],
+          links: [{ label: "Map2Africa", url: "https://www.safaribookings.com/tours/t115750" }],
+          _sourceRefs: ["research.md > Rwanda > Volcanoes National Park > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "golden-rwanda-safaris",
+          type: "tour",
+          status: "neutral",
+          name: "Golden Rwanda Safaris — 3-Day Gorilla Trekking and Mountain Biking at Lake Kivu",
+          duration: "3 days",
+          price: { total: "$3,190", note: "pp" },
+          summary: "Standard 1-hour gorilla trek, private tour, mid-range lodge & hotel, Kigali start/end, bundles in a Lake Kivu extension.",
+          rationale: "Most-reviewed operator found in this pass — a real reliability signal — but still logged for reference only, since no GHE product exists in Rwanda to compare against Uganda's preferred pick.",
+          keyFacts: [{ label: "Rating", value: "4.9/5 (328 reviews) — most-reviewed operator in this pass" }],
+          links: [{ label: "Golden Rwanda Safaris", url: "https://www.safaribookings.com/tours/t87955" }],
+          _sourceRefs: ["research.md > Rwanda > Volcanoes National Park > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "go-extra-mile-safaris",
+          type: "tour",
+          status: "neutral",
+          name: "GO Extra Mile Safaris — 4-Day Rwanda Signature Safari Volcanoes & Akagera",
+          duration: "4 days",
+          price: { total: "$3,453", note: "pp" },
+          summary: "Standard 1-hour gorilla trek, private tour, luxury tier, adds an Akagera (Big Five) stop rather than being a pure gorilla-only itinerary.",
+          rationale: "Logged for reference given the operator's strong rating, but not a clean like-for-like comparison since it bundles in a separate Big Five park.",
+          keyFacts: [{ label: "Rating", value: "5.0/5 (7 reviews)" }],
+          links: [{ label: "GO Extra Mile Safaris", url: "https://www.safaribookings.com/tours/t107150" }],
+          _sourceRefs: ["research.md > Rwanda > Volcanoes National Park > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "lion-safaris-rwanda",
+          type: "tour",
+          status: "neutral",
+          name: "Lion Safaris — 6-Day Rwanda Mountain Gorillas & Chimpanzees Tour",
+          duration: "6 days",
+          price: { total: "$3,713", note: "pp" },
+          summary: "Standard 1-hour gorilla trek, private tour, mid-range lodge & hotel, pairs Volcanoes gorilla trekking with Nyungwe chimp trekking.",
+          rationale: "SafariBookings' current best-seller for Rwanda — longer and pricier than a pure 3-day comparison, but worth flagging since chimpanzee trekking is separately logged as a possible future add-on (see Uganda > Kibale).",
+          keyFacts: [{ label: "Rating", value: "5.0/5 (74 reviews) — SafariBookings' current best-seller for Rwanda" }],
+          links: [{ label: "Lion Safaris", url: "https://www.safaribookings.com/tours/t68411" }],
+          _sourceRefs: ["research.md > Rwanda > Volcanoes National Park > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "safari-com-rwanda",
+          type: "tour",
+          status: "neutral",
+          name: "safari.com — 3-Day Rwanda Gorilla Trekking in Volcanoes National Park",
+          duration: "3 days",
+          price: { total: "$3,850", note: "pp sharing — confirmed low-season 2026 rate direct from operator site" },
+          summary: "Standard 1-hour gorilla trek, stays at Five Volcanoes Boutique Hotel, includes a Kigali city tour (Genocide Memorial) on the return leg.",
+          rationale: "Pricier booking-platform option, logged as a rough price ceiling for this tier rather than a leading candidate.",
+          keyFacts: [],
+          links: [{ label: "safari.com", url: "https://www.safari.com/safaris/3-day-rwanda-gorilla-trekking-in-volcanoes-national-park" }],
+          _sourceRefs: ["research.md > Rwanda > Volcanoes National Park > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "rwanda-private-gorilla-trekking",
+          type: "tour",
+          status: "rejected",
+          name: "Private Gorilla Trekking (RDB)",
+          duration: "1 hour with the gorilla family",
+          price: { total: "$15,000", note: "pp, exclusive access to one full family with a dedicated guide" },
+          summary: "Buys exclusive access to one gorilla family, a dedicated guide, and a flexible 8–11am start time — not extended time. Visits still run to roughly the standard one-hour window, not GHE's four hours.",
+          rationale: "Logged for completeness, not a genuine GHE substitute — it buys privacy and schedule flexibility, not extended time. At roughly 5x the cost of Uganda's entire bundled GHE tour for a fraction of the photography time, this doesn't hold up as a competitive alternative and isn't pursued further.",
+          keyFacts: [{ label: "vs. Uganda GHE", value: "~5x the cost for ~1/4 the time with the family" }],
+          links: [{ label: "Volcanoes National Park — Park Fees (RDB)", url: "https://www.volcanoesnationalpark.org/park-fees/" }],
+          _sourceRefs: ["research.md > Rwanda > Volcanoes National Park > Decision Rationale"]
         }
       ]
     },
