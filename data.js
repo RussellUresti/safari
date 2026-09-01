@@ -617,7 +617,7 @@ const TRIP_DATA = {
         {
           id: "ol-tukai-lodge",
           type: "lodge",
-          status: "preferred",
+          status: "extension",
           name: "Ol Tukai Lodge",
           price: {
             perNightPP: "~$350",
@@ -739,7 +739,7 @@ const TRIP_DATA = {
         {
           id: "oryx-black-leopard-photo-safari",
           type: "tour",
-          status: "preferred",
+          status: "extension",
           name: "ORYX Photo Tours \u2014 Kenya Black Leopard Photo Safari",
           duration: "8 days",
           price: { total: "$12,972", note: "$12,772 pp sharing + $200 single supplement, confirmed as the first solo traveler to book" },
@@ -758,7 +758,7 @@ const TRIP_DATA = {
         {
           id: "wild-eye-amboseli-laikipia",
           type: "tour",
-          status: "backup",
+          status: "extension",
           name: "Wild Eye \u2014 Amboseli and Laikipia Photo Safari",
           duration: "11 nights (7 Laikipia + 3 Amboseli + 1 Nairobi)",
           price: { total: "$14,675", note: "no single supplement, max 4 guests" },
@@ -976,7 +976,7 @@ const TRIP_DATA = {
         {
           id: "robin-pope-luangwa-river-camp",
           type: "lodge",
-          status: "preferred",
+          status: "extension",
           name: "Robin Pope Safaris — Luangwa River Camp",
           price: {
             perNightPP: "$600",
