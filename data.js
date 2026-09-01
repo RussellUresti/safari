@@ -46,7 +46,7 @@ const TRIP_DATA = {
   // ---- regions (tabs) ----------------------------------------------------
   regions: [
     { id: "east-africa",    label: "East Africa",    countryIds: ["uganda", "kenya", "tanzania"] },
-    { id: "central-africa", label: "Central Africa",  countryIds: [] },
+    { id: "central-africa", label: "Central Africa",  countryIds: ["zimbabwe"] },
     { id: "southern-africa",label: "Southern Africa", countryIds: [] }
   ],
 
@@ -99,6 +99,22 @@ const TRIP_DATA = {
         body: "Yellow fever is not present in Tanzania itself, so this requirement exists to protect the country rather than the traveler. A certificate is required from all travelers over 1 year old arriving from or transiting through a yellow-fever-risk country \u2014 Kenya, Uganda, Ethiopia, and Rwanda all qualify. Since this extension's own routing goes Nairobi \u2192 Arusha to reach Tanzania, that requirement would apply here \u2014 but the same certificate already obtained for the mandatory Uganda requirement satisfies it, consistent with the cascade already confirmed for the rest of the route. No additional vaccination needed beyond what's already planned for Uganda."
       },
       subregionIds: ["ngorongoro-crater"]
+    },
+    zimbabwe: {
+      id: "zimbabwe",
+      name: "Zimbabwe",
+      flagEmoji: "\ud83c\uddff\ud83c\uddfc",
+      regionId: "central-africa",
+      visaRequired: true,
+      visaInfo: {
+        summary: "eVisa or visa-on-arrival, both available \u2014 $30, single entry, 30 days. The standard single-entry eVisa is the right pick for this itinerary.",
+        body: "US citizens are \u201cCategory B\u201d \u2014 eligible for visa-on-arrival ($30 cash, single entry, 30 days) at Victoria Falls or Harare airports, but the eVisa (evisa.gov.zw) is recommended in advance to skip the arrival queue. Same $30 fee, 3\u20137 business day processing (allow up to 10 during Jul\u2013Sep peak season). Double-entry ($45) and multiple-entry ($55, 180 days) options exist but aren't needed here, since this itinerary passes through Zimbabwe once, single-direction, on the way into the Pangolin-collected Botswana leg. The KAZA UniVisa ($50, unlimited Zimbabwe\u2194Zambia crossings + Botswana day trips) isn't worth it for this itinerary either \u2014 the Zambia side trip was declined, and the Botswana leg is a multi-night stay collected directly by Pangolin, not a KAZA-eligible day trip. Passport: 6+ months validity, 2 blank pages."
+      },
+      medicalInfo: {
+        summary: "Yellow fever certificate required on arrival from an endemic country \u2014 Uganda and Kenya both qualify, so the certificate already needed for Uganda covers this leg too.",
+        body: "No Zimbabwe-specific vaccination requirements were identified beyond the yellow fever cascade already established for this route: since Uganda (mandatory for all travelers) and Kenya (endemic-country transit) both precede this leg, the certificate obtained before departure automatically satisfies Zimbabwe's conditional requirement. No additional vaccination is needed beyond the standard travel panel."
+      },
+      subregionIds: ["victoria-falls"]
     }
   },
 
@@ -272,6 +288,43 @@ const TRIP_DATA = {
           keyFacts: [{ label: "2028 departure", value: "28 Jun\u20136 Jul" }],
           links: [{ label: "Wild Eye", url: "https://wild-eye.com/photographic-travel/primates-of-uganda/" }],
           _sourceRefs: ["research.md > Uganda > Multi-Site (Bwindi + Kibale Primates)", "extensions.md > Uganda > Kibale"]
+        }
+      ]
+    },
+
+    "victoria-falls": {
+      id: "victoria-falls",
+      name: "Victoria Falls",
+      countryId: "zimbabwe",
+      blurb: "The Zimbabwe side holds roughly two-thirds of the falls, giving wider panoramic views and better photography angles than Zambia's side, especially in dry season \u2014 plus simpler onward logistics into Botswana and a wider range of affordable accommodation. This leg is deliberately low-key downtime between the Kenya and Botswana legs, not a dedicated wildlife stop.",
+      animals: [
+        { speciesId: "elephant",   likelihood: "somewhat_likely" },
+        { speciesId: "roller",     likelihood: "somewhat_likely" },
+        { speciesId: "kingfisher", likelihood: "somewhat_likely" },
+        { speciesId: "lion",       likelihood: "unlikely" },
+        { speciesId: "leopard",    likelihood: "unlikely" },
+        { speciesId: "giraffe",    likelihood: "unlikely" },
+        { speciesId: "owlet",      likelihood: "unlikely" },
+        { speciesId: "cheetah",    likelihood: "not_present" },
+        { speciesId: "wild-dog",   likelihood: "not_present" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [],
+
+      tours: [
+        {
+          id: "guided-falls-tour",
+          type: "tour",
+          status: "preferred",
+          name: "Guided Falls Tour (Zimbabwe side)",
+          duration: "Half-day",
+          price: { total: "$60\u2013$70", note: "includes ~$58\u2013$65 park entry + guide" },
+          summary: "A single guided tour of the falls from the Zimbabwe side, including park entry.",
+          rationale: "Roughly two-thirds of the falls sit on the Zimbabwe side, giving wider panoramic views and better photography angles than the Zambia side, especially favorable in dry season \u2014 this, plus easier onward Chobe logistics and a wider range of affordable accommodation, is why the whole leg is based here rather than in Livingstone.",
+          keyFacts: [],
+          links: [{ label: "Victoria Falls National Park (ZimParks)", url: "https://www.zimparks.org.zw/victoria-falls-national-park/" }],
+          _sourceRefs: ["itinerary.md > Victoria Falls", "budget.md > Victoria Falls", "research.md > Zimbabwe > Victoria Falls > Decision Rationale"]
         }
       ]
     },
