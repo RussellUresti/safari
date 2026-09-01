@@ -45,8 +45,8 @@ const TRIP_DATA = {
 
   // ---- regions (tabs) ----------------------------------------------------
   regions: [
-    { id: "east-africa",    label: "East Africa",    countryIds: ["uganda", "kenya", "rwanda", "tanzania"] },
-    { id: "central-africa", label: "Central Africa",  countryIds: ["zimbabwe", "zambia", "botswana"] },
+    { id: "east-africa",    label: "East Africa",    countryIds: ["uganda", "rwanda", "kenya", "tanzania"] },
+    { id: "central-africa", label: "Central Africa",  countryIds: ["zimbabwe", "botswana", "zambia"] },
     { id: "southern-africa",label: "Southern Africa", countryIds: ["south-africa"] }
   ],
 
@@ -82,7 +82,7 @@ const TRIP_DATA = {
         summary: "Yellow fever certificate required (cascades from Uganda). No Kenya-specific vaccine notes beyond the standard panel.",
         body: "Kenya requires a yellow fever certificate on arrival because this itinerary arrives from Uganda, a yellow-fever-endemic country \u2014 the same certificate obtained for Uganda covers this automatically. No additional Kenya-specific vaccination requirements were identified beyond the standard travel panel (routine vaccines, hepatitis A/typhoid as generally recommended, malaria prophylaxis as advised by a travel clinic for the Mara region)."
       },
-      subregionIds: ["laikipia", "amboseli", "masai-mara"]
+      subregionIds: ["masai-mara", "amboseli", "laikipia"]
     },
     rwanda: {
       id: "rwanda",
