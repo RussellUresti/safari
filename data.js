@@ -46,7 +46,7 @@ const TRIP_DATA = {
   // ---- regions (tabs) ----------------------------------------------------
   regions: [
     { id: "east-africa",    label: "East Africa",    countryIds: ["uganda", "kenya", "tanzania"] },
-    { id: "central-africa", label: "Central Africa",  countryIds: ["zimbabwe"] },
+    { id: "central-africa", label: "Central Africa",  countryIds: ["zimbabwe", "zambia", "botswana"] },
     { id: "southern-africa",label: "Southern Africa", countryIds: [] }
   ],
 
@@ -115,6 +115,38 @@ const TRIP_DATA = {
         body: "No Zimbabwe-specific vaccination requirements were identified beyond the yellow fever cascade already established for this route: since Uganda (mandatory for all travelers) and Kenya (endemic-country transit) both precede this leg, the certificate obtained before departure automatically satisfies Zimbabwe's conditional requirement. No additional vaccination is needed beyond the standard travel panel."
       },
       subregionIds: ["victoria-falls"]
+    },
+    zambia: {
+      id: "zambia",
+      name: "Zambia",
+      flagEmoji: "🇿🇲",
+      regionId: "central-africa",
+      visaRequired: true,
+      visaInfo: {
+        summary: "Not yet researched in detail — Zambia is an extension candidate, not part of the core 5-country route, so a standalone eVisa/cost breakdown hasn't been done.",
+        body: "Zambia isn't part of the core route, so it wasn't included in the full visa pass done for the five core countries. The one Zambia-adjacent product actually researched is the KAZA UniVisa ($50, 30 days, unlimited Zimbabwe↔Zambia crossings plus Botswana day trips via Kazungula) — evaluated and ruled not worth it for this itinerary, since the Zambia side trip (Devil's Pool/Livingstone Island) was declined and the Botswana leg is a multi-night Pangolin-collected stay, not a KAZA-eligible day trip. If the South Luangwa extension moves from “considered” to “booked,” a standalone Zambia eVisa cost/process check is a genuine open item, not yet done."
+      },
+      medicalInfo: {
+        summary: "Not yet researched — no Zambia-specific vaccination requirements have been confirmed in this planning process.",
+        body: "The yellow fever cascade note elsewhere in this research (one certificate, obtained for Uganda, covering Kenya/Zimbabwe/Botswana/South Africa's conditional requirements) has not been explicitly extended to Zambia. Zambia is generally understood to carry a similar conditional requirement for travelers arriving from an endemic country — which this itinerary would satisfy via the same certificate — but this hasn't been directly confirmed against an official Zambian source the way the other legs have been."
+      },
+      subregionIds: ["south-luangwa", "lower-zambezi"]
+    },
+    botswana: {
+      id: "botswana",
+      name: "Botswana",
+      flagEmoji: "🇧🇼",
+      regionId: "central-africa",
+      visaRequired: false,
+      visaInfo: {
+        summary: "Visa-free for US citizens — up to 90 days within any 365-day period, entry stamp only.",
+        body: "No visa needed for US citizens. Up to 90 days within any 365-day period, entry stamp only on arrival. Passport: 6+ months validity recommended (no hard minimum found the way Uganda/Kenya/Zimbabwe specify one). A yellow fever certificate is technically required if arriving from an endemic country — Uganda and Kenya both qualify on this itinerary — though in practice it's rarely checked at Botswana's Kasane/Maun entry points for travelers arriving via light aircraft from Zimbabwe. Worth having it in hand regardless, since it's already needed for Uganda, Kenya, and South Africa."
+      },
+      medicalInfo: {
+        summary: "Yellow fever certificate technically required on arrival from Uganda or Kenya, though rarely enforced at Kasane/Maun — the certificate already needed for Uganda covers it regardless.",
+        body: "No Botswana-specific vaccination requirements were identified beyond the yellow fever cascade already established for this route. The certificate obtained before departure (mandatory for Uganda) satisfies Botswana's conditional requirement, even though enforcement at the light-aircraft entry points used on this itinerary (Kasane, Maun) is reportedly inconsistent in practice. No additional vaccination is needed beyond the standard travel panel."
+      },
+      subregionIds: ["chobe-okavango-delta", "tuli-mashatu"]
     }
   },
 
@@ -742,6 +774,482 @@ const TRIP_DATA = {
           keyFacts: [],
           links: [{ label: "G Adventures", url: "https://www.gadventures.com/trips/kenya-safari-experience/DKKNG/" }],
           _sourceRefs: ["research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
+        }
+      ]
+    },
+
+    "south-luangwa": {
+      id: "south-luangwa",
+      name: "South Luangwa",
+      countryId: "zambia",
+      blurb: "“Valley of the Leopard” — rivals Sabi Sands for the highest leopard density in Africa (~9–10 per 100km² vs. Sabi Sands' measured 12.2), with one estimate of one leopard per kilometer of river in the valley. Both night drives and walking safaris are permitted together here, a combination not available in many other parks. Logged as an extension slotting in before the Pangolin Chobe/Delta tour, via Livingstone → Lusaka → Mfuwe — not part of the core itinerary.",
+      animals: [
+        { speciesId: "leopard",    likelihood: "highly_likely" },
+        { speciesId: "lion",       likelihood: "highly_likely" },
+        { speciesId: "elephant",   likelihood: "highly_likely" },
+        { speciesId: "giraffe",    likelihood: "highly_likely" },
+        { speciesId: "roller",     likelihood: "highly_likely" },
+        { speciesId: "kingfisher", likelihood: "highly_likely" },
+        { speciesId: "wild-dog",   likelihood: "somewhat_likely" },
+        { speciesId: "owlet",      likelihood: "somewhat_likely" },
+        { speciesId: "cheetah",    likelihood: "not_present" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [
+        {
+          id: "robin-pope-luangwa-river-camp",
+          type: "lodge",
+          status: "preferred",
+          name: "Robin Pope Safaris — Luangwa River Camp",
+          price: {
+            perNightPP: "$600",
+            singleSupplement: "None unless more than 3 singles are traveling",
+            note: "Confirmed 2026 peak rate (Jul–Sep), direct from the operator's rate sheet"
+          },
+          summary: "Established, reputable small-vehicle operator with a genuinely rare no-single-supplement policy at this price point.",
+          rationale: "A confirmed, transparent find relative to how much of this research hit stale or opaque pricing elsewhere — the clear pick for a direct-booking extension to South Luangwa.",
+          keyFacts: [{ label: "Single supplement", value: "None unless >3 singles traveling" }],
+          links: [{ label: "Robin Pope Safaris — Luangwa River Camp", url: "https://www.robinpopesafaris.net/camps-lodges/luangwa-river-camp/" }],
+          _sourceRefs: ["research.md > Zambia > South Luangwa > Lodging Considered", "extensions.md > Zambia > South Luangwa National Park"]
+        },
+        {
+          id: "wildlife-camp-zambia",
+          type: "lodge",
+          status: "unresearched",
+          name: "Wildlife Camp",
+          price: {
+            perNightPP: "$210–$270 (historical)",
+            singleSupplement: "Unknown",
+            note: "2026 rates now show “accommodation only” rather than the historical all-inclusive figure — needs re-verification before treating as comparable to Robin Pope's rate"
+          },
+          summary: "Value-tier alternative to Robin Pope, flagged as needing a fresh pricing check.",
+          rationale: "Historical pricing looked attractive, but the rate basis appears to have changed (accommodation-only vs. all-inclusive) — not re-verified, so not treated as a confirmed alternative yet.",
+          keyFacts: [],
+          links: [{ label: "Wildlife Camp", url: "https://wildlifezambia.com/" }],
+          _sourceRefs: ["research.md > Zambia > South Luangwa > Lodging Considered"]
+        }
+      ],
+
+      tours: [
+        {
+          id: "pangolin-south-luangwa",
+          type: "tour",
+          status: "neutral",
+          name: "Pangolin — South Luangwa",
+          duration: "Not specified",
+          price: { total: "$10,945", note: "pp sharing" },
+          summary: "Recurring June-departure photo safari; exact 2028 dates not yet published.",
+          rationale: "Logged for reference alongside the preferred direct-booking (Robin Pope) plan — not directly compared against it in detail.",
+          keyFacts: [{ label: "Departure pattern", value: "Recurring June (2027: Jun 2027); 2028 dates not yet published" }],
+          links: [{ label: "Pangolin Photo — South Luangwa", url: "https://www.pangolinphoto.com/safaris/south-luangwa-photo-safari" }],
+          _sourceRefs: ["research.md > Zambia > South Luangwa > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "penda-leopards-of-luangwa",
+          type: "tour",
+          status: "neutral",
+          name: "Penda — Leopards of Luangwa",
+          duration: "Not specified",
+          price: { total: "$7,495" },
+          summary: "Recurring June-departure photo safari; exact 2028 dates not yet published.",
+          rationale: "Logged for reference alongside the preferred direct-booking (Robin Pope) plan — not directly compared against it in detail.",
+          keyFacts: [{ label: "Departure pattern", value: "Recurring June (2027: Jun 12–19); 2028 dates not yet published" }],
+          links: [{ label: "Penda Photo Tours — Leopards of Luangwa", url: "https://www.pendaphototours.com/tour/leopards-of-luangwa-photo-safari-zambia/" }],
+          _sourceRefs: ["research.md > Zambia > South Luangwa > Tour Operators & Packages Considered"]
+        }
+      ]
+    },
+
+    "lower-zambezi": {
+      id: "lower-zambezi",
+      name: "Lower Zambezi",
+      countryId: "zambia",
+      blurb: "Investigated as a natural pairing with South Luangwa via Lusaka (~90 minutes apart by light aircraft), after being ruled out earlier as a standalone extension not reachable from Victoria Falls. Turned out to be the weaker half of that pairing — every path investigated, direct booking and every tour operator checked alike, hit a real cost, transparency, or availability obstacle. Not preferred; South Luangwa carries the Zambia extension forward alone.",
+      animals: [
+        { speciesId: "elephant",   likelihood: "highly_likely" },
+        { speciesId: "lion",       likelihood: "highly_likely" },
+        { speciesId: "leopard",    likelihood: "highly_likely" },
+        { speciesId: "roller",     likelihood: "highly_likely" },
+        { speciesId: "kingfisher", likelihood: "highly_likely" },
+        { speciesId: "owlet",      likelihood: "somewhat_likely" },
+        { speciesId: "wild-dog",   likelihood: "unlikely" },
+        { speciesId: "cheetah",    likelihood: "not_present" },
+        { speciesId: "giraffe",    likelihood: "not_present" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [
+        {
+          id: "chiawa-camp",
+          type: "lodge",
+          status: "rejected",
+          name: "Chiawa Camp",
+          price: {
+            perNightPP: "$1,995",
+            singleSupplement: "None (confirmed policy)",
+            note: "Jul 1–Oct 15, 2026 peak rate"
+          },
+          summary: "Genuine no-single-supplement policy, but ultra-luxury regardless of that policy.",
+          rationale: "A no-supplement policy doesn't make an expensive camp mid-range — the underlying rate itself is well outside the mid-range target. Not preferred on price.",
+          keyFacts: [],
+          links: [{ label: "Chiawa Camp", url: "https://www.chiawa.com/chiawa-camp/" }],
+          _sourceRefs: ["research.md > Zambia > Lower Zambezi > Lodging Considered"]
+        },
+        {
+          id: "old-mondoro",
+          type: "lodge",
+          status: "rejected",
+          name: "Old Mondoro",
+          price: {
+            perNightPP: "$1,995 (per Chiawa's own current rate sheet)",
+            singleSupplement: "Not stated",
+            note: "Conflicting data: older secondary sources show $450–653/night, but the operator's own current sheet shows the same $1,995 as Chiawa Camp"
+          },
+          summary: "Chiawa's “rustic” sister camp; pricing conflict resolved in favor of the operator's own (much higher) current figure.",
+          rationale: "Per the standing methodology in guidelines.md, opaque/conflicting pricing from a self-described luxury operator (when comparable properties publish theirs openly) is treated as a red flag, not just a gap to fill in later. Dropped rather than left open.",
+          keyFacts: [],
+          links: [{ label: "Old Mondoro", url: "https://www.chiawa.com/old-mondoro/" }],
+          _sourceRefs: ["research.md > Zambia > Lower Zambezi > Lodging Considered"]
+        },
+        {
+          id: "galamuka-adventures",
+          type: "lodge",
+          status: "rejected",
+          name: "Galamuka Adventures",
+          price: {
+            perNightPP: "$388 (confirmed for an August date)",
+            singleSupplement: "Never found",
+            note: "Attractive price, but amenity list (pool, breakfast, parking, housekeeping) reads like a general hotel, not an all-inclusive safari camp"
+          },
+          summary: "Genuinely unresolved even after a second pass — no mention anywhere of game drives, walking safaris, or guiding, unlike every other property researched.",
+          rationale: "The low price plausibly reflects lodging only, not a full safari experience. Combined with the site being down for a stretch (live again as of the last check, still no rates or activity listings) and no single-supplement info ever found, dropped rather than left open.",
+          keyFacts: [],
+          links: [{ label: "Galamuka Adventures", url: "https://www.galamuka.com/" }],
+          _sourceRefs: ["research.md > Zambia > Lower Zambezi > Lodging Considered"]
+        },
+        {
+          id: "royal-zambezi-lodge",
+          type: "lodge",
+          status: "rejected",
+          name: "Royal Zambezi Lodge",
+          price: {
+            perNightPP: "$970",
+            singleSupplement: "Not stated",
+            note: "Confirmed peak pricing, Jun–Nov"
+          },
+          summary: "Has confirmed, transparent peak pricing, but still priced above the mid-range target.",
+          rationale: "Pricing transparency is a plus relative to Old Mondoro/Galamuka, but the rate itself is still not mid-range. Not preferred on price.",
+          keyFacts: [],
+          links: [{ label: "Royal Zambezi Lodge", url: "https://www.royalzambezilodge.com/" }],
+          _sourceRefs: ["research.md > Zambia > Lower Zambezi > Lodging Considered"]
+        }
+      ],
+
+      tours: [
+        {
+          id: "expert-africa-vervet-monkey-safari",
+          type: "tour",
+          status: "rejected",
+          name: "Expert Africa — Vervet Monkey Safari",
+          duration: "7 days",
+          price: { total: "$9,220–$11,540", note: "for two travelers — booking system doesn't support solo bookings" },
+          summary: "Chiawa Camp (Lower Zambezi) + Puku Ridge (South Luangwa) combined itinerary.",
+          rationale: "Not preferred — the booking system only supports bookings for 2 people, a hard blocker for a solo traveler.",
+          keyFacts: [],
+          links: [{ label: "Expert Africa — Vervet Monkey Safari", url: "https://www.expertafrica.com/zambia/safari/vervet-monkey-safari" }],
+          _sourceRefs: ["research.md > Zambia > Lower Zambezi > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "expert-africa-crawshays-zebra-safari",
+          type: "tour",
+          status: "rejected",
+          name: "Expert Africa — Crawshay's Zebra Safari",
+          duration: "10 days",
+          price: { total: "Not stated" },
+          summary: "Same operator and combined-park structure as the Vervet Monkey Safari, at a 10-day length.",
+          rationale: "Not preferred for the same reason as the Vervet Monkey Safari — the booking system doesn't support solo travelers.",
+          keyFacts: [],
+          links: [{ label: "Expert Africa — Crawshay's Zebra Safari", url: "https://www.expertafrica.com/zambia/safari/crawshays-zebra-safari" }],
+          _sourceRefs: ["research.md > Zambia > Lower Zambezi > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "world-photo-travels-zambia",
+          type: "tour",
+          status: "rejected",
+          name: "World Photo Travels — South Luangwa & Lower Zambezi",
+          duration: "Not specified",
+          price: { total: "Not found despite repeated attempts" },
+          summary: "Dedicated combined photo safari explicitly highlighting the high leopard density draw.",
+          rationale: "Not preferred for lack of pricing — no price ever found, and availability flagged as limited (“FINAL SPOT OPEN” still showing on the last check).",
+          keyFacts: [],
+          links: [{ label: "World Photo Travels", url: "https://www.worldphototravels.com/zambia-photo-safari-south-luangwa-lower-zambezi.php" }],
+          _sourceRefs: ["research.md > Zambia > Lower Zambezi > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "edward-selfe-photo-safaris-zambia",
+          type: "tour",
+          status: "rejected",
+          name: "Edward Selfe Photo Safaris — Lower Zambezi + South Luangwa",
+          duration: "10–11 nights",
+          price: { total: "$15,000–$17,500", note: "pp — latest confirmed departure: 11 nights, $17,500pp, Sep 2028 (tbc), 1 space" },
+          summary: "Individually-hosted, covers both regions (Kutali/Lion Camp for the Lower Zambezi portion).",
+          rationale: "Solidly premium, not mid-range, and down to the last space. Not preferred given cost and scarcity.",
+          keyFacts: [{ label: "Availability", value: "1 space, Sep 2028 (tbc)" }],
+          links: [{ label: "Edward Selfe Photo Safaris", url: "https://www.edwardselfephotosafaris.com/safaris" }],
+          _sourceRefs: ["research.md > Zambia > Lower Zambezi > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "wild-eye-south-luangwa-extension",
+          type: "tour",
+          status: "rejected",
+          name: "Photo Safari Company / Wild Eye — South Luangwa + Lower Zambezi extension",
+          duration: "Not specified",
+          price: { total: "Not stated" },
+          summary: "Both operators run South Luangwa as a core trip with Lower Zambezi as an optional extension rather than a single fixed combo.",
+          rationale: "Wild Eye's current departure shows 2027 waitlist only — not bookable for this trip's timeline, consistent with the overall not-preferred conclusion for Lower Zambezi.",
+          keyFacts: [],
+          links: [
+            { label: "Photo Safari Company — Zambia", url: "https://photosafaricompany.com/safari-destinations/zambia-photo-safaris/" },
+            { label: "Wild Eye — South Luangwa Safari", url: "https://wild-eye.com/photographic-travel/south-luangwa-safari/" }
+          ],
+          _sourceRefs: ["research.md > Zambia > Lower Zambezi > Tour Operators & Packages Considered"]
+        }
+      ]
+    },
+
+    "chobe-okavango-delta": {
+      id: "chobe-okavango-delta",
+      name: "Chobe & Okavango Delta",
+      countryId: "botswana",
+      blurb: "The centerpiece of the trip — a fully-hosted, 8-day Pangolin photography safari across two ecosystems: 3 nights at the Pangolin Chobe Hotel (Kasane) plus 4 nights at Shinde Footsteps in the Delta, connected by an included bush flight. Locked into the core itinerary, collected directly from Victoria Falls.",
+      animals: [
+        { speciesId: "elephant",   likelihood: "highly_likely" },
+        { speciesId: "lion",       likelihood: "highly_likely" },
+        { speciesId: "leopard",    likelihood: "highly_likely" },
+        { speciesId: "giraffe",    likelihood: "highly_likely" },
+        { speciesId: "wild-dog",   likelihood: "highly_likely" },
+        { speciesId: "roller",     likelihood: "highly_likely" },
+        { speciesId: "kingfisher", likelihood: "highly_likely" },
+        { speciesId: "cheetah",    likelihood: "somewhat_likely" },
+        { speciesId: "owlet",      likelihood: "somewhat_likely" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [
+        {
+          id: "shinde-footsteps",
+          type: "lodge",
+          status: "preferred",
+          name: "Shinde Footsteps",
+          price: { perNightPP: "Bundled into the Pangolin tour price", singleSupplement: "Included in the tour's $3,000 supplement", note: "Ker & Downey's Shinde concession, Okavango Delta" },
+          summary: "The Delta camp bundled into the preferred Pangolin “Chobe and Okavango Delta” 8-day tour — 4 nights.",
+          rationale: "Comes as part of the preferred Pangolin package rather than being independently priced/compared.",
+          keyFacts: [],
+          links: [{ label: "Shinde Footsteps", url: "https://kerdowneybotswana.com/our-camps/shinde-footsteps/" }],
+          _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Lodging Considered", "itinerary.md > Chobe & Okavango Delta"]
+        },
+        {
+          id: "muchenje-safari-lodge",
+          type: "lodge",
+          status: "rejected",
+          name: "Muchenje Safari Lodge",
+          price: {
+            perNightPP: "$965+",
+            singleSupplement: "Possible",
+            note: "Jul–Oct sharing rate"
+          },
+          summary: "Owner-run lodge west of the main Kasane cluster.",
+          rationale: "Not preferred — Pangolin Chobe Hotel (bundled into the preferred tour) covers the Chobe portion instead.",
+          keyFacts: [],
+          links: [{ label: "Muchenje Safari Lodge", url: "https://www.muchenje.com/" }],
+          _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Lodging Considered"]
+        },
+        {
+          id: "bushman-plains",
+          type: "lodge",
+          status: "neutral",
+          name: "Bushman Plains",
+          price: { perNightPP: "Not priced", singleSupplement: "Not stated", note: "Small camp, 4 tents, Bushman-owned" },
+          summary: "Pangolin's recommended independent Delta partner camp — simple/authentic, considered as an a la carte option.",
+          rationale: "Considered before the bundled Pangolin package (with Shinde Footsteps) was preferred instead — logged for reference, no strong verdict against it specifically.",
+          keyFacts: [],
+          links: [{ label: "Bushman Plains", url: "https://www.pangolinphoto.com/places/partners/bushman-plains" }],
+          _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Lodging Considered"]
+        }
+      ],
+
+      tours: [
+        {
+          id: "pangolin-chobe-okavango-delta-8day",
+          type: "tour",
+          status: "preferred",
+          name: "Pangolin — Chobe and Okavango Delta (8 Days)",
+          duration: "8 days",
+          price: { total: "$13,850", note: "$10,850 pp + a confirmed $3,000 single supplement" },
+          summary: "3 nights Pangolin Chobe Hotel (Kasane) + included bush flight + 4 nights Shinde Footsteps (Delta) — the locked-in centerpiece of the trip.",
+          rationale: "The confirmed, preferred pick — note the single-supplement figure corrects an earlier logged number that omitted it. Pangolin's separate “no single supplement” policy applies only to standalone 3-night Chobe Hotel bookings, not this bundled multi-day tour.",
+          keyFacts: [
+            { label: "Seasonal window", value: "Recurring Mar/Apr–Nov departure pattern, not fixed one-off dates" }
+          ],
+          links: [{ label: "Pangolin Photo — Chobe and Okavango Delta", url: "https://www.pangolinphoto.com/safaris/chobe-okavango-delta-safari" }],
+          _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Tour Operators & Packages Considered", "itinerary.md > Chobe & Okavango Delta", "budget.md > Chobe + Okavango Delta"]
+        },
+        {
+          id: "pangolin-victoria-falls-chobe",
+          type: "tour",
+          status: "rejected",
+          name: "Pangolin — Victoria Falls & Chobe (7 Days)",
+          duration: "7 days",
+          price: { total: "$4,595", note: "pp" },
+          summary: "3 nights Victoria Falls (Palm River Hotel + a helicopter flight + Zambezi sunset cruise) + 3 nights Pangolin Chobe Hotel — no Delta portion at all.",
+          rationale: "Not preferred — doesn't include the Delta (would need a separate, expensive Delta booking on top) and would replace the independently-researched Victoria Falls hotel plan.",
+          keyFacts: [],
+          links: [{ label: "Pangolin Photo — Victoria Falls & Chobe", url: "https://www.pangolinphoto.com/safaris/victoria-falls-chobe-safari" }],
+          _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "pangolin-best-of-the-chobe",
+          type: "tour",
+          status: "rejected",
+          name: "Pangolin — Best of the Chobe (7 Days)",
+          duration: "7 days",
+          price: { total: "$5,495", note: "pp" },
+          summary: "3 nights aboard the Pangolin Voyager houseboat + Pangolin Chobe Hotel — the practical way to access the exclusive-charter-only Voyager without the full charter markup.",
+          rationale: "Not preferred given the schedule/cost tradeoffs of fitting it alongside the Delta — the Delta is the higher priority.",
+          keyFacts: [],
+          links: [{ label: "Pangolin Photo — Best of the Chobe", url: "https://www.pangolinphoto.com/safaris/best-of-the-chobe" }],
+          _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "pangolin-chobe-delta-kalahari",
+          type: "tour",
+          status: "backup",
+          name: "Pangolin — Chobe, Delta and Kalahari (10 Days)",
+          duration: "10 days",
+          price: { total: "$20,450", note: "$15,345 pp + a confirmed $5,105 single supplement, 2027 rates" },
+          summary: "Swaps the land-based Chobe Hotel for 3 nights on the Pangolin Voyager houseboat, adds a 30-minute scenic helicopter flight and 3 nights at Dinaka Camp (Central Kalahari) — same Shinde Footsteps Delta camp as the core pick, but 3 nights instead of 4.",
+          rationale: "Not the primary pick — ~$6,600 more than the locked-in 8-day tour — but genuinely reconsidered rather than dropped: reviews are excellent (“all round winner,” specifically citing the Voyager and Dinaka's hide photography), and it remains a real candidate to swap to if extra budget/time opens up before booking.",
+          keyFacts: [
+            { label: "Delta nights vs. core pick", value: "3 nights (vs. 4) — traded for Voyager + Dinaka time" }
+          ],
+          links: [{ label: "Pangolin Photo — Chobe, Delta and Kalahari", url: "https://www.pangolinphoto.com/safaris/10-day-chobe-delta-and-kalahari-2" }],
+          _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Tour Operators & Packages Considered", "extensions.md > Botswana > Pangolin \"Chobe, Delta and Kalahari\""]
+        },
+        {
+          id: "wild4-okavango-savuti-chobe",
+          type: "tour",
+          status: "neutral",
+          name: "Wild4 — Okavango, Savuti & Chobe River",
+          duration: "14 days (Jul 6–19, 2028)",
+          price: { total: "$14,950–$15,250" },
+          summary: "Confirmed 2028 departure covering the same broad ecosystem as the preferred Pangolin package.",
+          rationale: "Not yet compared in detail against the preferred Pangolin package — logged for reference.",
+          keyFacts: [{ label: "2028 departure", value: "Jul 6–19" }],
+          links: [{ label: "Wild4 Photographic Safaris", url: "https://www.wild4photographicsafaris.com/photo-safaris/okavango-savuti-chobe-river" }],
+          _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Tour Operators & Packages Considered"]
+        }
+      ]
+    },
+
+    "tuli-mashatu": {
+      id: "tuli-mashatu",
+      name: "Tuli / Mashatu",
+      countryId: "botswana",
+      blurb: "A distinct eastern-Botswana region researched as a possible additional stop, not otherwise touched by the core itinerary. No decision has been reached here yet — logged as a set of priced, dated candidates without a preferred pick.",
+      animals: [
+        { speciesId: "elephant",   likelihood: "highly_likely" },
+        { speciesId: "giraffe",    likelihood: "highly_likely" },
+        { speciesId: "roller",     likelihood: "highly_likely" },
+        { speciesId: "leopard",    likelihood: "somewhat_likely" },
+        { speciesId: "lion",       likelihood: "somewhat_likely" },
+        { speciesId: "cheetah",    likelihood: "somewhat_likely" },
+        { speciesId: "wild-dog",   likelihood: "somewhat_likely" },
+        { speciesId: "owlet",      likelihood: "somewhat_likely" },
+        { speciesId: "kingfisher", likelihood: "somewhat_likely" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [],
+
+      tours: [
+        {
+          id: "wild4-magical-mashatu",
+          type: "tour",
+          status: "neutral",
+          name: "Wild4 — Magical Mashatu",
+          duration: "10 days (Jun 22–Jul 1, 2028)",
+          price: { total: "$12,000–$12,700" },
+          summary: "Confirmed 2028 departure, Mashatu-only.",
+          rationale: "Logged as a priced, dated candidate — not yet compared against the other Tuli/Mashatu options.",
+          keyFacts: [{ label: "2028 departure", value: "Jun 22–Jul 1" }],
+          links: [{ label: "Wild4 — Magical Mashatu", url: "https://www.wild4photographicsafaris.com/photo-safaris/magical-mashatu" }],
+          _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "wild4-lions-leopards-malamala-mashatu",
+          type: "tour",
+          status: "rejected",
+          name: "Wild4 — Lions & Leopards of MalaMala & Mashatu",
+          duration: "11 days (Aug 3–13, 2028)",
+          price: { total: "$17,600–$18,300" },
+          summary: "Combined South Africa + Botswana itinerary (MalaMala/Sabi Sands + Mashatu).",
+          rationale: "The MalaMala/Sabi Sands leg falls squarely in the ultra-luxury, not-preferred tier already established for that region (see the Greater Kruger decision rationale) — not preferred as a result.",
+          keyFacts: [{ label: "2028 departure", value: "Aug 3–13" }],
+          links: [{ label: "Wild4 — Lions & Leopards of MalaMala & Mashatu", url: "https://www.wild4photographicsafaris.com/photo-safaris/lion-leopards-of-malamala-mashatu" }],
+          _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "oryx-mashatu-overnight-hide",
+          type: "tour",
+          status: "neutral",
+          name: "ORYX — Mashatu: Overnight Hide & Predators",
+          duration: "6 days (Jul 1–6, 2028)",
+          price: { total: "$12,095" },
+          summary: "Confirmed 2028 departure built around Mashatu's overnight photography hide.",
+          rationale: "Logged as a priced, dated candidate — not yet compared against the other Tuli/Mashatu options.",
+          keyFacts: [{ label: "2028 departure", value: "Jul 1–6" }],
+          links: [{ label: "ORYX — Mashatu Overnight Hide & Predators", url: "https://www.oryxphoto.com/tour-item/mashatu-overnight-hide-predators-photo-safari-2028" }],
+          _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "oryx-mashatu-hides-predators",
+          type: "tour",
+          status: "neutral",
+          name: "ORYX — Mashatu: Hides & Predators",
+          duration: "6 days (Jul 19–24, 2028)",
+          price: { total: "$11,042" },
+          summary: "Confirmed 2028 departure, Mashatu hide-and-predator focus.",
+          rationale: "Logged as a priced, dated candidate — not yet compared against the other Tuli/Mashatu options.",
+          keyFacts: [{ label: "2028 departure", value: "Jul 19–24" }],
+          links: [{ label: "ORYX — Mashatu Hides & Predators", url: "https://www.oryxphoto.com/tour-item/mashatu-hides-predators-photo-safari-2028" }],
+          _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "african-photography-safaris-tuli-wilderness",
+          type: "tour",
+          status: "unresearched",
+          name: "African Photography Safaris — Tuli Wilderness",
+          duration: "Not specified",
+          price: { total: "Not found" },
+          summary: "Recurring July departure (2027 date: Jul 12).",
+          rationale: "No published price found yet — logged as a candidate for a direct quote.",
+          keyFacts: [],
+          links: [{ label: "African Photography Safaris — Tuli Wilderness", url: "https://africanphotographysafaris.com/botswanas-tuli-wilderness/" }],
+          _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "penda-botswana-photo-safari-tuli",
+          type: "tour",
+          status: "neutral",
+          name: "Penda — Botswana Photo Safari (Tuli)",
+          duration: "Recurring July departure (2027: Jul 12–18)",
+          price: { total: "$5,795" },
+          summary: "Based at Mohave Bush Camp on the Limpopo River. Penda explicitly markets this as pairable with their South Africa (Timbavati) tour the following week.",
+          rationale: "Logged as a priced, dated candidate — not yet compared against the other Tuli/Mashatu options.",
+          keyFacts: [{ label: "Pairing", value: "Explicitly pairable with Penda's South Africa (Timbavati) tour the following week" }],
+          links: [{ label: "Penda Photo Tours — Botswana Photo Safari", url: "https://www.pendaphototours.com/tour/botswana-photo-safari/" }],
+          _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
         }
       ]
     }
