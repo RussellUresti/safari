@@ -114,7 +114,7 @@ const TRIP_DATA = {
         summary: "Yellow fever certificate required on arrival from Kenya, Uganda, Ethiopia, or Rwanda \u2014 the same certificate already needed for Uganda covers this.",
         body: "Yellow fever is not present in Tanzania itself, so this requirement exists to protect the country rather than the traveler. A certificate is required from all travelers over 1 year old arriving from or transiting through a yellow-fever-risk country \u2014 Kenya, Uganda, Ethiopia, and Rwanda all qualify. Since this extension's own routing goes Nairobi \u2192 Arusha to reach Tanzania, that requirement would apply here \u2014 but the same certificate already obtained for the mandatory Uganda requirement satisfies it, consistent with the cascade already confirmed for the rest of the route. No additional vaccination needed beyond what's already planned for Uganda."
       },
-      subregionIds: ["ngorongoro-crater"]
+      subregionIds: ["serengeti"]
     },
     zimbabwe: {
       id: "zimbabwe",
@@ -523,74 +523,145 @@ const TRIP_DATA = {
       tours: []
     },
 
-    "ngorongoro-crater": {
-      id: "ngorongoro-crater",
-      name: "Ngorongoro Crater",
+    serengeti: {
+      id: "serengeti",
+      name: "Serengeti",
       countryId: "tanzania",
-      blurb: "The world's largest non-flooded volcanic caldera \u2014 a compact, walled ecosystem holding roughly 25,000 animals and this trip's best odds anywhere of a black rhino sighting. Unlike Kenya's conservancies or Greater Kruger's private reserves, the crater doesn't appear to have a genuine mid-range, photography-suitable lodge tier of its own \u2014 every direct-booking option investigated here was either ultra-luxury or had real availability problems.",
+      blurb: "Investigated to stress-test the standing Kenya-only decision against Serengeti-specific tours and lodges, not to reopen it \u2014 Kenya-only remains the pick. Timing is the dominant constraint: most dedicated photography operators schedule around the Jan\u2013Mar calving season or the Sep\u2013Oct river-crossing peak, neither of which overlaps this trip's realistic Jun\u2013Aug window. Off-road/night-drive access exists only in private concessions bordering the park (Serengeti National Park itself bans both), mirroring Kenya's conservancy structure, and now also covers Ngorongoro Crater and Tarangire \u2014 the National Geographic Journeys tour, previously logged under a standalone Ngorongoro Crater section, has been folded in here since its actual route is Serengeti-centered.",
       animals: [
         { speciesId: "lion",       likelihood: "highly_likely" },
+        { speciesId: "cheetah",    likelihood: "highly_likely" },
         { speciesId: "elephant",   likelihood: "highly_likely" },
-        { speciesId: "roller",     likelihood: "highly_likely" },
+        { speciesId: "giraffe",    likelihood: "highly_likely" },
         { speciesId: "leopard",    likelihood: "somewhat_likely" },
-        { speciesId: "owlet",      likelihood: "somewhat_likely" },
-        { speciesId: "kingfisher", likelihood: "somewhat_likely" },
-        { speciesId: "cheetah",    likelihood: "unlikely" },
-        { speciesId: "giraffe",    likelihood: "not_present" },
-        { speciesId: "wild-dog",   likelihood: "not_present" },
+        { speciesId: "roller",     likelihood: "somewhat_likely" },
+        { speciesId: "wild-dog",   likelihood: "unlikely" },
+        { speciesId: "kingfisher", likelihood: "unlikely" },
+        { speciesId: "owlet",      likelihood: "unlikely" },
         { speciesId: "gorilla",    likelihood: "not_present" }
       ],
 
       lodges: [
         {
-          id: "lions-paw",
+          id: "serengeti-serena-safari-lodge",
           type: "lodge",
-          status: "rejected",
-          name: "Lion's Paw",
+          status: "backup",
+          name: "Serengeti Serena Safari Lodge",
           price: {
-            perNightPP: "$1,580",
-            singleSupplement: "Not stated",
-            note: "Plus a mandatory $70.80/night NCA conservation fee (~$1,650+/night all-in) before any single supplement"
+            perNightPP: "~$350\u2013$500",
+            singleSupplement: "Not yet confirmed",
+            note: "Official site lists twin rooms \u201cfrom USD 728\u201d (likely shoulder-season); a booking-partner sheet shows ~$990/unit (\u2248$495pp sharing) for Jun\u2013Oct 2026 peak"
           },
-          summary: "Explicitly recommended for photographers in secondary lodge-comparison sources, but priced well above what those sources suggest.",
-          rationale: "Secondary-source pricing (claimed $350\u2013$500 pp/night) was stale or promotional \u2014 the same failure mode seen with Kicheche's \u201cstarting at\u201d rate before its real peak-season PDF was checked. The confirmed rate, verified directly against a booking flow since the operator doesn't publish rates on its own site, puts this alongside &Beyond Crater Lodge in the ultra-luxury tier.",
+          summary: "The most consistently and transparently priced mid-range option found in Serengeti \u2014 the closest thing to Kicheche's pricing transparency found here.",
+          rationale: "Central Seronera location, well-reviewed, long-established. Sits inside the park boundary, so carries the same trade-off seen with Ol Tukai (Amboseli) and Ivan Glaser's reserve-based Mara tour: no off-road driving, no night drives. Also subject to Tanzania's unbundled government fee stack (park entry + concession fee + 18% VAT, roughly $160+/person/day before the room rate) since it sits inside the park.",
           keyFacts: [],
-          links: [{ label: "Lion's Paw", url: "https://karibucamps.com/lions-paw/" }],
-          _sourceRefs: ["research.md > Tanzania > Ngorongoro Crater > Lodging Considered"]
+          links: [{ label: "Serena Hotels \u2014 Serengeti", url: "https://www.serenahotels.com/serengeti" }],
+          _sourceRefs: ["research.md > Tanzania > Serengeti > Lodging Considered"]
         },
         {
-          id: "ngorongoro-serena",
+          id: "fort-ikoma-robanda-concession-camps",
           type: "lodge",
-          status: "rejected",
-          name: "Ngorongoro Serena",
+          status: "neutral",
+          name: "Fort Ikoma / Robanda Concession Camps",
           price: {
-            perNightPP: "$772",
+            perNightPP: "Inconsistent \u2014 anywhere from ~$100\u2013270 to $900+",
             singleSupplement: "Not stated",
-            note: "More reasonable than Lion's Paw, but availability only showed for 2 nights, or only in July 2027"
+            note: "Pricing spread is wide enough (OTAs vs. specialist agency quotes) that no single figure can be trusted as the real bookable peak-season rate"
           },
-          summary: "Checked as a fallback mid-range candidate once Lion's Paw priced out as ultra-luxury.",
-          rationale: "The rate itself is reasonable, but availability wasn't a clean match to this trip's needs on either duration or date consistency.",
+          summary: "The genuine off-road/night-drive option here, in the private concession bordering the park's northwestern boundary \u2014 but three similarly-named, separately-owned camps operate in the same area and get confused for one another.",
+          rationale: "Ikoma Tented Camp (Moivaro, formerly \u201cIkoma Bush Camp\u201d), Ikoma Safari Camp (\u201cISC,\u201d explicitly disclaims any connection to the other two), and Ikoma Wild Camp (formerly \u201cIkoma Gorge Camp,\u201d Zara Tours) all sit in the same concession with the same access. Same opaque/conflicting-pricing pattern flagged elsewhere in this research (Lion's Paw, Old Mondoro) \u2014 treated as a real red flag rather than a gap to fill with a \u201ctypical\u201d number. None can be treated as confirmed-bookable without a direct quote.",
+          keyFacts: [
+            { label: "Ikoma Tented Camp", value: "moivaro.com \u2014 formerly marketed as \u201cIkoma Bush Camp\u201d" },
+            { label: "Ikoma Safari Camp", value: "ikomasafaricamp.com \u2014 distinct luxury tented camp" },
+            { label: "Ikoma Wild Camp", value: "Zara Tours \u2014 formerly \u201cIkoma Gorge Camp,\u201d no official site located" }
+          ],
+          links: [
+            { label: "Ikoma Tented Camp", url: "https://www.moivaro.com/lodges-and-tented-camps/ikoma-tented-camp" },
+            { label: "Ikoma Safari Camp", url: "http://www.ikomasafaricamp.com/" }
+          ],
+          _sourceRefs: ["research.md > Tanzania > Serengeti > Lodging Considered"]
+        },
+        {
+          id: "mapito-safari-camp",
+          type: "lodge",
+          status: "neutral",
+          name: "Mapito Safari Camp, Serengeti, Autograph Collection",
+          price: {
+            perNightPP: "Not yet quoted",
+            singleSupplement: "Not stated",
+            note: "Solidly luxury-tier pricing expected"
+          },
+          summary: "Marriott's first-ever safari camp worldwide, opened 2025 \u2014 16 tented suites, Marriott Bonvoy-eligible. Entirely rebuilt/rebranded from the modest, inexpensive \u201cMapito Tented Camp\u201d an earlier research pass had logged here \u2014 that property no longer exists in that form.",
+          rationale: "Worth flagging given the standing preference for global loyalty brands, but that preference is explicitly scoped to city/gateway stays in guidelines.md, not remote bush camps, so this doesn't change the mid-range target here.",
           keyFacts: [],
-          links: [{ label: "Serena Hotels \u2014 Ngorongoro", url: "https://www.serenahotels.com/ngorongoro" }],
-          _sourceRefs: ["research.md > Tanzania > Ngorongoro Crater > Lodging Considered"]
+          links: [{ label: "Marriott \u2014 Mapito Safari Camp", url: "https://www.marriott.com/en-us/hotels/jrosk-mapito-safari-camp-serengeti-autograph-collection/overview/" }],
+          _sourceRefs: ["research.md > Tanzania > Serengeti > Lodging Considered"]
+        },
+        {
+          id: "serengeti-other-mid-to-upper-mid-options",
+          type: "lodge",
+          status: "unresearched",
+          name: "Other Mid-to-Upper-Mid Options (Kubu Kubu, Lemala Nanyukie)",
+          price: {
+            perNightPP: "~$450\u2013$1,100",
+            singleSupplement: "Not stated",
+            note: "Kubu Kubu ~$450\u2013700pp/night; Lemala Nanyukie ~$700\u20131,100pp/night (private plunge pools)"
+          },
+          summary: "Surfaced for reference, not yet individually verified \u2014 fallback candidates if Serena's availability or room category doesn't work out.",
+          rationale: "Both in-park (Central/Eastern Serengeti), same off-road/night-drive limitation as Serena, positioned a tier up in comfort and price. Not independently price-checked yet.",
+          keyFacts: [],
+          links: [
+            { label: "Kubu Kubu Tented Lodge", url: "https://twctanzania.com/serengeti-national-park/kubu-kubu-tented-lodge/" },
+            { label: "Lemala Nanyukie", url: "https://www.lemalacamps.com/stay/nanyukie-lodge/" }
+          ],
+          _sourceRefs: ["research.md > Tanzania > Serengeti > Lodging Considered"]
         }
       ],
 
       tours: [
+        {
+          id: "untamed-ultimate-serengeti-photo-safari",
+          type: "tour",
+          status: "extension",
+          name: "Untamed Photo Safaris \u2014 Ultimate Serengeti Photo Safari",
+          duration: "9 days / 8 nights",
+          price: { total: "$16,245", note: "$14,245pp sharing + $2,000 single supplement (2027 figure; 2028 supplement not separately published)" },
+          summary: "The strongest in-window find \u2014 confirmed 2028 departure Jul 23\u201331, squarely inside this trip's Jun\u2013Aug window where nearly every other dedicated Serengeti photo operator misses.",
+          rationale: "Max 3 guests, one row per photographer, private vehicle, flying Arusha\u2194camps rather than driving. Splits between Central Serengeti (Entara Olmara Camp) and Northern Serengeti (Entara Esirai Migration Camp). Photographic tuition is bundled rather than optional \u2014 not needed per standing preference, but doesn't appear separable from the price. Husband-and-wife-run outfit, 4.8/5 across ~15\u201319 TripAdvisor reviews, but one detailed negative review flags feeling like \u201ca backseat passenger\u201d and overpriced \u2014 worth weighing given the small-operator reliability risk seen elsewhere in this research (Ivan Glaser, Galamuka). Sidesteps the lodge-selection question entirely by bundling accommodation into a fixed price \u2014 arguably the most \u201cKicheche-simple\u201d way to actually book Serengeti today.",
+          keyFacts: [
+            { label: "Guests", value: "Max 3, one row per photographer, private vehicle" },
+            { label: "Camps", value: "Entara Olmara Camp (Central) \u2192 Entara Esirai Migration Camp (Northern)" }
+          ],
+          links: [{ label: "Untamed Photo Safaris \u2014 Ultimate Serengeti Photo Safari", url: "https://www.untamedphotosafaris.com/all-photo-safaris/ultimate-serengeti-photo-safari" }],
+          _sourceRefs: ["research.md > Tanzania > Serengeti > Tour Operators & Packages Considered"]
+        },
         {
           id: "nat-geo-journeys-tanzania",
           type: "tour",
           status: "neutral",
           name: "National Geographic Journeys \u2014 Tanzania Safari & Serengeti Tour",
           duration: "7 days",
-          price: { total: "$5,800", note: "solo" },
-          summary: "Broad Northern Circuit tour \u2014 Tarangire, Lake Manyara, Ngorongoro Crater, Serengeti, and Olduvai Gorge \u2014 the only reasonable way found to see Ngorongoro given this trip's dates and logistics.",
-          rationale: "A general-interest small-group tour, not a photography specialist product \u2014 no dedicated photo vehicle or host. Worth treating as a \u201csee Tanzania's highlights\u201d trip rather than an upgrade to the photography-focused style used everywhere else on this itinerary. That said, it remains the only viable path to Ngorongoro found so far, since no genuine mid-range lodge option turned up on direct booking.",
+          price: { total: "\u20ac5,059", note: "solo; re-verified from an original $5,800 figure" },
+          summary: "Broad Northern Circuit tour \u2014 Arusha \u2192 Lake Manyara \u2192 Serengeti (2 days) \u2192 Ngorongoro \u2192 Arusha, plus Olduvai Gorge. Genuinely Serengeti-centered, not Ngorongoro-specific \u2014 relocated here from a standalone Ngorongoro Crater section.",
+          rationale: "A general-interest small-group tour, not a photography specialist product \u2014 no dedicated photo vehicle or host. Worth treating as a \u201csee Tanzania's highlights\u201d trip rather than an upgrade to the photography-focused style used everywhere else on this itinerary. Several 2026 departures land in the Jun\u2013Aug window (e.g. Jun 13\u201319, Jun 27\u2013Jul 3, Aug 16\u201322, Aug 22\u201328), a good sign for 2028 availability. Also covers Ngorongoro Crater's black rhino odds and Tarangire's baobab landscape, neither replicated elsewhere on this itinerary.",
           keyFacts: [
             { label: "Route", value: "Starts/ends in Arusha; routes back through Nairobi or via Zanzibar to reach Victoria Falls" }
           ],
           links: [{ label: "G Adventures", url: "https://www.gadventures.com/trips/journeys-tanzania-safari-experience/DTTNG/" }],
-          _sourceRefs: ["research.md > Tanzania > Ngorongoro Crater > Tour Operators & Packages Considered", "extensions.md > Tanzania"]
+          _sourceRefs: ["research.md > Tanzania > Serengeti > Tour Operators & Packages Considered", "extensions.md > Tanzania"]
+        },
+        {
+          id: "penda-tanzania-photo-safari",
+          type: "tour",
+          status: "unresearched",
+          name: "Penda Photo Tours \u2014 Tanzania Photo Safari",
+          duration: "Not yet published",
+          price: { total: "TBA", note: "\u201cDates coming soon,\u201d price not yet published" },
+          summary: "Tarangire/Ngorongoro/Central Serengeti circuit, hosted with tuition by photographer Lucia Griggi, max 4 guests.",
+          rationale: "Not evaluable yet \u2014 no dates or pricing published. Logged for a future check rather than dropped outright, since Penda's other regional products (Botswana, South Africa) have been reliable, priced offerings elsewhere in this research.",
+          keyFacts: [],
+          links: [{ label: "Penda Photo Tours \u2014 Tanzania Photo Safari", url: "https://www.pendaphototours.com/tour/tanzania-photo-safari/" }],
+          _sourceRefs: ["research.md > Tanzania > Serengeti > Tour Operators & Packages Considered"]
         }
       ]
     },
