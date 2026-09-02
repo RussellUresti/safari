@@ -1577,7 +1577,7 @@ const TRIP_DATA = {
           summary: "The only Kalahari candidate found — not otherwise investigated in this research, and not yet compared against any direct-booking alternative.",
           rationale: "Logged as a priced, dated candidate — no decision reached yet, since no other Kalahari option has been checked for comparison.",
           keyFacts: [{ label: "2028 departure", value: "10–20 Jul" }],
-          links: [{ label: "Wild Eye — Exclusive Kalahari Safari", url: "https://wild-eye.com/product/exclusive-kalahari-safari/" }],
+          links: [{ label: "Wild Eye — Exclusive Kalahari Safari", url: "https://wild-eye.com/photographic-travel/exclusive-kalahari-safari/" }],
           _sourceRefs: ["research.md > South Africa > Kalahari > Tour Operators & Packages Considered"]
         }
       ]
