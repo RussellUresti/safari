@@ -1241,18 +1241,6 @@ const TRIP_DATA = {
           links: [{ label: "Muchenje Safari Lodge", url: "https://www.muchenje.com/" }],
           _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Lodging Considered"]
         },
-        {
-          id: "bushman-plains",
-          type: "lodge",
-          status: "neutral",
-          name: "Bushman Plains",
-          price: { perNightPP: "Not priced", singleSupplement: "Not stated", note: "Small camp, 4 tents, Bushman-owned" },
-          summary: "Pangolin's recommended independent Delta partner camp — simple/authentic, considered as an a la carte option.",
-          rationale: "Considered before the bundled Pangolin package (with Shinde Footsteps) was preferred instead — logged for reference, no strong verdict against it specifically.",
-          keyFacts: [],
-          links: [{ label: "Bushman Plains", url: "https://www.pangolinphoto.com/places/partners/bushman-plains" }],
-          _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Lodging Considered"]
-        }
       ],
 
       tours: [
