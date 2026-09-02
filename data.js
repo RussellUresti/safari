@@ -620,6 +620,19 @@ const TRIP_DATA = {
 
       tours: [
         {
+          id: "nat-geo-journeys-kenya-tanzania-serengeti",
+          type: "tour",
+          status: "rejected",
+          name: "National Geographic Journeys \u2014 Kenya + Tanzania Combined",
+          duration: "14 days",
+          price: { total: "~$13,000", note: "solo" },
+          summary: "Lake Nakuru, Masai Mara, Lake Naivasha/Crescent Island, Lake Manyara, Serengeti, Ngorongoro Crater, Olduvai Gorge.",
+          rationale: "Represents the \u201cKenya+Tanzania\u201d side of a direct stress-test against the standing Kenya-only decision. Conclusion: unlike Sabi Sands vs. Kruger in South Africa, there's no clear consensus that Tanzania is the objectively more prestigious choice for wildlife photographers \u2014 major operators run separate, equally legitimate Kenya-only and Tanzania-only products. Since river crossings aren't a priority, the case for Tanzania comes down to Ngorongoro Crater specifically, weighed against the preference for extended time at fewer locations \u2014 not enough alone to outweigh it. Kenya-only stands.",
+          keyFacts: [],
+          links: [{ label: "G Adventures", url: "https://www.gadventures.com/trips/journeys-kenya-tanzania-safari/DKANG/" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Decision Rationale", "research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
+        },
+        {
           id: "untamed-ultimate-serengeti-photo-safari",
           type: "tour",
           status: "extension",
@@ -1008,6 +1021,19 @@ const TRIP_DATA = {
           keyFacts: [],
           links: [{ label: "Pangolin Photo", url: "https://www.pangolinphoto.com/safaris/masai-mara-safari" }],
           _sourceRefs: ["research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "nat-geo-journeys-kenya-tanzania",
+          type: "tour",
+          status: "rejected",
+          name: "National Geographic Journeys \u2014 Kenya + Tanzania Combined",
+          duration: "14 days",
+          price: { total: "~$13,000", note: "solo" },
+          summary: "Lake Nakuru, Masai Mara, Lake Naivasha/Crescent Island, Lake Manyara, Serengeti, Ngorongoro Crater, Olduvai Gorge.",
+          rationale: "Represents the \u201cKenya+Tanzania\u201d side of a direct stress-test against the standing Kenya-only decision. Conclusion: unlike Sabi Sands vs. Kruger in South Africa, there's no clear consensus that Tanzania is the objectively more prestigious choice for wildlife photographers \u2014 major operators run separate, equally legitimate Kenya-only and Tanzania-only products. Since river crossings aren't a priority, the case for Tanzania comes down to Ngorongoro Crater specifically, weighed against the preference for extended time at fewer locations \u2014 not enough alone to outweigh it. Kenya-only stands.",
+          keyFacts: [],
+          links: [{ label: "G Adventures", url: "https://www.gadventures.com/trips/journeys-kenya-tanzania-safari/DKANG/" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Decision Rationale", "research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
         },
         {
           id: "nat-geo-journeys-kenya",
@@ -1613,6 +1639,32 @@ const TRIP_DATA = {
           keyFacts: [{ label: "Pairing", value: "Explicitly pairable with Penda's Botswana/Tuli tour the week before" }],
           links: [{ label: "Penda Photo Tours — South Africa Photo Safari", url: "https://www.pendaphototours.com/tour/south-africa-photo-safari/" }],
           _sourceRefs: ["research.md > South Africa > Greater Kruger > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "nat-geo-journeys-explore-kruger",
+          type: "tour",
+          status: "extension",
+          name: "National Geographic Journeys — Explore Kruger National Park",
+          duration: "7 days / 6 nights",
+          price: { total: "$2,999–$3,599", note: "appears to be per person, exact occupancy basis not fully confirmed" },
+          summary: "Starts and ends in Johannesburg — lines up directly with this trip's existing Johannesburg stop. The Panorama Route, a safari with a Cheetah Metapopulation Project researcher, Karongwe Private Game Reserve, plus Kruger itself.",
+          rationale: "A general-interest small-group tour, not a photography specialist — max 16 guests, average 12, notably larger than the small-group, photo-vehicle-equipped style used elsewhere on this trip. Worth treating as a “change of pace” addition rather than an upgrade to the Africa on Foot stay.",
+          keyFacts: [{ label: "Group size", value: "Max 16, average 12" }],
+          links: [{ label: "National Geographic Expeditions", url: "https://www.nationalgeographic.com/expeditions/destinations/africa/journeys/kruger-national-park-safari/" }],
+          _sourceRefs: ["extensions.md > South Africa > National Geographic Journeys: Explore Kruger National Park"]
+        },
+        {
+          id: "nat-geo-journeys-explore-kruger-victoria-falls",
+          type: "tour",
+          status: "extension",
+          name: "National Geographic Journeys — Explore Kruger & Victoria Falls",
+          duration: "9 days / 8 nights",
+          price: { total: "~$3,449–$4,599", note: "pp double occupancy; varies by promotional period, regional NatGeo sites show meaningfully different pricing/currency for what appears to be the same tour — reconfirm closer to booking" },
+          summary: "Johannesburg → Victoria Falls, one-way. Open-vehicle game drives in Kruger and a private reserve, plus a guided Victoria Falls tour (Zimbabwe side). Currently under consideration for where a friend might join the trip.",
+          rationale: "Same general-interest, larger-group format as the Kruger-only version above — not photography-matched like Africa on Foot. Ends in Victoria Falls rather than looping back to Johannesburg, meaning a second visit to a destination already covered by this trip's dedicated Zimbabwe leg — accepted as a fine trade-off if it's the right fit for the friend-join logistics. Open question: how this tour's Johannesburg start lines up with the existing Johannesburg stop, and whether it would replace the Africa on Foot/Klaserie stay entirely or run alongside it.",
+          keyFacts: [{ label: "Physical grading", value: "Light, age 12+" }],
+          links: [{ label: "National Geographic Expeditions", url: "https://www.nationalgeographic.com/expeditions/destinations/africa/journeys/kruger-national-park-safari-victoria-falls-tour/" }],
+          _sourceRefs: ["extensions.md > South Africa > National Geographic Journeys: Explore Kruger & Victoria Falls — friend-join option", "research.md > South Africa > Greater Kruger > Tour Operators & Packages Considered"]
         }
       ]
     },
