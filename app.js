@@ -383,6 +383,20 @@
       .map((l) => `<a class="modal__link-btn" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ${icon("external")}</a>`)
       .join("");
 
+    let drivesHtml = "";
+    if (type === "tour" && item.safariDrives) {
+      const sd = item.safariDrives;
+      const isConfirmed = sd.basis === "confirmed";
+      drivesHtml = `
+        <div class="modal__drives-box">
+          <div class="modal__drives-head">
+            <span class="modal__drives-count">${esc(sd.count)} safari drives / viewing experiences</span>
+            <span class="modal__drives-basis" data-basis="${esc(sd.basis)}">${isConfirmed ? icon("check") : icon("info")} ${isConfirmed ? "Confirmed" : "Estimated"}</span>
+          </div>
+          ${sd.note ? `<p class="modal__drives-note">${esc(sd.note)}</p>` : ""}
+        </div>`;
+    }
+
     openModal(`
       <button class="modal__close" aria-label="Close">${icon("close")}</button>
       <div class="modal__badge-row">
@@ -392,6 +406,7 @@
       <h3 class="modal__title">${esc(item.name)}</h3>
       <p class="modal__summary">${esc(item.summary)}</p>
       ${priceHtml}
+      ${drivesHtml}
       <div class="modal__section-title">Why this status</div>
       <p class="modal__rationale">${esc(item.rationale)}</p>
       ${factsHtml ? `<div class="modal__section-title">Key facts</div><div class="modal__facts">${factsHtml}</div>` : ""}

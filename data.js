@@ -628,6 +628,7 @@ const TRIP_DATA = {
           price: { total: "~$13,000", note: "solo" },
           summary: "Lake Nakuru, Masai Mara, Lake Naivasha/Crescent Island, Lake Manyara, Serengeti, Ngorongoro Crater, Olduvai Gorge.",
           rationale: "Represents the \u201cKenya+Tanzania\u201d side of a direct stress-test against the standing Kenya-only decision. Conclusion: unlike Sabi Sands vs. Kruger in South Africa, there's no clear consensus that Tanzania is the objectively more prestigious choice for wildlife photographers \u2014 major operators run separate, equally legitimate Kenya-only and Tanzania-only products. Since river crossings aren't a priority, the case for Tanzania comes down to Ngorongoro Crater specifically, weighed against the preference for extended time at fewer locations \u2014 not enough alone to outweigh it. Kenya-only stands.",
+          safariDrives: { count: "11", basis: "confirmed", note: "Fully explicit day-by-day itinerary — every day's activity (or absence of one) directly stated." },
           keyFacts: [],
           links: [{ label: "G Adventures", url: "https://www.gadventures.com/trips/journeys-kenya-tanzania-safari/DKANG/" }],
           _sourceRefs: ["research.md > Kenya > Masai Mara > Decision Rationale", "research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
@@ -641,6 +642,7 @@ const TRIP_DATA = {
           price: { total: "$16,245", note: "$14,245pp sharing + $2,000 single supplement (2027 figure; 2028 supplement not separately published)" },
           summary: "The strongest in-window find \u2014 confirmed 2028 departure Jul 23\u201331, squarely inside this trip's Jun\u2013Aug window where nearly every other dedicated Serengeti photo operator misses.",
           rationale: "Max 3 guests, one row per photographer, private vehicle, flying Arusha\u2194camps rather than driving. Splits between Central Serengeti (Entara Olmara Camp) and Northern Serengeti (Entara Esirai Migration Camp). Photographic tuition is bundled rather than optional \u2014 not needed per standing preference, but doesn't appear separable from the price. Husband-and-wife-run outfit, 4.8/5 across ~15\u201319 TripAdvisor reviews, but one detailed negative review flags feeling like \u201ca backseat passenger\u201d and overpriced \u2014 worth weighing given the small-operator reliability risk seen elsewhere in this research (Ivan Glaser, Galamuka). Sidesteps the lodge-selection question entirely by bundling accommodation into a fixed price \u2014 arguably the most \u201cKicheche-simple\u201d way to actually book Serengeti today.",
+          safariDrives: { count: "8", basis: "confirmed", note: "Explicitly branded as “full-day safaris” (1 session/day): Day 2 (1) + Days 3–5 (3) + Day 6 (1) + Days 7–8 (2) + Day 9 (1)." },
           keyFacts: [
             { label: "Guests", value: "Max 3, one row per photographer, private vehicle" },
             { label: "Camps", value: "Entara Olmara Camp (Central) \u2192 Entara Esirai Migration Camp (Northern)" }
@@ -657,6 +659,7 @@ const TRIP_DATA = {
           price: { total: "\u20ac5,059", note: "solo; re-verified from an original $5,800 figure" },
           summary: "Broad Northern Circuit tour \u2014 Arusha \u2192 Lake Manyara \u2192 Serengeti (2 days) \u2192 Ngorongoro \u2192 Arusha, plus Olduvai Gorge. Genuinely Serengeti-centered, not Ngorongoro-specific \u2014 relocated here from a standalone Ngorongoro Crater section.",
           rationale: "A general-interest small-group tour, not a photography specialist product \u2014 no dedicated photo vehicle or host. Worth treating as a \u201csee Tanzania's highlights\u201d trip rather than an upgrade to the photography-focused style used everywhere else on this itinerary. Several 2026 departures land in the Jun\u2013Aug window (e.g. Jun 13\u201319, Jun 27\u2013Jul 3, Aug 16\u201322, Aug 22\u201328), a good sign for 2028 availability. Also covers Ngorongoro Crater's black rhino odds and Tarangire's baobab landscape, neither replicated elsewhere on this itinerary.",
+          safariDrives: { count: "5", basis: "confirmed", note: "Identical itinerary text to the Tanzania leg of the Kenya+Tanzania combined NatGeo tour; fully explicit day-by-day." },
           keyFacts: [
             { label: "Route", value: "Starts/ends in Arusha; routes back through Nairobi or via Zanzibar to reach Victoria Falls" }
           ],
@@ -672,6 +675,7 @@ const TRIP_DATA = {
           price: { total: "TBA", note: "\u201cDates coming soon,\u201d price not yet published" },
           summary: "Tarangire/Ngorongoro/Central Serengeti circuit, hosted with tuition by photographer Lucia Griggi, max 4 guests.",
           rationale: "Not evaluable yet \u2014 no dates or pricing published. Logged for a future check rather than dropped outright, since Penda's other regional products (Botswana, South Africa) have been reliable, priced offerings elsewhere in this research.",
+          safariDrives: { count: "8", basis: "confirmed", note: "Fully explicit day-by-day; the Serengeti block (Days 4–7) is branded as “full-day game drives” (1 session/day)." },
           keyFacts: [],
           links: [{ label: "Penda Photo Tours \u2014 Tanzania Photo Safari", url: "https://www.pendaphototours.com/tour/tanzania-photo-safari/" }],
           _sourceRefs: ["research.md > Tanzania > Serengeti > Tour Operators & Packages Considered"]
@@ -760,6 +764,7 @@ const TRIP_DATA = {
           price: { total: "Price TBD" },
           summary: "Multi-park circuit tour; the Masai Mara leg overlaps with the dedicated Masai Mara research, but Tsavo and Amboseli aren't otherwise investigated.",
           rationale: "Named as a candidate but not yet dug into \u2014 no price found and not compared against the Ol Tukai direct-booking plan.",
+          safariDrives: { count: "~22", basis: "estimated", note: "Mix of explicit and inferred days across the 14-day multi-park circuit." },
           keyFacts: [],
           links: [{ label: "Wild4 Photographic Safaris", url: "https://www.wild4photographicsafaris.com/photo-safaris/tsavo-amboseli-masai-mara" }],
           _sourceRefs: ["research.md > Kenya > Amboseli, Tsavo, Samburu & Shompole"]
@@ -773,6 +778,7 @@ const TRIP_DATA = {
           price: { total: "$15,400\u2013$17,200" },
           summary: "Covers two regions not otherwise investigated on this trip: Shompole Conservancy (hide-based photography) and Samburu.",
           rationale: "Logged for reference \u2014 priced and has confirmed dates, but covers different territory entirely from Amboseli itself, so not directly compared against the Ol Tukai plan.",
+          safariDrives: { count: "~19", basis: "estimated", note: "Samburu portion estimated at the standard 2/day; Shompole hide sessions (4 nights × 2 sessions/night) confirmed by an explicit repeating-cycle description." },
           keyFacts: [],
           links: [{ label: "Wild4 Photographic Safaris", url: "https://www.wild4photographicsafaris.com/photo-safaris/shompole-hides-secret-samburu" }],
           _sourceRefs: ["research.md > Kenya > Amboseli, Tsavo, Samburu & Shompole"]
@@ -829,6 +835,7 @@ const TRIP_DATA = {
           price: { total: "$12,972", note: "$12,772 pp sharing + $200 single supplement, confirmed as the first solo traveler to book" },
           summary: "Tiny group (3 guests + 1 ORYX leader) built specifically around finding Giza Mrembo and other black leopards across the Laikipia landscape.",
           rationale: "The only specialist option with confirmed, bookable 2028 departures \u2014 every other option investigated for this pursuit (Ivan Glaser, Edward Selfe, Wild Eye) hit full booking, waitlist status, or down-to-the-last-space scarcity. Trip reports document strong guiding results (Giza spotted on 8 of 12 drives in one account, 9 different leopards in a week in another), supporting the value of expert guiding for a genuinely rare subject.",
+          safariDrives: { count: "12", basis: "confirmed", note: "Explicit day-by-day: Day 2 (1) + Days 3–7 at 2/day (10) + Day 8 (1); cross-validated by a guest trip report citing “eight of the twelve game drives.”" },
           keyFacts: [
             { label: "2028 departures", value: "30 Jun\u20137 Jul and 5\u201312 Aug, both showing spaces available" },
             { label: "Group size", value: "3 guests + 1 ORYX leader" }
@@ -848,6 +855,7 @@ const TRIP_DATA = {
           price: { total: "$14,675", note: "no single supplement, max 4 guests" },
           summary: "Combines this black leopard pursuit with Amboseli's elephant-and-Kilimanjaro scenery, tracking the tusker Craig.",
           rationale: "Logged as a fallback rather than primary \u2014 there are currently no scheduled 2028 departures, only a waitlist, with Wild Eye's own site still finalizing a 2027 date. Worth revisiting if a 2028 date is announced, since it would also let the separately-booked Amboseli/Ol Tukai plan be dropped in favor of this bundled version.",
+          safariDrives: { count: "~19", basis: "estimated", note: "Marketing narrative, not a day-by-day itinerary — 7 Laikipia nights + 3 Amboseli nights with full days assumed at 2 drives/day." },
           keyFacts: [
             { label: "2028 availability", value: "Waitlist only \u2014 no confirmed departure yet" }
           ],
@@ -988,6 +996,7 @@ const TRIP_DATA = {
           price: { total: "$5,650\u2013$6,350", note: "solo, corrected to include the Nairobi\u2194Mara flight it otherwise excludes" },
           summary: "Individually-hosted small-group photo safari \u2014 max 2 guests per vehicle, exclusive-use vehicle and reserve fees bundled in, no single supplement.",
           rationale: "A genuine middle ground between raw camp booking and premium hosted tours, but it's reserve-based (no off-road/night drives) and carries single-operator reliability risk. Availability has improved since original research \u2014 1 spot now shows open 29 Aug\u20135 Sep 2027, directly in this trip's peak travel window.",
+          safariDrives: { count: "9", basis: "confirmed", note: "Day 1 transfer drive framed as active photography + separate afternoon safari (2) + Days 2–7 explicit “Full day Safaris” (6) + Day 8 “Half day Safari” before the return flight (1)." },
           keyFacts: [
             { label: "Group size", value: "Max 2 guests/vehicle" },
             { label: "Single supplement", value: "None" },
@@ -1005,6 +1014,7 @@ const TRIP_DATA = {
           price: { total: "$11,325", note: "solo" },
           summary: "3 guests per vehicle, off-road access on a prime Mara Triangle river-crossing-adjacent concession, in-field photo tuition included.",
           rationale: "Too expensive given the bundled photo tuition isn't needed by this traveler.",
+          safariDrives: { count: "12", basis: "confirmed", note: "Day 1 afternoon safari after arrival (1) + Days 2–6 explicit morning-at-first-light + evening-until-sunset pattern (10) + Day 7 final morning drive (1)." },
           keyFacts: [{ label: "2028 departures", value: "5 fixed weekly slots, Jul 16\u2013Aug 19" }],
           links: [{ label: "Wild Eye", url: "https://wild-eye.com/photographic-travel/masai-mara-photo-safari/" }],
           _sourceRefs: ["research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
@@ -1018,8 +1028,23 @@ const TRIP_DATA = {
           price: { total: "From $9,950\u2013$17,450", note: "per person, varies by specific product" },
           summary: "Pangolin's Kenya photo-safari lineup, including a migration-season option with a bundled hot air balloon flight.",
           rationale: "Season/dates didn't align with this trip's travel window for the products checked; not directly compared against Kicheche.",
+          safariDrives: { count: "~12", basis: "estimated", note: "Both the non-migration and Great Migration Mara safaris let guests choose full-day outings instead of split drives; this is the baseline estimate under the standard 2/day option." },
           keyFacts: [],
           links: [{ label: "Pangolin Photo", url: "https://www.pangolinphoto.com/safaris/masai-mara-safari" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "pangolin-epic-kenya-photo-safari",
+          type: "tour",
+          status: "neutral",
+          name: "Pangolin — The Epic Kenya Photo Safari",
+          duration: "12 days",
+          price: { total: "From $17,450", note: "per person" },
+          summary: "A multi-park circuit combining Amboseli, Samburu, and the Masai Mara, including one underground hide session in Samburu.",
+          rationale: "Logged with its facts (price, route, drive estimate) but never individually evaluated against Kicheche or explicitly ruled out on its own merits — same tier as Pangolin's other Masai Mara products above, not directly compared.",
+          safariDrives: { count: "~19", basis: "estimated", note: "Amboseli (5) + Samburu (6, includes 1 underground hide session) + Masai Mara (8); site confirms split morning/afternoon drives are “more often than not” the pattern used." },
+          keyFacts: [],
+          links: [{ label: "Pangolin Photo", url: "https://www.pangolinphoto.com/safaris/kenya-photo-safari" }],
           _sourceRefs: ["research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
         },
         {
@@ -1031,6 +1056,7 @@ const TRIP_DATA = {
           price: { total: "~$13,000", note: "solo" },
           summary: "Lake Nakuru, Masai Mara, Lake Naivasha/Crescent Island, Lake Manyara, Serengeti, Ngorongoro Crater, Olduvai Gorge.",
           rationale: "Represents the \u201cKenya+Tanzania\u201d side of a direct stress-test against the standing Kenya-only decision. Conclusion: unlike Sabi Sands vs. Kruger in South Africa, there's no clear consensus that Tanzania is the objectively more prestigious choice for wildlife photographers \u2014 major operators run separate, equally legitimate Kenya-only and Tanzania-only products. Since river crossings aren't a priority, the case for Tanzania comes down to Ngorongoro Crater specifically, weighed against the preference for extended time at fewer locations \u2014 not enough alone to outweigh it. Kenya-only stands.",
+          safariDrives: { count: "11", basis: "confirmed", note: "Fully explicit day-by-day itinerary — every day's activity (or absence of one) directly stated." },
           keyFacts: [],
           links: [{ label: "G Adventures", url: "https://www.gadventures.com/trips/journeys-kenya-tanzania-safari/DKANG/" }],
           _sourceRefs: ["research.md > Kenya > Masai Mara > Decision Rationale", "research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
@@ -1044,6 +1070,7 @@ const TRIP_DATA = {
           price: { total: "$7,200", note: "solo, single-occupancy priced, no supplement needed" },
           summary: "Lake Nakuru, Masai Mara, Lake Naivasha/Crescent Island \u2014 a general-interest small-group tour, not a photography specialist product.",
           rationale: "Logged as a comparison point; current listing shows 8 days rather than the 7 days the price was recorded against, worth reconfirming before treating as comparable.",
+          safariDrives: { count: "7", basis: "confirmed", note: "Fully explicit day-by-day, including a final-morning drive on the departure day." },
           keyFacts: [],
           links: [{ label: "G Adventures", url: "https://www.gadventures.com/trips/kenya-safari-experience/DKKNG/" }],
           _sourceRefs: ["research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
@@ -1114,6 +1141,7 @@ const TRIP_DATA = {
           price: { total: "$10,945", note: "pp sharing" },
           summary: "Recurring June-departure photo safari; exact 2028 dates not yet published.",
           rationale: "Logged for reference alongside the preferred direct-booking (Robin Pope) plan — not directly compared against it in detail.",
+          safariDrives: { count: "14", basis: "confirmed", note: "Day 1 arrival + road transfer (1) + Days 2–7 explicit twice-daily pattern (12) + Day 8 departure (1)." },
           keyFacts: [{ label: "Departure pattern", value: "Recurring June (2027: Jun 2027); 2028 dates not yet published" }],
           links: [{ label: "Pangolin Photo — South Luangwa", url: "https://www.pangolinphoto.com/safaris/south-luangwa-photo-safari" }],
           _sourceRefs: ["research.md > Zambia > South Luangwa > Tour Operators & Packages Considered"]
@@ -1127,6 +1155,7 @@ const TRIP_DATA = {
           price: { total: "$7,495" },
           summary: "Recurring June-departure photo safari; exact 2028 dates not yet published.",
           rationale: "Logged for reference alongside the preferred direct-booking (Robin Pope) plan — not directly compared against it in detail.",
+          safariDrives: { count: "12", basis: "confirmed", note: "Day 1 arrival (0) + Day 2 “first game drive” (1) + Days 3–7 “morning and afternoon game drives” (10) + Day 8 “final morning game drive” (1)." },
           keyFacts: [{ label: "Departure pattern", value: "Recurring June (2027: Jun 12–19); 2028 dates not yet published" }],
           links: [{ label: "Penda Photo Tours — Leopards of Luangwa", url: "https://www.pendaphototours.com/tour/leopards-of-luangwa-photo-safari-zambia/" }],
           _sourceRefs: ["research.md > Zambia > South Luangwa > Tour Operators & Packages Considered"]
@@ -1229,6 +1258,7 @@ const TRIP_DATA = {
           price: { total: "$9,220–$11,540", note: "for two travelers — booking system doesn't support solo bookings" },
           summary: "Chiawa Camp (Lower Zambezi) + Puku Ridge (South Luangwa) combined itinerary.",
           rationale: "Not preferred — the booking system only supports bookings for 2 people, a hard blocker for a solo traveler.",
+          safariDrives: { count: "13", basis: "estimated", note: "Fully tailor-made with no fixed activity schedule; estimated by applying 2 drives/day to full days, using the explicit transfer/arrival/departure descriptions." },
           keyFacts: [],
           links: [{ label: "Expert Africa — Vervet Monkey Safari", url: "https://www.expertafrica.com/zambia/safari/vervet-monkey-safari" }],
           _sourceRefs: ["research.md > Zambia > Lower Zambezi > Tour Operators & Packages Considered"]
@@ -1242,6 +1272,7 @@ const TRIP_DATA = {
           price: { total: "Not stated" },
           summary: "Same operator and combined-park structure as the Vervet Monkey Safari, at a 10-day length.",
           rationale: "Not preferred for the same reason as the Vervet Monkey Safari — the booking system doesn't support solo travelers.",
+          safariDrives: { count: "18", basis: "estimated", note: "Same tailor-made, no-fixed-schedule situation as the Vervet Monkey Safari; estimated the same way." },
           keyFacts: [],
           links: [{ label: "Expert Africa — Crawshay's Zebra Safari", url: "https://www.expertafrica.com/zambia/safari/crawshays-zebra-safari" }],
           _sourceRefs: ["research.md > Zambia > Lower Zambezi > Tour Operators & Packages Considered"]
@@ -1255,6 +1286,7 @@ const TRIP_DATA = {
           price: { total: "Not found despite repeated attempts" },
           summary: "Dedicated combined photo safari explicitly highlighting the high leopard density draw.",
           rationale: "Not preferred for lack of pricing — no price ever found, and availability flagged as limited (“FINAL SPOT OPEN” still showing on the last check).",
+          safariDrives: { count: "~16", basis: "estimated", note: "Most days explicit, but the Lower Zambezi block mixes game drives with walking/water safaris with no stated split." },
           keyFacts: [],
           links: [{ label: "World Photo Travels", url: "https://www.worldphototravels.com/zambia-photo-safari-south-luangwa-lower-zambezi.php" }],
           _sourceRefs: ["research.md > Zambia > Lower Zambezi > Tour Operators & Packages Considered"]
@@ -1268,6 +1300,7 @@ const TRIP_DATA = {
           price: { total: "$15,000–$17,500", note: "pp — latest confirmed departure: 11 nights, $17,500pp, Sep 2028 (tbc), 1 space" },
           summary: "Individually-hosted, covers both regions (Kutali/Lion Camp for the Lower Zambezi portion).",
           rationale: "Solidly premium, not mid-range, and down to the last space. Not preferred given cost and scarcity.",
+          safariDrives: { count: "22", basis: "estimated", note: "No official itinerary exists; reconstructed from two guest trip reports plus the 2/day rule for full days without stated travel." },
           keyFacts: [{ label: "Availability", value: "1 space, Sep 2028 (tbc)" }],
           links: [{ label: "Edward Selfe Photo Safaris", url: "https://www.edwardselfephotosafaris.com/safaris" }],
           _sourceRefs: ["research.md > Zambia > Lower Zambezi > Tour Operators & Packages Considered"]
@@ -1281,6 +1314,7 @@ const TRIP_DATA = {
           price: { total: "Not stated" },
           summary: "Both operators run South Luangwa as a core trip with Lower Zambezi as an optional extension rather than a single fixed combo.",
           rationale: "Wild Eye's current departure shows 2027 waitlist only — not bookable for this trip's timeline, consistent with the overall not-preferred conclusion for Lower Zambezi.",
+          safariDrives: { count: "12", basis: "confirmed", note: "Wild Eye figure used. Day 1 arrival (0) + Day 2 transfer (1 est.) + Days 3–7 “two game viewing activities per day” (10) + Day 8 early-morning safari (1)." },
           keyFacts: [],
           links: [
             { label: "Photo Safari Company — Zambia", url: "https://photosafaricompany.com/safari-destinations/zambia-photo-safaris/" },
@@ -1350,6 +1384,7 @@ const TRIP_DATA = {
           price: { total: "$13,850", note: "$10,850 pp + a confirmed $3,000 single supplement" },
           summary: "3 nights Pangolin Chobe Hotel (Kasane) + included bush flight + 4 nights Shinde Footsteps (Delta) — the locked-in centerpiece of the trip.",
           rationale: "The confirmed, preferred pick — note the single-supplement figure corrects an earlier logged number that omitted it. Pangolin's separate “no single supplement” policy applies only to standalone 3-night Chobe Hotel bookings, not this bundled multi-day tour.",
+          safariDrives: { count: "14", basis: "confirmed", note: "3 nights Chobe “twice daily activities” (6) + 4 nights Shinde Footsteps “twice daily game drives” (8), directly from Pangolin's inclusions." },
           keyFacts: [
             { label: "Seasonal window", value: "Recurring Mar/Apr–Nov departure pattern, not fixed one-off dates" }
           ],
@@ -1365,6 +1400,7 @@ const TRIP_DATA = {
           price: { total: "$4,595", note: "pp" },
           summary: "3 nights Victoria Falls (Palm River Hotel + a helicopter flight + Zambezi sunset cruise) + 3 nights Pangolin Chobe Hotel — no Delta portion at all.",
           rationale: "Not preferred — doesn't include the Delta (would need a separate, expensive Delta booking on top) and would replace the independently-researched Victoria Falls hotel plan.",
+          safariDrives: { count: "8", basis: "confirmed", note: "Victoria Falls leg (2: sunset cruise with wildlife-spotting + a shared game drive in Zambezi National Park) + Chobe leg (6: 3 nights × twice-daily game activities)." },
           keyFacts: [],
           links: [{ label: "Pangolin Photo — Victoria Falls & Chobe", url: "https://www.pangolinphoto.com/safaris/victoria-falls-chobe-safari" }],
           _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Tour Operators & Packages Considered"]
@@ -1378,6 +1414,7 @@ const TRIP_DATA = {
           price: { total: "$5,495", note: "pp" },
           summary: "3 nights aboard the Pangolin Voyager houseboat + Pangolin Chobe Hotel — the practical way to access the exclusive-charter-only Voyager without the full charter markup.",
           rationale: "Not preferred given the schedule/cost tradeoffs of fitting it alongside the Delta — the Delta is the higher priority.",
+          safariDrives: { count: "12", basis: "confirmed", note: "Inclusions state a single “twice daily game activities” line across the full 6-night stay (3n houseboat + 3n Chobe Hotel): 6×2=12." },
           keyFacts: [],
           links: [{ label: "Pangolin Photo — Best of the Chobe", url: "https://www.pangolinphoto.com/safaris/best-of-the-chobe" }],
           _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Tour Operators & Packages Considered"]
@@ -1391,6 +1428,7 @@ const TRIP_DATA = {
           price: { total: "$20,450", note: "$15,345 pp + a confirmed $5,105 single supplement, 2027 rates" },
           summary: "Swaps the land-based Chobe Hotel for 3 nights on the Pangolin Voyager houseboat, adds a 30-minute scenic helicopter flight and 3 nights at Dinaka Camp (Central Kalahari) — same Shinde Footsteps Delta camp as the core pick, but 3 nights instead of 4.",
           rationale: "Not the primary pick — ~$6,600 more than the locked-in 8-day tour — but genuinely reconsidered rather than dropped: reviews are excellent (“all round winner,” specifically citing the Voyager and Dinaka's hide photography), and it remains a real candidate to swap to if extra budget/time opens up before booking.",
+          safariDrives: { count: "18", basis: "confirmed", note: "3n Voyager Houseboat “twice daily activities” (6) + 3n Ker & Downey Footsteps “twice daily game drives” (6) + 3n Dinaka “twice daily game drives and use of the bunker hide” (6)." },
           keyFacts: [
             { label: "Delta nights vs. core pick", value: "3 nights (vs. 4) — traded for Voyager + Dinaka time" }
           ],
@@ -1406,6 +1444,7 @@ const TRIP_DATA = {
           price: { total: "$14,950–$15,250" },
           summary: "Confirmed 2028 departure covering the same broad ecosystem as the preferred Pangolin package.",
           rationale: "Not yet compared in detail against the preferred Pangolin package — logged for reference.",
+          safariDrives: { count: "~22", basis: "estimated", note: "Confirmed 2/day “Day On Safari” pattern for the Delta/Savuti legs; the Chobe leg's total is explicitly confirmed as “a total of 4 sessions” across 2 nights." },
           keyFacts: [{ label: "2028 departure", value: "Jul 6–19" }],
           links: [{ label: "Wild4 Photographic Safaris", url: "https://www.wild4photographicsafaris.com/photo-safaris/okavango-savuti-chobe-river" }],
           _sourceRefs: ["research.md > Botswana > Chobe & Okavango Delta > Tour Operators & Packages Considered"]
@@ -1443,6 +1482,7 @@ const TRIP_DATA = {
           price: { total: "$12,000–$12,700" },
           summary: "Confirmed 2028 departure, Mashatu-only.",
           rationale: "Logged as a priced, dated candidate — not yet compared against the other Tuli/Mashatu options.",
+          safariDrives: { count: "~14", basis: "estimated", note: "Full safari days confirmed at 2/day; the Limpopo overnight hide (Days 5–6) treated as one continuous session; transfer/arrival/departure days estimated." },
           keyFacts: [{ label: "2028 departure", value: "Jun 22–Jul 1" }],
           links: [{ label: "Wild4 — Magical Mashatu", url: "https://www.wild4photographicsafaris.com/photo-safaris/magical-mashatu" }],
           _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
@@ -1456,6 +1496,7 @@ const TRIP_DATA = {
           price: { total: "$17,600–$18,300" },
           summary: "Combined South Africa + Botswana itinerary (MalaMala/Sabi Sands + Mashatu).",
           rationale: "The MalaMala/Sabi Sands leg falls squarely in the ultra-luxury, not-preferred tier already established for that region (see the Greater Kruger decision rationale) — not preferred as a result.",
+          safariDrives: { count: "~16", basis: "estimated", note: "Fully explicit day-by-day itinerary confirmed via the operator's own “Itinerary” tab; only the two arrival days require inference." },
           keyFacts: [{ label: "2028 departure", value: "Aug 3–13" }],
           links: [{ label: "Wild4 — Lions & Leopards of MalaMala & Mashatu", url: "https://www.wild4photographicsafaris.com/photo-safaris/lion-leopards-of-malamala-mashatu" }],
           _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
@@ -1469,6 +1510,7 @@ const TRIP_DATA = {
           price: { total: "$12,095" },
           summary: "Confirmed 2028 departure built around Mashatu's overnight photography hide.",
           rationale: "Logged as a priced, dated candidate — not yet compared against the other Tuli/Mashatu options.",
+          safariDrives: { count: "~9", basis: "estimated", note: "Day 1 first night at the Lala Limpopo overnight hide (1) + Day 2 explicit afternoon drive (1) + Days 3–5 standard 2/day mixing “3 hide sessions total” with game drives (6) + Day 6 explicit “last morning game drive” (1)." },
           keyFacts: [{ label: "2028 departure", value: "Jul 1–6" }],
           links: [{ label: "ORYX — Mashatu Overnight Hide & Predators", url: "https://www.oryxphoto.com/tour-item/mashatu-overnight-hide-predators-photo-safari-2028" }],
           _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
@@ -1482,6 +1524,7 @@ const TRIP_DATA = {
           price: { total: "$11,042" },
           summary: "Confirmed 2028 departure, Mashatu hide-and-predator focus.",
           rationale: "Logged as a priced, dated candidate — not yet compared against the other Tuli/Mashatu options.",
+          safariDrives: { count: "~9", basis: "estimated", note: "Day 1 pure transfer/arrival (0) + Days 2–5 standard 2/day mixing “3 hide sessions” with game drives (8) + Day 6 explicit “last morning game drive” (1)." },
           keyFacts: [{ label: "2028 departure", value: "Jul 19–24" }],
           links: [{ label: "ORYX — Mashatu Hides & Predators", url: "https://www.oryxphoto.com/tour-item/mashatu-hides-predators-photo-safari-2028" }],
           _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
@@ -1495,6 +1538,7 @@ const TRIP_DATA = {
           price: { total: "Not found" },
           summary: "Recurring July departure (2027 date: Jul 12).",
           rationale: "No published price found yet — logged as a candidate for a direct quote.",
+          safariDrives: { count: "~11", basis: "estimated", note: "Same tour as Penda's “Botswana Photo Safari (Tuli)” — identical guide, camp, and dates; see that entry's breakdown." },
           keyFacts: [],
           links: [{ label: "African Photography Safaris — Tuli Wilderness", url: "https://africanphotographysafaris.com/botswanas-tuli-wilderness/" }],
           _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
@@ -1508,6 +1552,7 @@ const TRIP_DATA = {
           price: { total: "$5,795" },
           summary: "Based at Mohave Bush Camp on the Limpopo River. Penda explicitly markets this as pairable with their South Africa (Timbavati) tour the following week.",
           rationale: "Logged as a priced, dated candidate — not yet compared against the other Tuli/Mashatu options.",
+          safariDrives: { count: "~11", basis: "estimated", note: "Day 1 conditional first-evening drive (1 est.) + Days 2–6 “game drives, walking safaris, photography workshops” with no per-day count (10 est.) + Day 7 departure (0)." },
           keyFacts: [{ label: "Pairing", value: "Explicitly pairable with Penda's South Africa (Timbavati) tour the following week" }],
           links: [{ label: "Penda Photo Tours — Botswana Photo Safari", url: "https://www.pendaphototours.com/tour/botswana-photo-safari/" }],
           _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
@@ -1610,6 +1655,7 @@ const TRIP_DATA = {
           price: { total: "ZAR 226,600", note: "two confirmed 2028 departures: Jul 1–6 and Jul 25–30; ORYX's live tour calendar separately shows a Jul 1–6, 2028 Sabi Sands departure priced at $10,401 pp instead — worth reconfirming exact 2028 dates/currency/price directly before relying on either figure" },
           summary: "Sabi Sands remains the region already ruled out on price for this trip — logged for reference in case that decision is revisited.",
           rationale: "Sabi Sands was already established as not preferred (see Decision Rationale) — this option inherits that verdict rather than being independently rejected.",
+          safariDrives: { count: "10", basis: "confirmed", note: "Day 1 “first afternoon game drive” (1) + Days 2–5 “two game drives each day” (8) + Day 6 “final morning's game drive” (1); cross-validated by a third-party mirror of the same product." },
           keyFacts: [],
           links: [{ label: "ORYX Photo Tours", url: "https://www.oryxphoto.com/" }],
           _sourceRefs: ["research.md > South Africa > Greater Kruger > Tour Operators & Packages Considered"]
@@ -1623,6 +1669,7 @@ const TRIP_DATA = {
           price: { total: "Not found" },
           summary: "Recurring July departure (2027 date: Jul 19). Timbavati is the same unfenced Greater Kruger sub-region as the preferred Africa on Foot pick.",
           rationale: "No published price found yet — logged as a candidate for a direct quote.",
+          safariDrives: { count: "~11", basis: "estimated", note: "Same tour as Penda's “South Africa Photo Safari” — same guide, camp, and itinerary; see that entry's breakdown." },
           keyFacts: [],
           links: [{ label: "African Photography Safaris", url: "https://www.africanphotographysafaris.com/photography-safaris" }],
           _sourceRefs: ["research.md > South Africa > Greater Kruger > Tour Operators & Packages Considered"]
@@ -1636,6 +1683,7 @@ const TRIP_DATA = {
           price: { total: "$5,795" },
           summary: "Also based in Timbavati; hosted by wildlife photographer Alan Hewitt with in-field tuition included (not needed by this traveler). Explicitly pairs with Penda's Botswana/Tuli tour the week before.",
           rationale: "Logged as a priced, dated candidate alongside the preferred direct-booking (Africa on Foot) plan — not directly compared against it in detail.",
+          safariDrives: { count: "~11", basis: "estimated", note: "Explicit twice-a-day, dawn-and-dusk pattern for Days 2–6 (10); Day 1 arrival and Day 7 departure have no stated drive." },
           keyFacts: [{ label: "Pairing", value: "Explicitly pairable with Penda's Botswana/Tuli tour the week before" }],
           links: [{ label: "Penda Photo Tours — South Africa Photo Safari", url: "https://www.pendaphototours.com/tour/south-africa-photo-safari/" }],
           _sourceRefs: ["research.md > South Africa > Greater Kruger > Tour Operators & Packages Considered"]
@@ -1649,6 +1697,7 @@ const TRIP_DATA = {
           price: { total: "$2,999–$3,599", note: "appears to be per person, exact occupancy basis not fully confirmed" },
           summary: "Starts and ends in Johannesburg — lines up directly with this trip's existing Johannesburg stop. The Panorama Route, a safari with a Cheetah Metapopulation Project researcher, Karongwe Private Game Reserve, plus Kruger itself.",
           rationale: "A general-interest small-group tour, not a photography specialist — max 16 guests, average 12, notably larger than the small-group, photo-vehicle-equipped style used elsewhere on this trip. Worth treating as a “change of pace” addition rather than an upgrade to the Africa on Foot stay.",
+          safariDrives: { count: "5", basis: "confirmed", note: "Fully explicit day-by-day: a full-day “Open Vehicle Wildlife Safari Drive,” a “Carnivore Conservation Experience” viewing excursion, a morning+afternoon day, and a final morning safari; two days are scenic/rest with no wildlife drive." },
           keyFacts: [{ label: "Group size", value: "Max 16, average 12" }],
           links: [{ label: "National Geographic Expeditions", url: "https://www.nationalgeographic.com/expeditions/destinations/africa/journeys/kruger-national-park-safari/" }],
           _sourceRefs: ["extensions.md > South Africa > National Geographic Journeys: Explore Kruger National Park"]
@@ -1662,6 +1711,7 @@ const TRIP_DATA = {
           price: { total: "~$3,449–$4,599", note: "pp double occupancy; varies by promotional period, regional NatGeo sites show meaningfully different pricing/currency for what appears to be the same tour — reconfirm closer to booking" },
           summary: "Johannesburg → Victoria Falls, one-way. Open-vehicle game drives in Kruger and a private reserve, plus a guided Victoria Falls tour (Zimbabwe side). Currently under consideration for where a friend might join the trip.",
           rationale: "Same general-interest, larger-group format as the Kruger-only version above — not photography-matched like Africa on Foot. Ends in Victoria Falls rather than looping back to Johannesburg, meaning a second visit to a destination already covered by this trip's dedicated Zimbabwe leg — accepted as a fine trade-off if it's the right fit for the friend-join logistics. Open question: how this tour's Johannesburg start lines up with the existing Johannesburg stop, and whether it would replace the Africa on Foot/Klaserie stay entirely or run alongside it.",
+          safariDrives: { count: "5", basis: "confirmed", note: "Same day structure as the Kruger-only NatGeo tour above, continuing into Victoria Falls rather than looping back to Johannesburg." },
           keyFacts: [{ label: "Physical grading", value: "Light, age 12+" }],
           links: [{ label: "National Geographic Expeditions", url: "https://www.nationalgeographic.com/expeditions/destinations/africa/journeys/kruger-national-park-safari-victoria-falls-tour/" }],
           _sourceRefs: ["extensions.md > South Africa > National Geographic Journeys: Explore Kruger & Victoria Falls — friend-join option", "research.md > South Africa > Greater Kruger > Tour Operators & Packages Considered"]
@@ -1699,6 +1749,7 @@ const TRIP_DATA = {
           price: { total: "R204,195", note: "Early Bird R195,950" },
           summary: "The only Kalahari candidate found — not otherwise investigated in this research, and not yet compared against any direct-booking alternative.",
           rationale: "Logged as a priced, dated candidate — no decision reached yet, since no other Kalahari option has been checked for comparison.",
+          safariDrives: { count: "19", basis: "confirmed", note: "Day 1 first afternoon safari activity (1) + Days 2–7 explicit morning/afternoon rhythm at Phêne Lodge (12) + Days 8–10 explicit morning/afternoon pattern at Kanako (6); final transfer day has no game activity." },
           keyFacts: [{ label: "2028 departure", value: "10–20 Jul" }],
           links: [{ label: "Wild Eye — Exclusive Kalahari Safari", url: "https://wild-eye.com/photographic-travel/exclusive-kalahari-safari/" }],
           _sourceRefs: ["research.md > South Africa > Kalahari > Tour Operators & Packages Considered"]

@@ -263,6 +263,7 @@
   // ---- UI chrome icons --------------------------------------------------
   S.chevron = `<path d="M6.4 9 L12 15 L17.6 9" fill="none" stroke-width="1.8"/>`;
   S.close = `<path d="M6 6 L18 18 M18 6 L6 18" fill="none" stroke-width="1.7"/>`;
+  S.check = `<path d="M5.4 12.4 L9.8 16.8 L18.6 7.4" fill="none" stroke-width="1.8"/>`;
   S.external = `
     <path d="M16.4 12.6 L16.4 17.4 Q16.4 18.6 15.2 18.6 L6.6 18.6 Q5.4 18.6 5.4 17.4 L5.4 8.8 Q5.4 7.6 6.6 7.6 L11.4 7.6" fill="none" stroke-width="1.6"/>
     <path d="M13.4 4.6 L19.4 4.6 L19.4 10.6" fill="none" stroke-width="1.6"/>
