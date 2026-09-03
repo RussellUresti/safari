@@ -520,7 +520,22 @@ const TRIP_DATA = {
 
       lodges: [],
 
-      tours: []
+      tours: [
+        {
+          id: "nat-geo-journeys-explore-kruger-victoria-falls-dup-victoria-falls",
+          type: "tour",
+          status: "extension",
+          name: "National Geographic Journeys — Explore Kruger & Victoria Falls",
+          duration: "9 days / 8 nights",
+          price: { total: "~$3,449–$4,599", note: "pp double occupancy; varies by promotional period, regional NatGeo sites show meaningfully different pricing/currency for what appears to be the same tour — reconfirm closer to booking" },
+          summary: "Johannesburg → Victoria Falls, one-way. Open-vehicle game drives in Kruger and a private reserve, plus a guided Victoria Falls tour (Zimbabwe side). Currently under consideration for where a friend might join the trip.",
+          rationale: "Same general-interest, larger-group format as the Kruger-only version — not photography-matched like Africa on Foot. Ends in Victoria Falls rather than looping back to Johannesburg, meaning a second visit to a destination already covered by this trip's dedicated Zimbabwe leg — accepted as a fine trade-off if it's the right fit for the friend-join logistics. Open question: how this tour's Johannesburg start lines up with the existing Johannesburg stop, and whether it would replace the Africa on Foot/Klaserie stay entirely or run alongside it.",
+          safariDrives: { count: "5", basis: "confirmed", note: "Same day structure as the Kruger-only NatGeo tour, continuing into Victoria Falls rather than looping back to Johannesburg." },
+          keyFacts: [{ label: "Physical grading", value: "Light, age 12+" }],
+          links: [{ label: "National Geographic Expeditions", url: "https://www.nationalgeographic.com/expeditions/destinations/africa/journeys/kruger-national-park-safari-victoria-falls-tour/" }],
+          _sourceRefs: ["extensions.md > South Africa > National Geographic Journeys: Explore Kruger & Victoria Falls — friend-join option", "research.md > South Africa > Greater Kruger > Tour Operators & Packages Considered"]
+        }
+      ]
     },
 
     serengeti: {
@@ -782,6 +797,36 @@ const TRIP_DATA = {
           keyFacts: [],
           links: [{ label: "Wild4 Photographic Safaris", url: "https://www.wild4photographicsafaris.com/photo-safaris/shompole-hides-secret-samburu" }],
           _sourceRefs: ["research.md > Kenya > Amboseli, Tsavo, Samburu & Shompole"]
+        },
+        {
+          id: "wild-eye-amboseli-laikipia-dup-amboseli",
+          type: "tour",
+          status: "extension",
+          name: "Wild Eye — Amboseli and Laikipia Photo Safari",
+          duration: "11 nights (7 Laikipia + 3 Amboseli + 1 Nairobi)",
+          price: { total: "$14,675", note: "no single supplement, max 4 guests" },
+          summary: "Combines this black leopard pursuit with Amboseli's elephant-and-Kilimanjaro scenery, tracking the tusker Craig.",
+          rationale: "Logged as a fallback rather than primary — there are currently no scheduled 2028 departures, only a waitlist, with Wild Eye's own site still finalizing a 2027 date. Worth revisiting if a 2028 date is announced, since it would also let the separately-booked Amboseli/Ol Tukai plan be dropped in favor of this bundled version.",
+          safariDrives: { count: "~19", basis: "estimated", note: "Marketing narrative, not a day-by-day itinerary — 7 Laikipia nights + 3 Amboseli nights with full days assumed at 2 drives/day." },
+          keyFacts: [
+            { label: "2028 availability", value: "Waitlist only — no confirmed departure yet" }
+          ],
+          links: [{ label: "Wild Eye", url: "https://wild-eye.com/photographic-travel/amboseli-and-laikipia-photo-safari/" }],
+          _sourceRefs: ["extensions.md > Kenya > Laikipia"]
+        },
+        {
+          id: "pangolin-epic-kenya-photo-safari-dup-amboseli",
+          type: "tour",
+          status: "neutral",
+          name: "Pangolin — The Epic Kenya Photo Safari",
+          duration: "12 days",
+          price: { total: "From $17,450", note: "per person" },
+          summary: "A multi-park circuit combining Amboseli, Samburu, and the Masai Mara, including one underground hide session in Samburu.",
+          rationale: "Logged with its facts (price, route, drive estimate) but never individually evaluated against Kicheche or explicitly ruled out on its own merits — same tier as Pangolin's other Masai Mara products above, not directly compared.",
+          safariDrives: { count: "~19", basis: "estimated", note: "Amboseli (5) + Samburu (6, includes 1 underground hide session) + Masai Mara (8); site confirms split morning/afternoon drives are “more often than not” the pattern used." },
+          keyFacts: [],
+          links: [{ label: "Pangolin Photo", url: "https://www.pangolinphoto.com/safaris/kenya-photo-safari" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
         }
       ]
     },
@@ -1074,6 +1119,20 @@ const TRIP_DATA = {
           keyFacts: [],
           links: [{ label: "G Adventures", url: "https://www.gadventures.com/trips/kenya-safari-experience/DKKNG/" }],
           _sourceRefs: ["research.md > Kenya > Masai Mara > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "wild4-tsavo-amboseli-masai-mara-dup-masai-mara",
+          type: "tour",
+          status: "unresearched",
+          name: "Wild4 — Tsavo, Amboseli & Masai Mara",
+          duration: "14 days (Jun 11–24, 2028)",
+          price: { total: "Price TBD" },
+          summary: "Multi-park circuit tour; the Masai Mara leg overlaps with the dedicated Masai Mara research, but Tsavo and Amboseli aren't otherwise investigated.",
+          rationale: "Named as a candidate but not yet dug into — no price found and not compared against the Ol Tukai direct-booking plan.",
+          safariDrives: { count: "~22", basis: "estimated", note: "Mix of explicit and inferred days across the 14-day multi-park circuit." },
+          keyFacts: [],
+          links: [{ label: "Wild4 Photographic Safaris", url: "https://www.wild4photographicsafaris.com/photo-safaris/tsavo-amboseli-masai-mara" }],
+          _sourceRefs: ["research.md > Kenya > Amboseli, Tsavo, Samburu & Shompole"]
         }
       ]
     },
@@ -1715,6 +1774,20 @@ const TRIP_DATA = {
           keyFacts: [{ label: "Physical grading", value: "Light, age 12+" }],
           links: [{ label: "National Geographic Expeditions", url: "https://www.nationalgeographic.com/expeditions/destinations/africa/journeys/kruger-national-park-safari-victoria-falls-tour/" }],
           _sourceRefs: ["extensions.md > South Africa > National Geographic Journeys: Explore Kruger & Victoria Falls — friend-join option", "research.md > South Africa > Greater Kruger > Tour Operators & Packages Considered"]
+        },
+        {
+          id: "wild4-lions-leopards-malamala-mashatu-dup-greater-kruger",
+          type: "tour",
+          status: "rejected",
+          name: "Wild4 — Lions & Leopards of MalaMala & Mashatu",
+          duration: "11 days (Aug 3–13, 2028)",
+          price: { total: "$17,600–$18,300" },
+          summary: "Combined South Africa + Botswana itinerary (MalaMala/Sabi Sands + Mashatu).",
+          rationale: "The MalaMala/Sabi Sands leg falls squarely in the ultra-luxury, not-preferred tier already established for that region (see the Greater Kruger decision rationale) — not preferred as a result.",
+          safariDrives: { count: "~16", basis: "estimated", note: "Fully explicit day-by-day itinerary confirmed via the operator's own “Itinerary” tab; only the two arrival days require inference." },
+          keyFacts: [{ label: "2028 departure", value: "Aug 3–13" }],
+          links: [{ label: "Wild4 — Lions & Leopards of MalaMala & Mashatu", url: "https://www.wild4photographicsafaris.com/photo-safaris/lion-leopards-of-malamala-mashatu" }],
+          _sourceRefs: ["research.md > Botswana > Tuli / Mashatu > Tour Operators & Packages Considered"]
         }
       ]
     },
