@@ -235,6 +235,31 @@
     <circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/>
   `;
 
+  S.hotel = `
+    <path d="M3.2 19.4 L3.2 6.2" fill="none"/>
+    <path d="M3.2 19.4 L21.4 19.4 L21.4 14.2 Q21.4 12 19.2 12 L5.4 12 Q3.2 12 3.2 14.2" fill="none"/>
+    <path d="M5.4 12 L5.4 9 Q5.4 7.6 6.8 7.6 L10.6 7.6 Q12 7.6 12 9 L12 12" fill="none"/>
+    <path d="M21.4 19.4 L21.4 16" fill="none"/>
+    <circle cx="7.8" cy="9.4" r="0.9" fill="none"/>
+  `;
+
+  S.flight = `
+    <path d="M21 3.4 L2.6 11.2 L10.4 13.6 L12.8 21.2 L15.2 15.6 L21 3.4 Z" fill="none"/>
+    <path d="M10.4 13.6 L21 3.4" fill="none"/>
+  `;
+
+  S.end = `
+    <path d="M6 20.6 L6 4.2" fill="none"/>
+    <path d="M6 4.6 L17 4.6 L14 8.4 L17 12.2 L6 12.2" fill="none" stroke-linejoin="round"/>
+  `;
+
+  S.transfer = `
+    <path d="M4.6 15.4 L5.8 10.6 Q6.2 9.2 7.8 9.2 L16.2 9.2 Q17.8 9.2 18.2 10.6 L19.4 15.4" fill="none"/>
+    <path d="M3.4 15.4 L20.6 15.4 L20.6 17.8 L18.2 17.8 L18.2 16.2 L5.8 16.2 L5.8 17.8 L3.4 17.8 Z" fill="none"/>
+    <circle cx="7.2" cy="17.8" r="1.4" fill="none"/>
+    <circle cx="16.8" cy="17.8" r="1.4" fill="none"/>
+  `;
+
   // ---- status badge icons ---------------------------------------------
   // bold trophy glyph, recolored gold/silver/bronze via CSS for
   // preferred / backup / extension respectively. Kept chunky and simple

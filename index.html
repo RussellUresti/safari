@@ -22,6 +22,10 @@
     <span class="topbar__brand-sub">Inspiration Board · 2028</span>
   </div>
   <nav class="tabs" id="tabs" role="tablist" aria-label="World region"></nav>
+  <div class="mode-toggle" id="mode-toggle" role="tablist" aria-label="Page">
+    <button class="mode-toggle__btn" id="mode-toggle-research" role="tab" aria-pressed="true">Research</button>
+    <button class="mode-toggle__btn" id="mode-toggle-itinerary" role="tab" aria-pressed="false">Itinerary</button>
+  </div>
 </header>
 
 <div class="sidebar-scrim" id="sidebar-scrim"></div>
@@ -33,6 +37,7 @@
   </aside>
 
   <main class="content" id="content"></main>
+  <main class="content" id="itinerary-content" hidden></main>
 </div>
 
 <div class="filter-dock-wrap">
@@ -46,7 +51,9 @@
 
 <script src="icons.js"></script>
 <script src="data.js"></script>
+<script src="itinerary-data.js"></script>
 <script src="app.js"></script>
+<script src="itinerary.js"></script>
 <script>
   // populate menu-toggle icon (needs ICONS loaded, which app.js already required)
   document.getElementById("menu-toggle").innerHTML = window.icon("menu");

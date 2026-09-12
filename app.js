@@ -767,6 +767,44 @@
     previousRoute = r;
   }
 
+  // ---- mode toggle (Research vs. Itinerary) ------------------------------
+  // The Itinerary page is a deliberately separate view (own data file, own
+  // renderer in itinerary.js) — this is just the minimal glue that shows/
+  // hides the research chrome (tabs, sidebar, filters) and swaps which
+  // <main> is visible.
+  const researchChrome = [document.getElementById("tabs"), document.getElementById("sidebar"), document.querySelector(".filter-dock-wrap")];
+  const contentEl = document.getElementById("content");
+  const itineraryContentEl = document.getElementById("itinerary-content");
+  const modeResearchBtn = document.getElementById("mode-toggle-research");
+  const modeItineraryBtn = document.getElementById("mode-toggle-itinerary");
+  let itineraryRendered = false;
+
+  function setMode(mode) {
+    const isItinerary = mode === "itinerary";
+    researchChrome.forEach((elm) => { if (elm) elm.style.display = isItinerary ? "none" : ""; });
+    contentEl.hidden = isItinerary;
+    itineraryContentEl.hidden = !isItinerary;
+    modeResearchBtn.setAttribute("aria-pressed", isItinerary ? "false" : "true");
+    modeItineraryBtn.setAttribute("aria-pressed", isItinerary ? "true" : "false");
+    if (isItinerary && !itineraryRendered && window.renderItinerary) {
+      window.renderItinerary(itineraryContentEl);
+      itineraryRendered = true;
+    }
+  }
+
+  modeResearchBtn.addEventListener("click", () => { location.hash = "#/" + currentRegionId; });
+  modeItineraryBtn.addEventListener("click", () => { location.hash = "#/itinerary"; });
+
+  const baseHandleRoute = handleRoute;
+  handleRoute = function () {
+    if (location.hash.replace(/^#\/?/, "").split("/")[0] === "itinerary") {
+      setMode("itinerary");
+      return;
+    }
+    setMode("research");
+    baseHandleRoute();
+  };
+
   window.addEventListener("hashchange", handleRoute);
 
   // ---- init ---------------------------------------------------------------
