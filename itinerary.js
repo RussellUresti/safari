@@ -12,6 +12,14 @@
   const DATA = window.ITINERARY_DATA;
   const icon = window.icon;
 
+  const COUNTRY_FLAGS = {
+    Uganda: "🇺🇬",
+    Kenya: "🇰🇪",
+    Zimbabwe: "🇿🇼",
+    Botswana: "🇧🇼",
+    "South Africa": "🇿🇦"
+  };
+
   function esc(str) {
     if (str === undefined || str === null) return "";
     return String(str)
@@ -45,10 +53,15 @@
 
   function buildLeg(leg) {
     const daysHtml = leg.days.map(buildDayRow).join("");
+    const flag = COUNTRY_FLAGS[leg.country] || "";
     return `
       <section class="itin-leg" id="itin-${leg.id}">
         <header class="itin-leg__header">
-          <h2 class="itin-leg__name">${esc(leg.name)}</h2>
+          <span class="itin-leg__flag">${flag}</span>
+          <div class="itin-leg__heading">
+            <div class="itin-leg__country">${esc(leg.country)}</div>
+            <h2 class="itin-leg__name">${esc(leg.name)}</h2>
+          </div>
           <div class="itin-leg__meta">
             <span>${esc(leg.totalDaysLabel)}</span>
             <span>${esc(leg.totalPrice)}</span>

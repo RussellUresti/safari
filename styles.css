@@ -831,15 +831,33 @@ button {
 .itin-legend__item--inferred { color: var(--ink-faint); font-style: italic; }
 .itin-legend__item--inferred .icon { color: var(--ink-faint); }
 
-.itin-leg { margin-bottom: 44px; scroll-margin-top: 90px; }
+.itin-leg {
+  margin-bottom: 48px;
+  scroll-margin-top: 90px;
+  border: 1px solid var(--panel-edge);
+  border-radius: var(--radius-l);
+  background: var(--panel);
+  overflow: hidden;
+}
 .itin-leg__header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 10px 18px;
-  padding-bottom: 12px;
-  margin-bottom: 10px;
-  border-bottom: 2px solid var(--panel-edge);
+  gap: 14px 18px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, var(--panel-raised), var(--panel));
+  border-bottom: 3px solid var(--gold);
+  border-left: 6px solid var(--gold);
+}
+.itin-leg__flag { font-size: 2rem; line-height: 1; flex-shrink: 0; }
+.itin-leg__heading { min-width: 0; }
+.itin-leg__country {
+  font-family: var(--font-utility);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-bright);
+  margin-bottom: 2px;
 }
 .itin-leg__name { font-size: 1.6rem; }
 .itin-leg__meta {
@@ -851,11 +869,16 @@ button {
   color: var(--gold-bright);
   white-space: nowrap;
 }
-.itin-leg__blurb { color: var(--ink-muted); max-width: 68ch; margin-bottom: 22px; }
+.itin-leg__blurb { color: var(--ink-muted); max-width: 68ch; margin: 18px 24px 6px; }
 
-.itin-days { display: flex; flex-direction: column; }
+.itin-days { display: flex; flex-direction: column; padding: 6px 0 4px; }
 
-.itin-day { display: flex; gap: 14px; }
+.itin-day {
+  display: flex;
+  gap: 14px;
+  padding: 16px 24px;
+}
+.itin-day:nth-child(even) { background: rgba(0, 0, 0, 0.16); }
 .itin-day__num {
   flex-shrink: 0;
   width: 64px;
@@ -866,26 +889,16 @@ button {
   letter-spacing: 0.05em;
   color: var(--ink-faint);
 }
-.itin-day__line {
-  flex-shrink: 0;
-  width: 2px;
-  background: var(--panel-edge);
-  border-radius: 1px;
-}
-.itin-day:last-child .itin-day__line { background: linear-gradient(var(--panel-edge), transparent); }
-.itin-day__body { flex: 1; min-width: 0; padding: 0 0 26px; }
+.itin-day__line { display: none; }
+.itin-day__body { flex: 1; min-width: 0; }
 
-.itin-day__badges { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+.itin-day__badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
 
 .itin-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: var(--panel);
-  border: 1px solid var(--panel-edge);
-  border-radius: 999px;
-  padding: 7px 14px 7px 10px;
-  font-size: 0.88rem;
+  gap: 7px;
+  font-size: 0.92rem;
   font-weight: 600;
 }
 .itin-badge .icon { width: 17px; height: 17px; flex-shrink: 0; }
@@ -895,12 +908,9 @@ button {
 .itin-badge--tour { color: var(--rust); }
 .itin-badge--end { color: var(--ink-faint); }
 .itin-badge--supplemental {
-  background: transparent;
-  border-style: dashed;
   font-weight: 500;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--ink-muted);
-  padding: 6px 12px 6px 9px;
 }
 .itin-day__plus { color: var(--ink-faint); font-size: 0.9rem; }
 
@@ -927,12 +937,14 @@ button {
   max-width: 62ch;
 }
 
-.itin-day--end .itin-day__body { padding-bottom: 4px; }
 .itin-day--end .itin-badge { color: var(--ink-faint); font-style: italic; }
 
 @media (max-width: 620px) {
   .itin-page { padding: 4px 0 50px; }
+  .itin-leg__header { padding: 16px 18px; }
+  .itin-leg__blurb { margin: 14px 18px 6px; }
+  .itin-day { padding: 14px 18px; }
   .itin-day__num { width: 48px; font-size: 0.7rem; }
   .itin-leg__name { font-size: 1.3rem; }
-  .itin-badge { font-size: 0.82rem; }
+  .itin-badge { font-size: 0.85rem; }
 }
