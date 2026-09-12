@@ -1467,7 +1467,7 @@ const TRIP_DATA = {
         {
           id: "pangolin-best-of-the-chobe",
           type: "tour",
-          status: "rejected",
+          status: "backup",
           name: "Pangolin — Best of the Chobe (7 Days)",
           duration: "7 days",
           price: { total: "$5,495", note: "pp" },
