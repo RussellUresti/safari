@@ -15,10 +15,13 @@
   const COUNTRY_FLAGS = {
     Uganda: "🇺🇬",
     Kenya: "🇰🇪",
+    Tanzania: "🇹🇿",
     Zimbabwe: "🇿🇼",
     Botswana: "🇧🇼",
     "South Africa": "🇿🇦"
   };
+
+  let activeSampleId = null;
 
   function esc(str) {
     if (str === undefined || str === null) return "";
@@ -89,21 +92,54 @@
     `;
   }
 
+  function buildSampleTabs(samples) {
+    const tabs = samples
+      .map(
+        (sample) => `
+          <button
+            class="itin-sample-tab"
+            role="tab"
+            aria-selected="${sample.id === activeSampleId ? "true" : "false"}"
+            data-sample-id="${esc(sample.id)}"
+          >${esc(sample.label)}</button>
+        `
+      )
+      .join("");
+    return `<div class="itin-sample-tabs" role="tablist" aria-label="Sample itinerary">${tabs}</div>`;
+  }
+
   function render(container) {
     if (!DATA) {
       container.innerHTML = `<p class="card-grid-empty">Itinerary data not loaded.</p>`;
       return;
     }
+
+    const samples = DATA.samples || [];
+    if (!activeSampleId || !samples.some((s) => s.id === activeSampleId)) {
+      activeSampleId = samples[0] && samples[0].id;
+    }
+    const activeSample = samples.find((s) => s.id === activeSampleId);
+
     container.innerHTML = `
       <div class="itin-page">
         <header class="itin-page__header">
           <h1 class="itin-page__title">Day-by-Day Itinerary</h1>
           <p class="itin-page__intro">${esc(DATA.intro)}</p>
+          ${buildSampleTabs(samples)}
           ${buildLegend()}
         </header>
-        ${DATA.legs.map(buildLeg).join("")}
+        ${activeSample ? activeSample.legs.map(buildLeg).join("") : ""}
       </div>
     `;
+
+    container.querySelectorAll(".itin-sample-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-sample-id");
+        if (id === activeSampleId) return;
+        activeSampleId = id;
+        render(container);
+      });
+    });
   }
 
   window.renderItinerary = render;
