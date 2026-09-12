@@ -773,6 +773,7 @@
   // hides the research chrome (tabs, sidebar, filters) and swaps which
   // <main> is visible.
   const researchChrome = [document.getElementById("tabs"), document.getElementById("sidebar"), document.querySelector(".filter-dock-wrap")];
+  const appShellEl = document.querySelector(".app-shell");
   const contentEl = document.getElementById("content");
   const itineraryContentEl = document.getElementById("itinerary-content");
   const modeResearchBtn = document.getElementById("mode-toggle-research");
@@ -782,6 +783,7 @@
   function setMode(mode) {
     const isItinerary = mode === "itinerary";
     researchChrome.forEach((elm) => { if (elm) elm.style.display = isItinerary ? "none" : ""; });
+    appShellEl.classList.toggle("app-shell--full", isItinerary);
     contentEl.hidden = isItinerary;
     itineraryContentEl.hidden = !isItinerary;
     modeResearchBtn.setAttribute("aria-pressed", isItinerary ? "false" : "true");

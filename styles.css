@@ -149,6 +149,7 @@ button {
   padding: 28px 22px 90px;
   gap: 32px;
 }
+.app-shell--full { grid-template-columns: 1fr; }
 
 .sidebar {
   position: sticky;
@@ -798,7 +799,7 @@ button {
 .mode-toggle__btn:not([aria-pressed="true"]):hover { color: var(--ink); background: var(--panel-raised); }
 
 /* ---- itinerary page ----------------------------------------------------- */
-.itin-page { max-width: 880px; margin: 0 auto; padding: 8px 0 60px; }
+.itin-page { max-width: 980px; padding: 8px 0 60px; }
 
 .itin-page__header { margin-bottom: 12px; }
 .itin-page__title { font-size: 2.1rem; margin-bottom: 14px; }
