@@ -29,7 +29,7 @@
 
 const ITINERARY_DATA = {
   intro:
-    "A visual day-by-day walk through itinerary.md — flights, hotels, lodges, and tours in the order they happen, for each of the two sample itineraries tracked there. Full date recalculation for the front half of the trip is still pending (see todo.md); day numbers below are relative to each sample's own trip day 1, not calendar dates. Day ranges logged in itinerary.md (e.g. 4–5d/3–4n) are shown here at the higher end (more nights). A travel day shared between two legs is shown once, as the arrival day of the leg it leads into, so a leg's row count can run one short of its itinerary.md total — the missing day is the arrival row at the top of the next leg.",
+    "A visual day-by-day walk through itinerary.md — flights, hotels, lodges, and tours in the order they happen, for each of the three sample itineraries tracked there. Full date recalculation for the front half of the trip is still pending (see todo.md); day numbers below are relative to each sample's own trip day 1, not calendar dates. Day ranges logged in itinerary.md (e.g. 4–5d/3–4n) are shown here at the higher end (more nights). A travel day shared between two legs is shown once, as the arrival day of the leg it leads into, so a leg's row count can run one short of its itinerary.md total — the missing day is the arrival row at the top of the next leg.",
 
   samples: [
     {
@@ -514,6 +514,227 @@ const ITINERARY_DATA = {
             },
             {
               n: 45,
+              primary: { type: "end", text: "Trip ends" },
+              note: "An independent extended stay in Hermanus follows, outside this trip's scope."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "sample3",
+      label: "Sample 3",
+      legs: [
+        {
+          id: "kenya",
+          name: "Kenya — Masai Mara",
+          country: "Kenya",
+          blurb: "Same extended Kicheche Walking Wilderness safari as Sample 1, now the trip's opening leg since Uganda is gone — international arrival goes straight into Nairobi instead of Entebbe.",
+          totalPrice: "~$9,700–10,100 (+ ~$550–680 optional hot air balloon, not included)",
+          totalDaysLabel: "12d / 11n",
+          days: [
+            {
+              n: 1,
+              primary: { type: "hotel", text: "Park Inn by Radisson Nairobi Westlands" },
+              supplemental: { type: "flight", text: "FLIGHT: TBD — international arrival into Nairobi (NBO), gateway city TBD (Europe/Istanbul/Cairo)" },
+              note: "Post-flight recovery, night 1 of 2"
+            },
+            { n: 2, primary: { type: "hotel", text: "Park Inn by Radisson Nairobi Westlands" }, note: "Recovery, night 2 of 2" },
+            {
+              n: 3,
+              primary: { type: "lodge", text: "Kicheche Valley Naboisho, Naboisho Conservancy" },
+              supplemental: { type: "flight", text: "FLIGHT: TBD — Nairobi → Masai Mara" },
+              note: "Kicheche Walking Wilderness safari begins. Naboisho Conservancy has the highest giraffe density in the ecosystem. Night 1 of 3.",
+              inferred: true
+            },
+            { n: 4, primary: { type: "lodge", text: "Kicheche Valley Naboisho, Naboisho Conservancy" }, note: "Night 2 of 3" },
+            { n: 5, primary: { type: "lodge", text: "Kicheche Valley Naboisho, Naboisho Conservancy" }, note: "Night 3 of 3" },
+            {
+              n: 6,
+              primary: { type: "lodge", text: "Kicheche WILD Camp (fly camp)" },
+              supplemental: { type: "transfer", text: "Overnight guided walk between conservancies" },
+              note: "Private guided walk, Naboisho → Olare Motorogi. Optional hot air balloon add-on bookable through Kicheche (~$550–680pp, longer predawn transfer to the Mara Triangle/Mara North launch sites). Night 1 of 1."
+            },
+            {
+              n: 7,
+              primary: { type: "lodge", text: "Kicheche Bush Olare, Olare Motorogi Conservancy" },
+              supplemental: { type: "transfer", text: "Guided walk continues into Olare Motorogi" },
+              note: "Lions, leopards, cheetahs, elephants, lilac-breasted roller. Night 1 of 3."
+            },
+            { n: 8, primary: { type: "lodge", text: "Kicheche Bush Olare, Olare Motorogi Conservancy" }, note: "Night 2 of 3" },
+            { n: 9, primary: { type: "lodge", text: "Kicheche Bush Olare, Olare Motorogi Conservancy" }, note: "Night 3 of 3" },
+            {
+              n: 10,
+              primary: { type: "hotel", text: "Park Inn by Radisson Nairobi Westlands" },
+              supplemental: { type: "flight", text: "FLIGHT: TBD — Masai Mara → Nairobi" },
+              note: "Post-safari recovery, night 1 of 2",
+              inferred: true
+            },
+            { n: 11, primary: { type: "hotel", text: "Park Inn by Radisson Nairobi Westlands" }, note: "Recovery, night 2 of 2" }
+          ]
+        },
+        {
+          id: "victoria-falls",
+          name: "Victoria Falls",
+          country: "Zimbabwe",
+          blurb: "Trimmed from the 3–4 night range in Samples 1 & 2 down to a firm 3 nights.",
+          totalPrice: "~$635–1,295",
+          totalDaysLabel: "4d / 3n",
+          days: [
+            {
+              n: 12,
+              primary: { type: "hotel", text: "HOTEL: TBD — Victoria Falls" },
+              supplemental: { type: "flight", text: "FLIGHT: TBD — Nairobi → Victoria Falls (VFA)" },
+              note: "Candidates: Shongwe Oasis Boutique Lodge & Spa, Cresta Sprayview, Nkosi Guest Lodge, Batonka Guest Lodge, Victoria Falls Safari Lodge, or Radisson Blu Mosi-oa-Tunya (Zambia side). Night 1 of 3."
+            },
+            {
+              n: 13,
+              primary: { type: "hotel", text: "HOTEL: TBD — Victoria Falls" },
+              note: "One guided falls tour (Zimbabwe side, incl. park entry) happens sometime during this stay — itinerary.md doesn't say which day. Placed here as a best guess. Night 2 of 3.",
+              inferred: true
+            },
+            { n: 14, primary: { type: "hotel", text: "HOTEL: TBD — Victoria Falls" }, note: "Night 3 of 3 — collected directly into the Best of Chobe tour tomorrow" }
+          ]
+        },
+        {
+          id: "chobe",
+          name: "Chobe — Pangolin “Best of Chobe” Photo Safari",
+          country: "Botswana",
+          blurb: "Same swap as Sample 2 — drops the Okavango Delta, stays in the Chobe area throughout, split between a houseboat and Pangolin's own hotel.",
+          totalPrice: "~$5,560–6,560",
+          totalDaysLabel: "7d / 6n",
+          days: [
+            {
+              n: 15,
+              primary: { type: "lodge", text: "Pangolin Voyager Houseboat, Chobe River (Namibian side)" },
+              supplemental: { type: "transfer", text: "Collected directly from Victoria Falls (transfers included in tour)" },
+              note: "Pangolin “Best of Chobe” Small Group Photo Safari — max 8 guests, twice-daily photo activities (game drives + river cruises), custom 8-seat vehicles with a window seat and camera rest for everyone. All meals, drinks, and use of Pangolin's own cameras/lenses included. Night 1 of 3."
+            },
+            { n: 16, primary: { type: "lodge", text: "Pangolin Voyager Houseboat, Chobe River" }, note: "Night 2 of 3." },
+            { n: 17, primary: { type: "lodge", text: "Pangolin Voyager Houseboat, Chobe River" }, note: "Night 3 of 3." },
+            {
+              n: 18,
+              primary: { type: "lodge", text: "Pangolin Chobe Hotel, Kasane" },
+              supplemental: { type: "transfer", text: "Houseboat → Hotel" },
+              note: "Elephants, lions, giraffes, lilac-breasted roller, malachite kingfisher (Chobe riverfront and floodplains). Wild dogs and the African barred owlet lose their strongest location on this sample's route. Night 1 of 3."
+            },
+            { n: 19, primary: { type: "lodge", text: "Pangolin Chobe Hotel, Kasane" }, note: "Night 2 of 3." },
+            { n: 20, primary: { type: "lodge", text: "Pangolin Chobe Hotel, Kasane" }, note: "Night 3 of 3." }
+          ]
+        },
+        {
+          id: "victoria-falls-return",
+          name: "Victoria Falls (return)",
+          country: "Zimbabwe",
+          blurb: "Carried over from Sample 2 — the Best of Chobe tour ends back in Kasane rather than routing onward, so this returns to Victoria Falls for a short rest stop before the flight to Johannesburg.",
+          totalPrice: "~$575–1,085",
+          totalDaysLabel: "3d / 2n",
+          days: [
+            {
+              n: 21,
+              primary: { type: "hotel", text: "HOTEL: TBD — Victoria Falls" },
+              supplemental: { type: "transfer", text: "Road transfer, Kasane → Victoria Falls (~1.5–2 hrs via the Kazungula border) — not included in the Pangolin tour price" },
+              note: "Same hotel candidate list as the first Victoria Falls stay. Night 1 of 2."
+            },
+            { n: 22, primary: { type: "hotel", text: "HOTEL: TBD — Victoria Falls" }, note: "Night 2 of 2." }
+          ]
+        },
+        {
+          id: "johannesburg",
+          name: "Johannesburg",
+          country: "South Africa",
+          blurb: "Trimmed to a firm 3 nights.",
+          totalPrice: "~$660–880",
+          totalDaysLabel: "4d / 3n",
+          days: [
+            {
+              n: 23,
+              primary: { type: "hotel", text: "Protea Hotel by Marriott Wanderers, Sandton" },
+              supplemental: { type: "flight", text: "Fly Victoria Falls (VFA) → Johannesburg (JNB) — direct, Airlink, ~1h45m" },
+              note: "Confirmed ~$140/night. Night 1 of 3."
+            },
+            { n: 24, primary: { type: "hotel", text: "Protea Hotel by Marriott Wanderers, Sandton" }, note: "Night 2 of 3." },
+            { n: 25, primary: { type: "hotel", text: "Protea Hotel by Marriott Wanderers, Sandton" }, note: "Night 3 of 3." }
+          ]
+        },
+        {
+          id: "greater-kruger",
+          name: "South Africa — Greater Kruger",
+          country: "South Africa",
+          blurb: "Expanded from a single 4-night Africa on Foot stay into back-to-back stays at both Klaserie camps — Africa on Foot, then nThambo Tree Camp (previously listed only as Africa on Foot's backup/alternative).",
+          totalPrice: "~$4,030–4,150",
+          totalDaysLabel: "9d / 8n",
+          days: [
+            {
+              n: 26,
+              primary: { type: "lodge", text: "Africa on Foot, Klaserie Private Nature Reserve" },
+              supplemental: { type: "flight", text: "FLIGHT: TBD — Johannesburg → Hoedspruit" },
+              note: "Plus lodge transfer on arrival. ~$425/night, full board, no single supplement per earlier research (worth re-verifying). Region renowned for leopard tracking. Night 1 of 4."
+            },
+            { n: 27, primary: { type: "lodge", text: "Africa on Foot, Klaserie Private Nature Reserve" }, note: "Night 2 of 4." },
+            { n: 28, primary: { type: "lodge", text: "Africa on Foot, Klaserie Private Nature Reserve" }, note: "Night 3 of 4." },
+            { n: 29, primary: { type: "lodge", text: "Africa on Foot, Klaserie Private Nature Reserve" }, note: "Night 4 of 4." },
+            {
+              n: 30,
+              primary: { type: "lodge", text: "nThambo Tree Camp, Klaserie Private Nature Reserve" },
+              supplemental: { type: "transfer", text: "Camp-to-camp transfer (same reserve) — not yet priced, worth confirming with the operator" },
+              note: "~$495/night projected for 2028 (~17% more than Africa on Foot); single-supplement status not yet researched. Night 1 of 4.",
+              inferred: true
+            },
+            { n: 31, primary: { type: "lodge", text: "nThambo Tree Camp, Klaserie Private Nature Reserve" }, note: "Night 2 of 4." },
+            { n: 32, primary: { type: "lodge", text: "nThambo Tree Camp, Klaserie Private Nature Reserve" }, note: "Night 3 of 4." },
+            { n: 33, primary: { type: "lodge", text: "nThambo Tree Camp, Klaserie Private Nature Reserve" }, note: "Night 4 of 4." }
+          ]
+        },
+        {
+          id: "cape-town",
+          name: "Cape Town",
+          country: "South Africa",
+          blurb: "Unchanged from Samples 1 & 2.",
+          totalPrice: "$780–1,145",
+          totalDaysLabel: "4d / 3n",
+          days: [
+            {
+              n: 34,
+              primary: { type: "hotel", text: "Radisson RED V&A Waterfront" },
+              supplemental: { type: "flight", text: "FLIGHT: TBD — Hoedspruit → Cape Town" },
+              note: "Night 1 of 3."
+            },
+            { n: 35, primary: { type: "hotel", text: "Radisson RED V&A Waterfront" }, note: "Night 2 of 3." },
+            { n: 36, primary: { type: "hotel", text: "Radisson RED V&A Waterfront" }, note: "Night 3 of 3." }
+          ]
+        },
+        {
+          id: "hermanus",
+          name: "Hermanus — Whale Watching Finale",
+          country: "South Africa",
+          blurb: "Unchanged from Samples 1 & 2.",
+          totalPrice: "$1,225–1,430",
+          totalDaysLabel: "5d / 4n",
+          days: [
+            {
+              n: 37,
+              primary: { type: "tour", text: "Whale watching sailing (14:00/15:00 slot)" },
+              supplemental: { type: "transfer", text: "Private car transfer from Cape Town (~1.5 hrs)" },
+              note: "“Transfer day” per itinerary.md — one additional sailing. Check into Misty Waves Boutique Hotel today, night 1 of 4."
+            },
+            {
+              n: 38,
+              primary: { type: "tour", text: "Three back-to-back whale watching sailings (9:00 / 12:00 / 15:00)" },
+              note: "“Day 1” per itinerary.md. Southern right whales. Misty Waves Boutique Hotel, night 2 of 4."
+            },
+            {
+              n: 39,
+              primary: { type: "tour", text: "Marine Big 5 boat tour, Gansbaai / Dyer Island" },
+              note: "“Day 2” per itinerary.md. African penguins appear incidentally on this tour. Misty Waves Boutique Hotel, night 3 of 4."
+            },
+            {
+              n: 40,
+              primary: { type: "tour", text: "Sea kayak tour, Hermanus Old Harbour" },
+              note: "“Day 3” per itinerary.md. Misty Waves Boutique Hotel, night 4 of 4."
+            },
+            {
+              n: 41,
               primary: { type: "end", text: "Trip ends" },
               note: "An independent extended stay in Hermanus follows, outside this trip's scope."
             }
