@@ -576,7 +576,7 @@ const TRIP_DATA = {
         {
           id: "naona-moru-camp",
           type: "lodge",
-          status: "backup",
+          status: "preferred",
           name: "Naona Moru Camp",
           price: {
             perNightPP: "~$650–$800 (est.)",
@@ -736,7 +736,7 @@ const TRIP_DATA = {
         {
           id: "ngorongoro-serena-safari-lodge",
           type: "lodge",
-          status: "backup",
+          status: "preferred",
           name: "Ngorongoro Serena Safari Lodge",
           price: {
             perNightPP: "$772",
