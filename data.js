@@ -574,6 +574,22 @@ const TRIP_DATA = {
           _sourceRefs: ["research.md > Tanzania > Serengeti > Lodging Considered"]
         },
         {
+          id: "naona-moru-camp",
+          type: "lodge",
+          status: "backup",
+          name: "Naona Moru Camp",
+          price: {
+            perNightPP: "~$650–$800 (est.)",
+            singleSupplement: "Not yet confirmed",
+            note: "Peak (Jun–Oct) Game Package rate is $615pp sharing, confirmed; solo pricing not yet confirmed direct from Nasikia, but a secondary “Full Board – Single” rate line implies actual peak solo pricing lands in this range rather than the $1,010 “room rate” seen on a live-site check (likely the double-occupancy total, not a solo figure)"
+          },
+          summary: "A September 2026 lodge sweep's key find — a second genuinely mid-range, confirmed-plausible fallback in Serengeti besides Serena, not just a stale “from” rate.",
+          rationale: "Nasikia Camps, Nyaruboro/Moru Kopjes (south-central Serengeti, ~1hr from Seronera). Confirmed genuinely mid-range, not budget: en-suite bathroom with hot running water (not bucket), mini-bar, in-room safe, Wi-Fi; independently tagged “Mid-range” by DiscoverAfrica's own comfort-level classification. Same in-park trade-off as Serengeti Serena: no off-road driving, no night drives. Still needs a direct email to Nasikia for the confirmed solo Game Package rate before this can be treated as bookable — meaningfully weakens the earlier “no easily-bookable mid-range fallback besides Serena” picture, without reopening the Kenya-only decision on its own.",
+          keyFacts: [],
+          links: [{ label: "Go2Africa — Naona Moru Camp", url: "https://www.go2africa.com/accommodation/naona-moru-camp" }],
+          _sourceRefs: ["research.md > Tanzania > Serengeti > Lodging Considered", "research.md > Tanzania > Serengeti > Decision Rationale"]
+        },
+        {
           id: "fort-ikoma-robanda-concession-camps",
           type: "lodge",
           status: "neutral",
