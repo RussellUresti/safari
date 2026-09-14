@@ -1028,6 +1028,169 @@ const TRIP_DATA = {
           keyFacts: [],
           links: [{ label: "Ol Kinyei Mara Tented Camp", url: "https://www.olkinyei-mara.com/" }],
           _sourceRefs: ["research.md > Kenya > Masai Mara > Lodging Considered"]
+        },
+        {
+          id: "naibor-camp",
+          type: "lodge",
+          status: "rejected",
+          name: "Naibor Camp",
+          price: {
+            perNightPP: "$1,100–$1,250 pp sharing (peak)",
+            singleSupplement: "Not stated",
+            note: "Comparable to or above Kicheche's rate"
+          },
+          summary: "Sits inside the Masai Mara National Reserve on the Talek River — no off-road driving, no night drives.",
+          rationale: "Evaluated in a batch stress-test against the Kicheche Walking Wilderness benchmark — not preferred regardless of price, since it structurally can't match Kicheche's off-road/night-drive access.",
+          keyFacts: [{ label: "Off-road / night drives", value: "No (national reserve)" }],
+          links: [{ label: "Naibor Camp", url: "https://www.theafricaspecialists.com/kenya/the-masai-mara/naibor-camp/" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Lodging Considered"]
+        },
+        {
+          id: "sand-river-masai-mara",
+          type: "lodge",
+          status: "rejected",
+          name: "Sand River Masai Mara",
+          price: {
+            perNightPP: "$900–$1,100 pp sharing (peak)",
+            singleSupplement: "Not stated",
+            note: "Cheaper than Kicheche, but same access gap"
+          },
+          summary: "Elewana Collection property, reserve-based in the southern sector near the Tanzania border.",
+          rationale: "Game-drive-only per the operator's own site — no off-road, no night drives. Cheaper than Kicheche, but the access gap is the same disqualifier used across this batch evaluation.",
+          keyFacts: [{ label: "Off-road / night drives", value: "No (national reserve)" }],
+          links: [{ label: "Sand River Masai Mara", url: "https://classicafrica.com/PropertyPortfolio/Properties/Sand_River_Masai_Mara" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Lodging Considered"]
+        },
+        {
+          id: "mara-intrepids-tented-camp",
+          type: "lodge",
+          status: "rejected",
+          name: "Mara Intrepids Tented Camp",
+          price: {
+            perNightPP: "Not priced",
+            singleSupplement: "Not stated",
+            note: "Mandatory reserve conservation fee $100–$200pp/day on top of the room rate"
+          },
+          summary: "Reserve-based (Talek River), 30-room resort-scale camp.",
+          rationale: "No off-road or night-drive access confirmed, and a mandatory reserve conservation fee stacks on top of the room rate.",
+          keyFacts: [{ label: "Off-road / night drives", value: "No (national reserve)" }],
+          links: [{ label: "Mara Intrepids Tented Camp", url: "https://timbuktutravel.com/lodge/mara-intrepids-camp" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Lodging Considered"]
+        },
+        {
+          id: "mara-serena-safari-lodge",
+          type: "lodge",
+          status: "rejected",
+          name: "Mara Serena Safari Lodge",
+          price: {
+            perNightPP: "Not priced",
+            singleSupplement: "Not stated",
+            note: ""
+          },
+          summary: "Sits within the Mara Triangle sector of the Reserve; 74-room resort-scale lodge.",
+          rationale: "Operator's own site lists only standard game drives — no off-road or night-drive access confirmed.",
+          keyFacts: [{ label: "Off-road / night drives", value: "No (national reserve)" }],
+          links: [{ label: "Mara Serena Safari Lodge", url: "https://african-pride.co.uk/destinations/kenya/masai-mara/masai-mara-national-reserve/mara-serena-safari-lodge" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Lodging Considered"]
+        },
+        {
+          id: "governors-il-moran-camp",
+          type: "lodge",
+          status: "rejected",
+          name: "Governors' Il Moran Camp",
+          price: {
+            perNightPP: "~$1,502 (Jul–Oct peak)",
+            singleSupplement: "Not stated",
+            note: ""
+          },
+          summary: "Confirmed via the operator's own site as sitting fully within the protected reserve boundary rather than an external conservancy.",
+          rationale: "No off-road, no night drives. Peak rate sits above Kicheche's with none of the access.",
+          keyFacts: [{ label: "Off-road / night drives", value: "No (national reserve)" }],
+          links: [{ label: "Governors' Il Moran Camp", url: "https://governorscamp.com/stay/governors-il-moran-camp/" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Lodging Considered"]
+        },
+        {
+          id: "basecamp-masai-mara",
+          type: "lodge",
+          status: "rejected",
+          name: "Basecamp Masai Mara",
+          price: {
+            perNightPP: "~$204–$300",
+            singleSupplement: "Not stated",
+            note: ""
+          },
+          summary: "Sits on Koiyaki Group Ranch land bordering the Reserve, but day game drives run inside the Reserve itself via Talek Gate.",
+          rationale: "No reliable off-road access despite the affordable rate — the day drives run through Talek Gate into the Reserve, not on private conservancy land.",
+          keyFacts: [{ label: "Off-road / night drives", value: "No (drives run in the national reserve via Talek Gate)" }],
+          links: [{ label: "Basecamp Masai Mara", url: "https://www.porini.com/?p=32042" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Lodging Considered"]
+        },
+        {
+          id: "encounter-mara",
+          type: "lodge",
+          status: "rejected",
+          name: "Encounter Mara",
+          price: {
+            perNightPP: "~$2,250 (confirmed solo)",
+            singleSupplement: "Included in the confirmed solo figure",
+            note: "Published per-person-sharing rate of $880–$940/night looked like a bargain before the real solo rate was found"
+          },
+          summary: "Naboisho Conservancy; full off-road/night-drive/walking/fly-camp access confirmed, matching Kicheche's feature set.",
+          rationale: "Looked like a bargain on the published sharing rate, but confirmed solo pricing came in well above Kicheche's $1,325–$1,460 range once the real single-occupancy rate was applied.",
+          keyFacts: [{ label: "Off-road / night drives", value: "Yes (Naboisho Conservancy)" }],
+          links: [{ label: "Encounter Mara", url: "https://asiliaafrica.com/camps-lodges/encounter-mara/" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Lodging Considered"]
+        },
+        {
+          id: "basecamp-wilderness",
+          type: "lodge",
+          status: "backup",
+          name: "Basecamp Wilderness",
+          price: {
+            perNightPP: "~$800 (confirmed solo)",
+            singleSupplement: "Included in the confirmed solo figure",
+            note: ""
+          },
+          summary: "Naboisho Conservancy — same conservancy as Kicheche Valley. Night drives confirmed directly on the operator's own site.",
+          rationale: "Meaningfully below Kicheche's rate, kept as a backup. Follow-up needed before promoting to primary: off-road driving is never explicitly mentioned (only night drives are stated), and there's no mention of photography-specific vehicle features (bean bags, swivel seats, lens platforms) the way Kicheche markets. Also a single-camp stay with an optional 18+ walking safari, not Kicheche's two-camp walking connector with an overnight fly camp.",
+          keyFacts: [
+            { label: "Conservancy", value: "Naboisho (same as Kicheche Valley)" },
+            { label: "Open questions", value: "Off-road access and photo-vehicle features not confirmed on the operator's site" }
+          ],
+          links: [{ label: "Basecamp Wilderness", url: "https://sarunibasecamp.com/our-properties/basecamp-wilderness/" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Lodging Considered"]
+        },
+        {
+          id: "saruni-wild",
+          type: "lodge",
+          status: "neutral",
+          name: "Saruni Wild",
+          price: {
+            perNightPP: "~$1,400 (confirmed solo)",
+            singleSupplement: "Included in the confirmed solo figure",
+            note: ""
+          },
+          summary: "Lemek Conservancy (borders Mara North). Off-road, night drives, guided walks, fly-camping, and balloon all confirmed.",
+          rationale: "Essentially at parity with Kicheche's top rate — logged for reference, not a clear upgrade or downgrade, and not currently a backup.",
+          keyFacts: [{ label: "Off-road / night drives", value: "Yes (Lemek Conservancy)" }],
+          links: [{ label: "Saruni Wild", url: "https://sarunibasecamp.com/our-properties/saruni-wild/" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Lodging Considered"]
+        },
+        {
+          id: "saruni-mara",
+          type: "lodge",
+          status: "neutral",
+          name: "Saruni Mara",
+          price: {
+            perNightPP: "~$1,200 (confirmed solo)",
+            singleSupplement: "Included in the confirmed solo figure",
+            note: ""
+          },
+          summary: "Mara North Conservancy. Off-road, night drives, bush walks, and balloon confirmed.",
+          rationale: "Somewhat below Kicheche, but not enough of a gap to call it a win once weighed against Kicheche's walking-connector format — logged for reference, not currently a backup.",
+          keyFacts: [{ label: "Off-road / night drives", value: "Yes (Mara North Conservancy)" }],
+          links: [{ label: "Saruni Mara", url: "https://sarunibasecamp.com/our-properties/saruni-mara/" }],
+          _sourceRefs: ["research.md > Kenya > Masai Mara > Lodging Considered"]
         }
       ],
 
