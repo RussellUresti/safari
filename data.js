@@ -114,7 +114,7 @@ const TRIP_DATA = {
         summary: "Yellow fever certificate required on arrival from Kenya, Uganda, Ethiopia, or Rwanda \u2014 the same certificate already needed for Uganda covers this.",
         body: "Yellow fever is not present in Tanzania itself, so this requirement exists to protect the country rather than the traveler. A certificate is required from all travelers over 1 year old arriving from or transiting through a yellow-fever-risk country \u2014 Kenya, Uganda, Ethiopia, and Rwanda all qualify. Since this extension's own routing goes Nairobi \u2192 Arusha to reach Tanzania, that requirement would apply here \u2014 but the same certificate already obtained for the mandatory Uganda requirement satisfies it, consistent with the cascade already confirmed for the rest of the route. No additional vaccination needed beyond what's already planned for Uganda."
       },
-      subregionIds: ["serengeti"]
+      subregionIds: ["serengeti", "ngorongoro-crater"]
     },
     zimbabwe: {
       id: "zimbabwe",
@@ -696,6 +696,100 @@ const TRIP_DATA = {
           _sourceRefs: ["research.md > Tanzania > Serengeti > Tour Operators & Packages Considered"]
         }
       ]
+    },
+
+    "ngorongoro-crater": {
+      id: "ngorongoro-crater",
+      name: "Ngorongoro Crater",
+      countryId: "tanzania",
+      blurb: "Investigated as a photography-appropriate alternative to the bundled National Geographic Journeys Tanzania tour (see Serengeti above), mirroring the direct-booking pattern used for Kicheche (Kenya) and Africa on Foot (South Africa). Unlike Kenya's conservancies or Greater Kruger's private reserves, the crater's lodge market is overwhelmingly ultra-luxury — but a September 2026 sweep of 9 additional named crater-area lodges turned up one genuine mid-range fit.",
+      animals: [
+        { speciesId: "lion",       likelihood: "highly_likely" },
+        { speciesId: "elephant",   likelihood: "highly_likely" },
+        { speciesId: "roller",     likelihood: "highly_likely" },
+        { speciesId: "leopard",    likelihood: "somewhat_likely" },
+        { speciesId: "owlet",      likelihood: "somewhat_likely" },
+        { speciesId: "kingfisher", likelihood: "somewhat_likely" },
+        { speciesId: "cheetah",    likelihood: "unlikely" },
+        { speciesId: "giraffe",    likelihood: "not_present" },
+        { speciesId: "wild-dog",   likelihood: "not_present" },
+        { speciesId: "gorilla",    likelihood: "not_present" }
+      ],
+
+      lodges: [
+        {
+          id: "ngorongoro-serena-safari-lodge",
+          type: "lodge",
+          status: "backup",
+          name: "Ngorongoro Serena Safari Lodge",
+          price: {
+            perNightPP: "$772",
+            singleSupplement: "Not yet confirmed",
+            note: "Confirmed directly against the operator's own live booking site (Sept 2026) for 1 person — supersedes an earlier, availability-based “not a reliable match” note"
+          },
+          summary: "Genuinely the strongest Tanzania lodging find across both Serengeti and Ngorongoro — a permanent stone-built lodge on the crater rim, not a tented camp.",
+          rationale: "74-room lodge with proper hotel-tier bathrooms (walk-in showers, double vanities, flush toilets), solidly mid-range/4-star, not budget. Same in-park trade-off as Serengeti Serena: no off-road driving, no night drives. Now the more direct, Kicheche-style pick if Ngorongoro is ever added to the itinerary, ahead of the bundled National Geographic Journeys tour.",
+          keyFacts: [],
+          links: [{ label: "Serena Hotels — Ngorongoro", url: "https://www.serenahotels.com/ngorongoro" }],
+          _sourceRefs: ["research.md > Tanzania > Ngorongoro Crater > Lodging Considered"]
+        },
+        {
+          id: "lions-paw",
+          type: "lodge",
+          status: "rejected",
+          name: "Lion's Paw",
+          price: {
+            perNightPP: "$1,580",
+            singleSupplement: "Not stated",
+            note: "~$1,650+/night once the mandatory $70.80/night NCA fee is added, before any single supplement"
+          },
+          summary: "Secondary sources tout this as an affordable $350–500pp photographer pick, but the lodge's own site puts the real rate solidly in ultra-luxury territory.",
+          rationale: "The same failure mode encountered with Kicheche's stale “starting at” rate before its real peak-season PDF was checked. The operator's site doesn't publish rates directly (booking-flow only), so the $1,580 figure from a direct check remains the more trustworthy number pending a fresh quote — not the $170–500 range still circulating on secondary sites.",
+          keyFacts: [],
+          links: [{ label: "Karibu Camps — Lion's Paw", url: "https://karibucamps.com/lions-paw/" }],
+          _sourceRefs: ["research.md > Tanzania > Ngorongoro Crater > Lodging Considered"]
+        },
+        {
+          id: "kitela-lodge",
+          type: "lodge",
+          status: "neutral",
+          name: "Kitela Lodge",
+          price: {
+            perNightPP: "~$335–$480",
+            singleSupplement: "Not stated",
+            note: "Genuinely mid-range priced, in the Karatu highlands rather than on the crater rim"
+          },
+          summary: "A different trade-off, not a like-for-like alternative to Serena — a Karatu-area base roughly 30–45 minutes from the crater rim.",
+          rationale: "Priced in the mid-range like Serena, but means a longer daily commute into the crater for game drives. Logged as a fallback if Serena's availability doesn't work out for specific dates, not a first choice given the drive-time cost.",
+          keyFacts: [],
+          links: [{ label: "Chalo Africa — Kitela Lodge", url: "https://chaloafrica.com/accommodation/kitela-lodge-karatu-tanzania" }],
+          _sourceRefs: ["research.md > Tanzania > Ngorongoro Crater > Lodging Considered"]
+        },
+        {
+          id: "ngorongoro-other-ultra-luxury-options",
+          type: "lodge",
+          status: "unresearched",
+          name: "Other Ultra-Luxury Options (Laba, The Highlands, A&K Sanctuary, Neptune, The Manor)",
+          price: {
+            perNightPP: "~$710–$1,390+",
+            singleSupplement: "Not stated",
+            note: "All confirmed $825+/night sharing at peak, most well into four figures"
+          },
+          summary: "The rest of the September 2026 crater-area sweep — confirms the market here is overwhelmingly ultra-luxury outside of Serena.",
+          rationale: "Laba Ngorongoro Lodge ($895pp shoulder, rising to $1,350pp by 2027–28), The Highlands Ngorongoro (Asilia, $710–1,390pp), Ngorongoro Crater Camp/A&K Sanctuary (recently rebuilt, from $855pp), Neptune Ngorongoro Luxury Lodge (just outside the NCA gate, $318–932pp quoted but OTA listings show far higher live rates — an inconsistency worth flagging per the standing opacity-as-red-flag rule), and The Manor at Ngorongoro (Karatu, Shangri-La coffee estate, $936–1,374pp). None individually priority-checked further given Serena's clear mid-range fit.",
+          keyFacts: [],
+          links: [
+            { label: "Laba Ngorongoro Lodge", url: "https://www.chaloafrica.com/accommodation/laba-ngorongoro-lodge-ngorongoro-crater-tanzania/" },
+            { label: "The Highlands Ngorongoro", url: "https://www.go2africa.com/accommodation/the-highlands-ngorongoro" },
+            { label: "Ngorongoro Crater Camp, an A&K Sanctuary", url: "https://www.go2africa.com/accommodation/sanctuary-ngorongoro-crater-camp" },
+            { label: "Neptune Ngorongoro Luxury Lodge", url: "https://www.go2africa.com/accommodation/neptune-ngorongoro-luxury-lodge" },
+            { label: "The Manor at Ngorongoro", url: "https://www.go2africa.com/accommodation/the-manor-at-ngorongoro" }
+          ],
+          _sourceRefs: ["research.md > Tanzania > Ngorongoro Crater > Lodging Considered"]
+        }
+      ],
+
+      tours: []
     },
 
     amboseli: {
