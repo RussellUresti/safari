@@ -661,8 +661,8 @@ const ITINERARY_DATA = {
           id: "greater-kruger",
           name: "South Africa — Greater Kruger",
           country: "South Africa",
-          blurb: "Expanded from a single 4-night Africa on Foot stay into back-to-back stays at both Klaserie camps — Africa on Foot, then nThambo Tree Camp (previously listed only as Africa on Foot's backup/alternative).",
-          totalPrice: "~$4,030–4,150",
+          blurb: "Expanded from a single 4-night Africa on Foot stay into back-to-back stays at two different reserves — Africa on Foot (Klaserie), then Umkumbe Safari Lodge Riverside (Sabi Sand) — replacing an earlier same-reserve nThambo pairing.",
+          totalPrice: "~$4,450–4,570",
           totalDaysLabel: "9d / 8n",
           days: [
             {
@@ -676,21 +676,21 @@ const ITINERARY_DATA = {
             { n: 29, primary: { type: "lodge", text: "Africa on Foot, Klaserie Private Nature Reserve" }, note: "Night 4 of 4." },
             {
               n: 30,
-              primary: { type: "lodge", text: "nThambo Tree Camp, Klaserie Private Nature Reserve" },
-              supplemental: { type: "transfer", text: "Camp-to-camp transfer (same reserve) — not yet priced, worth confirming with the operator" },
-              note: "~$495/night projected for 2028 (~17% more than Africa on Foot); single-supplement status not yet researched. Night 1 of 4.",
+              primary: { type: "lodge", text: "Umkumbe Safari Lodge Riverside, Sabi Sand Private Game Reserve" },
+              supplemental: { type: "transfer", text: "Camp-to-camp transfer (Klaserie → Sabi Sand, different reserves) — not yet priced, needs fresh research" },
+              note: "$600/night pp, inclusive of single supplement — a planning figure, not a sourced quote. Best access is via Skukuza (~1hr), not Hoedspruit (~3hr), which may also affect the Cape Town exit flight below. Night 1 of 4.",
               inferred: true
             },
-            { n: 31, primary: { type: "lodge", text: "nThambo Tree Camp, Klaserie Private Nature Reserve" }, note: "Night 2 of 4." },
-            { n: 32, primary: { type: "lodge", text: "nThambo Tree Camp, Klaserie Private Nature Reserve" }, note: "Night 3 of 4." },
-            { n: 33, primary: { type: "lodge", text: "nThambo Tree Camp, Klaserie Private Nature Reserve" }, note: "Night 4 of 4." }
+            { n: 31, primary: { type: "lodge", text: "Umkumbe Safari Lodge Riverside, Sabi Sand Private Game Reserve" }, note: "Night 2 of 4." },
+            { n: 32, primary: { type: "lodge", text: "Umkumbe Safari Lodge Riverside, Sabi Sand Private Game Reserve" }, note: "Night 3 of 4." },
+            { n: 33, primary: { type: "lodge", text: "Umkumbe Safari Lodge Riverside, Sabi Sand Private Game Reserve" }, note: "Night 4 of 4." }
           ]
         },
         {
           id: "cape-town",
           name: "Cape Town",
           country: "South Africa",
-          blurb: "Unchanged from Samples 1 & 2.",
+          blurb: "Unchanged from Samples 1 & 2, but the Hoedspruit → Cape Town routing assumption is now worth re-checking given Umkumbe's closer access via Skukuza — may be cheaper/faster to route from there instead.",
           totalPrice: "$780–1,145",
           totalDaysLabel: "4d / 3n",
           days: [
@@ -698,7 +698,8 @@ const ITINERARY_DATA = {
               n: 34,
               primary: { type: "hotel", text: "Radisson RED V&A Waterfront" },
               supplemental: { type: "flight", text: "FLIGHT: TBD — Hoedspruit → Cape Town" },
-              note: "Night 1 of 3."
+              note: "Routing assumption worth re-checking given Umkumbe's closer access via Skukuza. Night 1 of 3.",
+              inferred: true
             },
             { n: 35, primary: { type: "hotel", text: "Radisson RED V&A Waterfront" }, note: "Night 2 of 3." },
             { n: 36, primary: { type: "hotel", text: "Radisson RED V&A Waterfront" }, note: "Night 3 of 3." }

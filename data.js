@@ -1623,7 +1623,7 @@ const TRIP_DATA = {
       id: "greater-kruger",
       name: "Greater Kruger",
       countryId: "south-africa",
-      blurb: "The Klaserie Private Nature Reserve — part of the unfenced Greater Kruger ecosystem, the same wildlife as Sabi Sands at dramatically better value. Locked into the core itinerary as a 4-night stay at Africa on Foot, specifically renowned for leopard tracking.",
+      blurb: "The Klaserie Private Nature Reserve — part of the unfenced Greater Kruger ecosystem, the same wildlife as Sabi Sands at dramatically better value. Locked into the core itinerary as a 4-night stay at Africa on Foot, specifically renowned for leopard tracking. Sample Itinerary 3 extends this into an 8-night, two-reserve stay by adding Umkumbe Safari Lodge Riverside in Sabi Sand.",
       animals: [
         { speciesId: "leopard",    likelihood: "highly_likely" },
         { speciesId: "lion",       likelihood: "highly_likely" },
@@ -1684,6 +1684,127 @@ const TRIP_DATA = {
           rationale: "Meaningfully more than Africa on Foot, and carries a specific negative review flagging that the traversing area and sightings don't justify the Sabi Sands price tag. Not logged as a serious alternative given the higher cost and quality concerns. Note: a similarly-named but likely distinct property, \"Umkumbe Safari Lodge,\" also exists — worth distinguishing if revisiting.",
           keyFacts: [],
           links: [{ label: "Umkumbe Bush Lodge", url: "https://umkumbebushlodge.com/" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Lodging Considered"]
+        },
+        {
+          id: "umkumbe-safari-lodge-riverside",
+          type: "lodge",
+          status: "preferred",
+          name: "Umkumbe Safari Lodge Riverside",
+          price: {
+            perNightPP: "~$370–425 (2026–27)",
+            singleSupplement: "Not stated",
+            note: "R6,510/pp/night (2026) → R7,485 (2027), pp sharing"
+          },
+          summary: "Central Sabi Sand, between Mala Mala and Londolozi — a genuinely separate reserve/traverse from Africa on Foot's Klaserie, unlike nThambo. Preferred as the second Greater Kruger location, replacing nThambo.",
+          rationale: "Chosen for lower price and preferred location over Elephant Plains. Same parent company (Sun Destinations) as Africa on Foot and nThambo, but a genuinely different reserve and wildlife population — accepted, since a different reserve was the requirement, not a different operator. No astrophotography program (unlike Elephant Plains). Leopard density is Sabi Sand's reserve-wide ~12/100km² figure (highest in Africa); Umkumbe's location between Mala Mala and Londolozi sits closer to where the leopard-habituation legacy is oldest, a soft inferential edge. Trip dates to be arranged so the stay lands near the August 20, 2028 new moon for dark-sky conditions.",
+          keyFacts: [
+            { label: "Parent company", value: "Sun Destinations — same as Africa on Foot and nThambo, but a different reserve/traverse" },
+            { label: "Access", value: "Skukuza (~1hr), not Hoedspruit (~3hr) — a routing change from the rest of the itinerary" }
+          ],
+          links: [{ label: "Umkumbe Safari Lodge Riverside", url: "https://sundestinations.co.za/camp/umkumbe-safari-lodge-riverside/" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Lodging Considered", "itinerary.md > South Africa — Greater Kruger"]
+        },
+        {
+          id: "elephant-plains-game-lodge",
+          type: "lodge",
+          status: "backup",
+          name: "Elephant Plains Game Lodge",
+          price: {
+            perNightPP: "$430–475 (2026–27)",
+            singleSupplement: "Not stated",
+            note: "pp sharing"
+          },
+          summary: "Northern Sabi Sand via Gowrie Gate — also a genuinely separate reserve/traverse from Klaserie. Backup to Umkumbe for the second Greater Kruger location.",
+          rationale: "Standout is a dedicated astrophotography program (8\" Orion Intelli Telescope, rangers trained in stargazing) — a genuine photographic niche not offered by Umkumbe, Africa on Foot, or nThambo. Kept as the backup pick in case that angle becomes more valuable than Umkumbe's price/location edge — e.g. if trip dates land away from the August 20, 2028 new moon.",
+          keyFacts: [
+            { label: "Astrophotography", value: "8\" Orion Intelli Telescope + trained stargazing rangers — unique among Greater Kruger options considered" },
+            { label: "Access", value: "Gowrie Gate, ~1hr from Hoedspruit" }
+          ],
+          links: [{ label: "Elephant Plains Game Lodge", url: "https://www.go2africa.com/accommodation/elephant-plains-game-lodge" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Lodging Considered"]
+        },
+        {
+          id: "arathusa-safari-lodge",
+          type: "lodge",
+          status: "neutral",
+          name: "Arathusa Safari Lodge",
+          price: {
+            perNightPP: "$680 (2026) → $765 (2027)",
+            singleSupplement: "Not published anywhere checked — needs a direct quote; industry norm runs 25–75% over the sharing rate",
+            note: "pp sharing, fully inclusive"
+          },
+          summary: "Northern Sabi Sand — a waterhole-front lodge (game comes to camp) rather than Africa on Foot's walking-safari emphasis, known for leopard density and large buffalo herds.",
+          rationale: "Considered as a genuinely different second-camp pairing since Sabi Sand is a separate reserve with its own traverse, unlike nThambo. ~1.6–1.8x Africa on Foot's per-night rate. Transfers cleanly through the existing Hoedspruit routing. Open question: no published single-supplement figure, and the plausible range (~$850–1,340/night) is wide enough to change whether this beats the Sabi Sands \"not preferred\" call.",
+          keyFacts: [
+            { label: "Age policy", value: "12+ unless booked as a full exclusive-use buyout" },
+            { label: "Access", value: "Gowrie Gate (~60–90 min road) or a short charter from its own airstrip — fits the existing Hoedspruit routing" }
+          ],
+          links: [{ label: "Arathusa Safari Lodge", url: "https://www.go2africa.com/accommodation/arathusa-safari-lodge" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Lodging Considered"]
+        },
+        {
+          id: "simbavati-amani",
+          type: "lodge",
+          status: "backup",
+          name: "Simbavati Amani",
+          price: {
+            perNightPP: "~$620–640+",
+            singleSupplement: "Not stated",
+            note: "pp sharing"
+          },
+          summary: "Despite the Timbavati-focused \"Simbavati\" branding, Amani is actually located in the Klaserie Private Nature Reserve itself — the same reserve as Africa on Foot and nThambo.",
+          rationale: "A tiny 4-suite/8-guest boutique camp with a spa and a lookout deck where elephants and giraffes are known to pass close to camp. Since it shares Africa on Foot's reserve and traverse, this isn't a different-experience pick — it's a same-territory fallback if Africa on Foot has no availability.",
+          keyFacts: [{ label: "Size", value: "4 suites / 8 guests" }],
+          links: [{ label: "Simbavati Amani", url: "https://www.simbavati.com/lodges/amani/" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Lodging Considered"]
+        },
+        {
+          id: "karongwe-river-lodge",
+          type: "lodge",
+          status: "rejected",
+          name: "Karongwe River Lodge",
+          price: {
+            perNightPP: "$350–640",
+            singleSupplement: "Not stated",
+            note: "pp sharing"
+          },
+          summary: "Fenced Karongwe Private Game Reserve (9,000 ha), ~45–60 min from Kruger — a managed/enclosed population rather than free-roaming Greater Kruger.",
+          rationale: "Resolves the fencing question left open by the SafariFRANK entry above. Genuinely nice photography amenities on offer (underground photographic hide at a waterhole, cheetah tracking on foot), but the fenced-reserve trade-off is treated as a non-starter, consistent with the earlier Makalali decision.",
+          keyFacts: [{ label: "Reserve", value: "Fenced (9,000 ha) — not free-roaming Greater Kruger" }],
+          links: [{ label: "Karongwe River Lodge", url: "https://www.go2africa.com/accommodation/karongwe-river-lodge" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Lodging Considered"]
+        },
+        {
+          id: "chisomo-safari-camp",
+          type: "lodge",
+          status: "rejected",
+          name: "Chisomo Safari Camp",
+          price: {
+            perNightPP: "$340–500",
+            singleSupplement: "Not stated",
+            note: "pp sharing"
+          },
+          summary: "Also in the fenced Karongwe Private Game Reserve — its own photographic hide plus an optional helicopter flight through Oliphant's Gorge for aerial shots.",
+          rationale: "Same fenced-reserve non-starter as Karongwe River Lodge, despite the distinctive amenities.",
+          keyFacts: [{ label: "Reserve", value: "Fenced (9,000 ha) — not free-roaming Greater Kruger" }],
+          links: [{ label: "Chisomo Safari Camp", url: "https://www.go2africa.com/accommodation/chisomo-safari-camp" }],
+          _sourceRefs: ["research.md > South Africa > Greater Kruger > Lodging Considered"]
+        },
+        {
+          id: "kambaku-safari-lodge",
+          type: "lodge",
+          status: "backup",
+          name: "Kambaku Safari Lodge",
+          price: {
+            perNightPP: "$420–665 (inconsistent across sources)",
+            singleSupplement: "Not stated",
+            note: "pp sharing — worth a direct quote"
+          },
+          summary: "Timbavati Private Nature Reserve, unfenced, part of Greater Kruger — known for white lions and lower vehicle density than Sabi Sand.",
+          rationale: "Logged as a secondary backup for the second Greater Kruger slot, behind both Umkumbe (primary) and Elephant Plains (its backup). Leopard sightings are real but rated a tier below Sabi Sand's — shyer, less consistently sighted, lacking the multi-generational habituation that defines Sabi Sand. Standout is a genuinely unique overnight luxury hide on Nduna Dam — nothing else considered for this leg, including Africa on Foot itself, offers an overnight hide stay.",
+          keyFacts: [{ label: "Overnight hide", value: "Three-tiered luxury hide on Nduna Dam with bathroom, stargazing deck, fireplace — unique among options considered for this leg" }],
+          links: [{ label: "Kambaku Safari Lodge", url: "https://www.go2africa.com/accommodation/kambaku-safari-lodge" }],
           _sourceRefs: ["research.md > South Africa > Greater Kruger > Lodging Considered"]
         },
         {
